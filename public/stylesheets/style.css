@@ -1,8 +1,61 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+div.container {
+	max-width: 640px;
 }
 
-a {
-  color: #00B7FF;
+body.home {
+	text-align: center;
+	color: #fff;
+}
+
+body.home.safe {
+	background-color: #383;
+}
+
+body.home.moderate {
+	background-color: #BA1;
+}
+
+body.home.hazardous {
+	background-color: #A22;
+}
+
+body.home .hero {
+	font-size: 3em;
+	margin-bottom: 0;
+}
+
+body.home .subtitle {
+	margin-top: .5em;
+}
+
+body.home .wind-info {
+	font-size: large;
+}
+
+body.home .wind-status {
+	font-size: xx-large;
+}
+
+span.compass {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	background-color: #999;
+	position: relative;
+}
+
+span.compass span.indicator {
+	display: block;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+	width: 0;
+	height: 0;
+	border-top: 20px solid #555;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-bottom: none;
+
+	-webkit-transform: rotate(120deg);
 }

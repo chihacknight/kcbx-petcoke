@@ -1,2 +1,31 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="container">
+	<h1 class='hero'>Current Wind Conditions</h1>
+	<h2 class='subtitle'>at the KCBX PetCoke Facility</h2>
+
+	<hr>
+
+	<div class="row wind-info">
+		
+		<p class="wind-status">
+			{{status}}
+		</p>
+
+		<hr>
+
+		<div class="col-sm-6 wind-speed">
+			<p>Speed: {{wind.speed}}mph</p>
+			<p>Gusts: {{wind.gust}}mph</p>
+		</div>
+
+		<div class="col-sm-6 wind-direction">
+			<p>
+				Blowing from  the {{wind.direction}} 
+			</p>
+			<p>
+				<span class="compass">
+					<span style='-webkit-transform: rotate({{wind.deg}}deg)' class="indicator"></span>
+				</span>
+			</p>
+		</div>
+	</div>
+</div>
