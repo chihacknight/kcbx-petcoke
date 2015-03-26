@@ -1,15 +1,10 @@
 #!/usr/bin/env node
+var cwd = process.cwd();
+require(cwd + "/lib/env");
 
-var fs = require('fs')
-  , cwd = process.cwd()
-  , Datum = require(cwd + "/models/WeatherDatum")
+var Datum = require(cwd + "/models/WeatherDatum")
   , request = require('request')
   ;
-
-if (fs.existsSync(cwd + '/lib/_ENV.js')) {
-  console.log('exists')
-  require(cwd + '/lib/_ENV');
-}
 
 var owmApiUrl = "http://api.openweathermap.org/data/2.5/weather?lat=41.703292&lon=-87.5489839&APPID=" + process.env.OPEN_WEATHER_API_KEY
 
@@ -24,7 +19,12 @@ request.get(owmApiUrl, function(err, response, body){
     humidity       : data.main.humidity,
     description    : data.weather.description,
     station        : data.name
-  }, function(err, datum){
-    console.log(datum);
-  })
+  }).then(function(datum){
+    if (process.env.NODE_ENV === 'development') {
+      console.log("logged");
+    }
+  }).catch(function(err){
+    console.error("Oh Nos!")
+    console.error(err);
+  });
 })

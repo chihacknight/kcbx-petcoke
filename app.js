@@ -1,3 +1,5 @@
+require('./lib/env');
+
 var express = require('express')
   , fs = require('fs')
   , path = require('path')
@@ -10,10 +12,6 @@ var express = require('express')
 var routes = require('./routes/index');
 
 var app = express();
-
-if (fs.existsSync("./lib/_ENV.js")) {
-  require('./lib/_ENV.js')
-}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

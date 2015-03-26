@@ -1,12 +1,9 @@
+require("./lib/env")
+
 var grunt = require('grunt')
   , fs = require('fs')
   ;
 
-if (fs.existsSync("./lib/_ENV.js")) {
-  require("./lib/_ENV");
-}
-
-console.log(process.env.DATABASE_URL)
 module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-db-migrate');

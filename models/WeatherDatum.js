@@ -1,50 +1,47 @@
-var Waterline = require('waterline')
+var db = require("../lib/db")
   ;
 
 
-var WeatherDatum = Waterline.Collection.extend({
-  
-  tableName: "weather_data",
-  
-  adapter: "postgresql",
-  
-  attributes : {
-    
-    logged_at: {
-      type: 'datetime',
-      required: true,
-      defaults_to: Date.now
-    },
+var WeatherDatum = db.client.define("WeatherDatum", {
 
-    wind_speed: {
-      type: "float",
-      required: true
-    },
+  wind_speed: {
+    type: db.module.FLOAT,
+    required: true
+  },
 
-    wind_direction: {
-      type: "integer",
-      required: true
-    },
+  wind_direction: {
+    type: db.module.INTEGER,
+    required: true
+  },
 
-    wind_gusts: {
-      type: "float",
-    },
+  wind_gusts: {
+    type: db.module.FLOAT,
+  },
 
-    temperature: {
-      type: "float",
-      required: true
-    },
+  temperature: {
+    type: db.module.INTEGER,
+    required: true
+  },
 
-    humidity: {
-      type: "integer",
-      required: true
-    },
+  humidity: {
+    type: db.module.INTEGER,
+    required: true
+  },
 
-    description: {
-      type: "string",
-      required: true
-    }
+  description: {
+    type: db.module.STRING,
+    required: true
+  },
+
+  station: {
+    type: db.module.STRING,
+    required: true
   }
+
+}, {
+
+  tableName: "weather_data"
 })
 
+WeatherDatum.sync();
 module.exports = WeatherDatum;
