@@ -31,11 +31,6 @@ var WeatherDatum = db.client.define("WeatherDatum", {
   description: {
     type: db.module.STRING,
     required: true
-  },
-
-  station: {
-    type: db.module.STRING,
-    required: true
   }
 
 }, {

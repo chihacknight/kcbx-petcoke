@@ -14,7 +14,6 @@
 
 		<div class="col-sm-6 wind-speed">
 			<p>Speed: {{wind.speed}}mph</p>
-			<p>Gusts: {{wind.gust}}mph</p>
 		</div>
 
 		<div class="col-sm-6 wind-direction">
@@ -23,7 +22,7 @@
 			</p>
 			<p>
 				<span class="compass">
-					<span style='-webkit-transform: rotate({{wind.deg}}deg)' class="indicator"></span>
+					<span style='-webkit-transform: rotate({{wind.bearing}}deg)' class="indicator"></span>
 				</span>
 			</p>
 		</div>

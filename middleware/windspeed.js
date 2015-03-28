@@ -1,38 +1,24 @@
+var constants = require('lib/constants')
 var request = require('request')
-  , owmApiUrl = "http://api.openweathermap.org/data/2.5/weather?lat=41.703292&lon=-87.5489839&APPID=" + process.env.OPEN_WEATHER_API_KEY
-  ;
-
-var lastPoll = 0
-  , pollingInterval = 5000
-  , speedThreshold = 15
-  ;
-
-var wind = {};
+var weather = require('lib/weatherService')
 
 module.exports = function(req, res, next){
 
-	var now = new Date();
-	var thisPoll = now.getTime();
-	var sinceLastPoll = thisPoll - lastPoll;
-	req.wind = wind;
-	
-	if (sinceLastPoll < pollingInterval) {
-		return next();
-	}
-
-	request(owmApiUrl, function(err, response, data){
-		data = JSON.parse(data);
-		if (data && data.wind) {
-			lastPoll = thisPoll;
-			wind = data.wind;
-			wind.direction = degreeToCompass(wind.deg);
+	weather.getForecast(constants.KCBX_LAT, constants.KCBX_LNG, function(err, data){
+		if (data) {
+			var wind = {
+				speed     : data.currently.wind_speed,
+				bearing   : data.currently.wind_bearing,
+				direction : degreeToCompass(data.currently.wind_bearing)
+			}
 
 			wind.status = 1;
-			if (wind.speed >= speedThreshold) {
+			
+			if (wind.speed >= constants.WIND_MODERATE) 
+				wind.status = 2;
+
+			if (wind.speed >= constants.WIND_HAZARDOUS)
 				wind.status = 3;
-			} else if (wind.gust >= speedThreshold) {
-				wind.status = 2
-			}
 
 			req.wind = wind;
 		}
