@@ -5,19 +5,21 @@ var grunt = require('grunt')
   ;
 
 module.exports = function(grunt) {
-
-  grunt.loadNpmTasks('grunt-db-migrate');
-
   grunt.initConfig({
-    migrate: {
-      env: {
-        DATABASE_URL: process.env.DATABASE_URL
-      },
-      verbose: true
+    supervisor: {
+      target: {
+        script: "bin/www",
+        options: {
+          ignore: ['node_modules', 'bin'],
+          noRestartOn: "error",
+          debug: true
+        }
+      }
     }
   })
-
-  grunt.registerTask("test", function(){
-    console.log('foo')
-  })
 }
+
+grunt.loadNpmTasks("grunt-supervisor")
+
+
+grunt.registerTask('serve', ['supervisor'])

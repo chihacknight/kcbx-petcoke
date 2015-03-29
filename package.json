@@ -25,5 +25,8 @@
     "sequelize": "^2.0.5",
     "sequelize-cli": "^1.5.0",
     "serve-favicon": "~2.2.0"
+  },
+  "devDependencies": {
+    "grunt-supervisor": "^0.2.4"
   }
 }
