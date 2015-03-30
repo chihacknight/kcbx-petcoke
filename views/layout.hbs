@@ -4,9 +4,25 @@
     <title>{{title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/fontawesome/css/font-awesome.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <script src='/bower_components/jquery/dist/jquery.min.js'></script>
+    <script src='/js/js.js'></script>
   </head>
   <body class="{{bodyClass}}">
-    {{{body}}}
+    <div class="container">
+
+      {{{body}}}
+
+      <footer id="footer">
+        <hr>
+        <nav>
+          <a href='https://github.com/benwilhelm/kcbx-petcoke' target="_blank">
+            <span class="fa fa-github"></span> Pull Requests Welcome
+          </a>
+        </nav>
+      </footer>
+    </div><!-- .container -->
   </body>
 </html>

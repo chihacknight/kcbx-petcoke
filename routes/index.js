@@ -24,7 +24,7 @@ var statusValues = {
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
 
   var status = statusValues[req.wind.status]
 
@@ -34,5 +34,12 @@ router.get('/', function(req, res, next) {
   	status: status.human
   });
 });
+
+/* GET about page */
+router.get('/about', function(req, res){
+  res.render('about', {
+    bodyClass: "about"
+  })
+})
 
 module.exports = router;

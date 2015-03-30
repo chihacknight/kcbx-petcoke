@@ -9,7 +9,8 @@ module.exports = function(req, res, next){
 			var wind = {
 				speed     : data.currently.wind_speed,
 				bearing   : data.currently.wind_bearing,
-				direction : degreeToCompass(data.currently.wind_bearing)
+				direction : degreeToCompass(data.currently.wind_bearing),
+				timeTaken : data.currently.time
 			}
 
 			wind.status = 1;

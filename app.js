@@ -2,6 +2,8 @@ require('./lib/env');
 
 var express = require('express')
   , fs = require('fs')
+  , hbs = require('hbs')
+  , hbsHelpers = require('./lib/hbs-helpers')
   , path = require('path')
   , favicon = require('serve-favicon')
   , logger = require('morgan')
@@ -16,6 +18,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbsHelpers.register(hbs);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));

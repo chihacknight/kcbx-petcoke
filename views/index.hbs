@@ -1,30 +1,23 @@
-<div class="container">
-	<h1 class='hero'>Current Wind Conditions</h1>
-	<h2 class='subtitle'>at the KCBX PetCoke Facility</h2>
+<h1 class='hero'>Current Wind Conditions</h1>
+<h2 class='subtitle'>at KCBX Terminals</h2>
 
-	<hr>
+<div class="row wind-info">
+	
+	<p class="wind-status">
+		{{status}}
+	</p>
 
-	<div class="row wind-info">
-		
-		<p class="wind-status">
-			{{status}}
-		</p>
-
-		<hr>
-
-		<div class="col-sm-6 wind-speed">
-			<p>Speed: {{wind.speed}}mph</p>
-		</div>
-
-		<div class="col-sm-6 wind-direction">
-			<p>
-				Blowing from  the {{wind.direction}} 
-			</p>
-			<p>
-				<span class="compass">
-					<span style='-webkit-transform: rotate({{wind.bearing}}deg)' class="indicator"></span>
-				</span>
-			</p>
-		</div>
+	<div class="compass">
+		<span class="bearing-indicator" data-bearing='{{wind.bearing}}'></span>
+		<span class="speed-indicator">{{ formatNumber wind.speed "0,0.0"}}</span>
 	</div>
+
+	<div class="wind-data">
+		<p>Speed: {{ formatNumber wind.speed "0,0.0" }} mph</p>
+		<p>Blowing from  the {{wind.direction}}</p>
+		<p class='time-taken'>Reading taken at {{ formatUnixDate wind.timeTaken "h:mm:ss A" }} using 
+			<a href='https://developer.forecast.io/' target='_blank'>forecast.io</a>
+		</p>
+	</div>
+
 </div>
