@@ -35,11 +35,5 @@ router.get('/', function(req, res) {
   });
 });
 
-/* GET about page */
-router.get('/about', function(req, res){
-  res.render('about', {
-    bodyClass: "about"
-  })
-})
 
 module.exports = router;
