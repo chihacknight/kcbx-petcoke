@@ -77,6 +77,7 @@ body.home .wind-data .time-taken {
 #footer nav {
 	text-align: center;
 	font-size: large;
+	padding-bottom: 1em;
 }
 
 #footer nav span.divider {
