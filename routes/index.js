@@ -5,33 +5,22 @@ var windspeed = require('../middleware/windspeed')
 router.use(windspeed)
 
 
-var statusValues = {
-	1: {
-		human: "Safe(ish)",
-		machine: "safe"
-	},
-
-	2: {
-		human: "Moderate",
-		machine: "moderate"
-	},
-
-	3: {
-		human: "Hazardous",
-		machine: "hazardous"
-	}
+var statusTerms = {
+	1: "Mild",
+	2: "Moderate",
+	3: "Hazardous"
 }
 
 
 /* GET home page. */
 router.get('/', function(req, res) {
 
-  var status = statusValues[req.wind.status]
+  var statusTerm = statusTerms[req.wind.status]
 
-  res.render('index', { 
-  	bodyClass: "home " + status.machine,
+  res.render('index', {
+  	bodyClass: "home wind-level-" + req.wind.status,
   	wind: req.wind,
-  	status: status.human
+  	status: statusTerm
   });
 });
 
