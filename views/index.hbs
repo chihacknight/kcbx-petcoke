@@ -2,9 +2,9 @@
 <h2 class='subtitle'>at KCBX Terminals</h2>
 
 <div class="row wind-info">
-	
+
 	<p class="wind-status">
-		{{status}}
+		{{wind.status.term}}
 	</p>
 
 	<div class="compass">
@@ -14,8 +14,8 @@
 
 	<div class="wind-data">
 		<p>Speed: {{ formatNumber wind.speed "0,0.0" }} mph</p>
-		<p>Blowing from  the {{wind.direction}}</p>
-		<p class='time-taken'>Reading taken at {{ formatUnixDate wind.timeTaken "h:mm:ss A" }} using 
+		<p>Blowing from  the {{degreeToCompass wind.bearing}}</p>
+		<p class='time-taken'>Reading taken at {{ formatUnixDate wind.timeTaken "h:mm:ss A" }} using
 			<a href='https://developer.forecast.io/' target='_blank'>forecast.io</a>
 		</p>
 	</div>

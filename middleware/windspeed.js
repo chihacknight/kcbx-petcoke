@@ -10,17 +10,10 @@ module.exports = function(req, res, next){
 			var wind = {
 				speed     : data.currently.wind_speed,
 				bearing   : data.currently.wind_bearing,
-				direction : degreeToCompass(data.currently.wind_bearing),
 				timeTaken : data.currently.time
 			}
 
-			wind.status = 1;
-			
-			if (wind.speed >= constants.WIND_MODERATE) 
-				wind.status = 2;
-
-			if (wind.speed >= constants.WIND_HAZARDOUS)
-				wind.status = 3;
+			wind.status = windStatus(data.currently.wind_speed)
 
 			req.wind = wind;
 		}
@@ -29,29 +22,16 @@ module.exports = function(req, res, next){
 
 }
 
-function degreeToCompass(deg) {
-	if (337.5 <= deg || deg < 22.5)
-		return "North";
 
-	if ( 22.5 <= deg && deg < 67.5 )
-		return "Northeast";
-
-	if ( 67.5 <= deg && deg < 112.5 )
-		return "East";
-
-	if ( 112.5 <= deg && deg < 157.5 )
-		return "Southeast";
-
-	if ( 157.5 <= deg && deg < 202.5 )
-		return "South";
-
-	if ( 202.5 <= deg && deg < 247.5 )
-		return "Southwest";
-
-	if ( 247.5 <= deg && deg < 292.5 )
-		return "West";
-
-	if ( 292.5 <= deg && deg < 337.5 )
-		return "Northwest";
-
+function windStatus(speed) {
+	var statusTerms = constants.WIND_STATUS_TERMS;
+	for (var i=statusTerms.length-1; i>=0; i--) {
+		var status = statusTerms[i];
+		if (speed >= status.threshold) {
+			return {
+				level: i,
+				term : status.term
+			}
+		}
+	}
 }

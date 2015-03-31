@@ -27,15 +27,15 @@ body.home .wind-status {
 	padding: .5em 0;
 }
 
-body.home.wind-level-1 .wind-status {
+body.home.wind-level-0 .wind-status {
 	background-color: #383;
 }
 
-body.home.wind-level-2 .wind-status {
+body.home.wind-level-1 .wind-status {
 	background-color: #BA1;
 }
 
-body.home.wind-level-3 .wind-status {
+body.home.wind-level-2 .wind-status {
 	background-color: #A22;
 }
 
