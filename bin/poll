@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 var cwd = process.cwd();
 require(cwd + "/lib/env");
+var constants = require(cwd + "/lib/constants")
 
 var weather = require(cwd + "/lib/weatherService")
-  , qryLat = 41.7
-  , qryLng = -87.55
+  , qryLat = constants.KCBX_LAT
+  , qryLng = constants.KCBX_LNG
   ;
 
 weather.getForecast(qryLat, qryLng, function(err, fc){
