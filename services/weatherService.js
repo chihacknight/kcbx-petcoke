@@ -1,4 +1,6 @@
-require("./env");
+var cwd = process.cwd();
+
+require(cwd + "/lib/env");
 var fioApiKey = process.env.FORECAST_IO_API_KEY;
 
 // 4 minutes and 30 seconds, because
