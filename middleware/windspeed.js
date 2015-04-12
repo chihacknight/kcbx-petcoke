@@ -1,7 +1,7 @@
 var cwd = process.cwd();
 var constants = require(cwd + '/lib/constants')
 var request = require('request')
-var weather = require(cwd + '/services/weatherService')
+var weather = require(cwd + '/services/weather')
 
 module.exports = function(req, res, next){
 

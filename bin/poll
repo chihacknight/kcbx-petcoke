@@ -3,7 +3,7 @@ var cwd = process.cwd();
 require(cwd + "/lib/env");
 var constants = require(cwd + "/lib/constants")
 
-var weather = require(cwd + "/services/weatherService")
+var weather = require(cwd + "/services/weather")
   , qryLat = constants.KCBX_LAT
   , qryLng = constants.KCBX_LNG
   ;
