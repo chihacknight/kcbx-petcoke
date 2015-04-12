@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 var cwd = process.cwd();
 require(cwd + "/lib/env");
-var constants = require(cwd + "/lib/constants")
+var constants = require(cwd + "/lib/constants"),
+    _ = require('lodash');
 
 var weather = require(cwd + "/services/weather")
   , notifications = require(cwd + "/services/notifications")
@@ -15,7 +16,7 @@ weather.getForecast(qryLat, qryLng, function(fcErr, fc) {
       sendWarning = _.partial(notifications.send, fc.currently.wind_speed, _.identity);
 
   if (!fcErr) {
-    if (fc.currently.wind_speed >= hazardous.threshold) {
+    if (fc.currently.wind_speed >= 0) {
       wufoo.getSmsSubscribers(function(wufooErr, subscriberNumbers) {
         if (!wufooErr) { _.forEach(subscriberNumbers, sendWarning); }
       });
