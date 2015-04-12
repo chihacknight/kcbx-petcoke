@@ -1,5 +1,5 @@
 module.exports = {
-  getSmsSubscribers: function() {
-    return process.env.TEST_RECIPIENTS
+  getSmsSubscribers: function(callback) {
+    return callback(null, process.env.TEST_RECIPIENTS)
   }
 }
