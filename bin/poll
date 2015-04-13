@@ -16,7 +16,7 @@ weather.getForecast(qryLat, qryLng, function(fcErr, fc) {
       sendWarning = _.partial(notifications.send, fc.currently.wind_speed, _.identity);
 
   if (!fcErr) {
-    if (fc.currently.wind_speed >= 0) {
+    if (fc.currently.wind_speed >= hazardous.threshold) {
       wufoo.getSmsSubscribers(function(wufooErr, subscriberNumbers) {
         if (!wufooErr) { _.forEach(subscriberNumbers, sendWarning); }
       });
