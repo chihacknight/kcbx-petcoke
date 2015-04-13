@@ -1,6 +1,7 @@
 var cwd = process.cwd();
 require(cwd + "/lib/env");
 var	twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN),
+	constants = require(cwd + "/lib/constants")
 	_ = require('lodash');
 
 module.exports = {

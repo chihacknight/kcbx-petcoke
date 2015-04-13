@@ -12,12 +12,13 @@ var weather = require(cwd + "/services/weather")
   ;
 
 weather.getForecast(qryLat, qryLng, function(fcErr, fc) {
-  var hazardous = _.find(constants.WIND_STATUS_TERMS, "term", "Hazardous"),
-      sendWarning = _.partial(notifications.send, fc.currently.wind_speed, _.identity);
+  var hazardous = _.find(constants.WIND_STATUS_TERMS, "term", "Hazardous");
 
   if (!fcErr) {
     if (fc.currently.wind_speed >= hazardous.threshold) {
       wufoo.getSmsSubscribers(function(wufooErr, subscriberNumbers) {
+        var sendWarning = _.partial(notifications.send, fc.currently.wind_speed, _.identity);
+
         if (!wufooErr) { _.forEach(subscriberNumbers, sendWarning); }
       });
     }
