@@ -1,13 +1,28 @@
 #!/usr/bin/env node
 var cwd = process.cwd();
 require(cwd + "/lib/env");
-var constants = require(cwd + "/lib/constants")
+var constants = require(cwd + "/lib/constants"),
+    _ = require('lodash');
 
-var weather = require(cwd + "/services/weatherService")
-  , qryLat = constants.KCBX_LAT
-  , qryLng = constants.KCBX_LNG
+var weather = require(cwd + "/services/weather")
+  , notifications = require(cwd + "/services/notifications")
+  , wufoo = require(cwd + "/services/wufoo")
+  , qryLat = constants.station_location.lat
+  , qryLng = constants.station_location.lng
   ;
 
-weather.getForecast(qryLat, qryLng, function(err, fc){
+weather.getForecast(qryLat, qryLng, function(fcErr, fc) {
+  var hazardous = _.find(constants.WIND_STATUS_TERMS, "term", "Hazardous");
+
+  if (!fcErr) {
+    if (fc.currently.wind_speed >= hazardous.threshold) {
+      wufoo.getSmsSubscribers(function(wufooErr, subscriberNumbers) {
+        var sendWarning = _.partial(notifications.send, fc.currently.wind_speed, _.identity);
+
+        if (!wufooErr) { _.forEach(subscriberNumbers, sendWarning); }
+      });
+    }
+  }
+
   process.exit();
-})
+});
