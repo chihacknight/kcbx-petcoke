@@ -5,7 +5,7 @@ var	twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILI
 	_ = require('lodash');
 
 module.exports = {
-	send: function(windSpeed, callback, subscriberNumber) {
+	sendWindAlert: function(windSpeed, subscriberNumber, callback) {
 		var message = [
 			'The current wind speed forecast at KCBX Terminals is ',
 			windSpeed.toString() + ' mph.', 
@@ -16,7 +16,7 @@ module.exports = {
 
 		twilio.sendMessage({
 			to: subscriberNumber,
-			from: process.env.TWILIO_NUMBER,
+			from: process.env.TWILIO_FROM_NUMBER,
 			body: message.join('')
 		}, callback);
 	}

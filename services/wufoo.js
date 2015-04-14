@@ -59,6 +59,11 @@ module.exports = {
    * @param callback The callback function
    */
   getSmsSubscribers: function(callback) {
+
+    if (process.env.USE_TEST_RECIPIENT === 'true') { // env variables are cast to strings
+      return callback(null, [process.env.TEST_RECIPIENT])
+    }
+
     wufoo.getFormEntries(process.env.WUFOO_SUBSCRIBER_FORM_ID, function(err, entries){
       if (err) {
         console.error(err);

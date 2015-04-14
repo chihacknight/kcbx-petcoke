@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 var cwd = process.cwd();
 require(cwd + "/lib/env");
+var async = require('async');
 var constants = require(cwd + "/lib/constants"),
     _ = require('lodash');
 
@@ -12,17 +13,31 @@ var weather = require(cwd + "/services/weather")
   ;
 
 weather.getForecast(qryLat, qryLng, function(fcErr, fc) {
+  
+  if (fcErr) 
+    return console.error(fcErr);
+
   var hazardous = _.find(constants.WIND_STATUS_TERMS, "term", "Hazardous");
 
-  if (!fcErr) {
-    if (fc.currently.wind_speed >= hazardous.threshold) {
-      wufoo.getSmsSubscribers(function(wufooErr, subscriberNumbers) {
-        var sendWarning = _.partial(notifications.send, fc.currently.wind_speed, _.identity);
+  if (process.env.TEST_POLL_SCRIPT === 'true' // envvars are cast to strings
+  ||  (fc && fc.currently.wind_speed >= hazardous.threshold)) {
+    
+    wufoo.getSmsSubscribers(function(wufooErr, subscriberNumbers) {
 
-        if (!wufooErr) { _.forEach(subscriberNumbers, sendWarning); }
-      });
-    }
+      if (wufooErr)
+        return console.error(wufooErr);
+
+      var asyncFuncs = [];
+      _.forEach(subscriberNumbers, function(number){
+        asyncFuncs.push(function(cb) {
+          notifications.sendWindAlert(fc.currently.wind_speed, number, cb);
+        })
+      })
+
+      async.parallel(asyncFuncs, function(err, rslt){
+        if (err) console.error(err);
+      })
+    });
   }
 
-  process.exit();
 });

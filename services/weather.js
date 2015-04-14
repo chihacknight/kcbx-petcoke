@@ -18,14 +18,16 @@ module.exports = {
 
   getForecast: function(lat, lng, callback) {
     var cacheKey = "weather.forecast:" + lat + "," + lng
-    cache.get(cacheKey, function(err, fc){
-      //if (err) return console.error(err);
+    cache.get(cacheKey, function(mcErr, fc){
+      if (mcErr) console.error(err);
+      
       if (fc)  {
+        cache.close();
         return callback(null, JSON.parse(fc));
       }
 
-      forecastIo.get(lat, lng, function(err, res, data){
-        if (err) return callback(err);
+      forecastIo.get(lat, lng, function(fioErr, res, data){
+        if (fioErr) return callback(fioErr);
 
         var fc = data;
 
@@ -45,7 +47,8 @@ module.exports = {
 
         cache.set(cacheKey, JSON.stringify(ret), function(err, success){
           if (err) console.log(err);
-          callback(err, ret);
+          cache.close();
+          callback(fioErr, ret);
         }, cacheExpiration)
       })
 
