@@ -5,7 +5,7 @@ var weather = require(cwd + '/services/weather')
 
 module.exports = function(req, res, next){
 
-	weather.getForecast(constants.KCBX_LAT, constants.KCBX_LNG, function(err, data){
+	weather.getForecast(constants.station_location.lat, constants.station_location.lng, function(err, data){
 		if (data) {
 			var wind = {
 				speed     : data.currently.wind_speed,
@@ -16,12 +16,12 @@ module.exports = function(req, res, next){
 			wind.status = windStatus(data.currently.wind_speed)
 
 			req.wind = wind;
+			req.location = constants.station_name;
 		}
-		next()
-	})
+		next();
+	});
 
 }
-
 
 function windStatus(speed) {
 	var statusTerms = constants.WIND_STATUS_TERMS;
@@ -31,7 +31,7 @@ function windStatus(speed) {
 			return {
 				level: i,
 				term : status.term
-			}
+			};
 		}
 	}
 }
