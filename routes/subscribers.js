@@ -7,10 +7,11 @@ var cwd = process.cwd();
 var express = require('express');
 var router = express.Router();
 var wufoo = require(cwd + '/services/wufoo');
+var formatter = require(cwd + "/lib/formatter")
 
 
 router.post("/", function(req, res){
-  var phone = normalizePhone(req.body.phone);
+  var phone = formatter.normalizePhone(req.body.phone);
   if (!phone) {
     return resp.status(400).json({
       success: false,
@@ -35,43 +36,6 @@ router.post("/", function(req, res){
 router.delete("/", function(req, res){
   res.send("not yet implemented")
 })
-
-
-
-/**
- * Normalizes phone number to digits only.
- * 
- * Returns 10 digit string or empty string if phone number is malformed
- */
-function normalizePhone(phone) {
-  phone = phone || "";
-  phone = phone.replace(/[^\d]/g, '');
-
-  if (phone[0] === '1')
-    phone = phone.substring(1);
-
-  if (phone.length != 10)
-    return '';
-
-  return phone;
-}
-
-
-/**
- * Formats phone number to form (XXX) XXX-XXXX
- * Returns empty string if phone number is malformed
- */
-function formatPhone(phone) {
-  phone = normalizePhone(phone)
-  if (!phone)
-    return "";
-
-  var ac   = phone.substr(0, 3);
-  var exch = phone.substr(3, 3);
-  var rem  = phone.substr(6);
-
-  return "(" + ac + ") " + exch + "-" + rem;
-}
 
 
 module.exports = router;
