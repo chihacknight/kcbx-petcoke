@@ -25,14 +25,14 @@ router.post("/", function(req, res){
       case "BAD_PARAM":
       case "DUPLICATE_PARAM":
         return res.status(400).json({
-          success: false,
+          error: true,
           message: err.message
         });
         break;
 
       default:
         return res.status(500).json({
-          success: false,
+          error: true,
           message: "Internal Server Error"
         });
         break;
@@ -53,14 +53,14 @@ router.delete("/:phone", function(req, res){
     switch(err.type) {
       case "NOT_FOUND":
         return res.status(404).json({
-          success: false,
+          error: true,
           message: err.message
         });
         break;
 
       default:
         return res.status(500).json({
-          success: false,
+          error: true,
           message: "Internal Server Error"
         });
         break;
