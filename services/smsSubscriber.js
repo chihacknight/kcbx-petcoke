@@ -55,7 +55,7 @@ module.exports = {
       if (!!_.findWhere(subscribers, {phone: number})) {
         return callback({
           type: "DUPLICATE_PARAM",
-          message: "That number already exists in our system"
+          message: "The number " + number + " already exists in our system"
         });
       }
 
@@ -96,7 +96,7 @@ module.exports = {
         if (getErr) { return callback(getErr); }
         if (!row) return callback({
           type: "NOT_FOUND",
-          message: "That number does not exist in our system"
+          message: "The number " + number + " does not exist in our system"
         })
 
         var sql = "DELETE FROM " + tableId + " WHERE ROWID = '" + row.rowid + "'";
