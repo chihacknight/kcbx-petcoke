@@ -31,8 +31,7 @@
     "sequelize": "^2.0.5",
     "sequelize-cli": "^1.5.0",
     "serve-favicon": "~2.2.0",
-    "twilio": "^1.11.1",
-    "wufoo": "^1.0.0"
+    "twilio": "^1.11.1"
   },
   "devDependencies": {
     "grunt-supervisor": "^0.2.4"
