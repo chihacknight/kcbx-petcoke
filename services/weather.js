@@ -19,7 +19,7 @@ module.exports = {
   getForecast: function(lat, lng, callback) {
     var cacheKey = "weather.forecast:" + lat + "," + lng
     cache.get(cacheKey, function(mcErr, fc){
-      if (mcErr) console.error(err);
+      if (mcErr) console.error(mcErr);
       
       if (fc)  {
         cache.close();

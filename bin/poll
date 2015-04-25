@@ -7,7 +7,7 @@ var constants = require(cwd + "/lib/constants"),
 
 var weather = require(cwd + "/services/weather")
   , notifications = require(cwd + "/services/notifications")
-  , wufoo = require(cwd + "/services/wufoo")
+  , smsSubscribers = require(cwd + "/services/smsSubscriber")
   , qryLat = constants.station_location.lat
   , qryLng = constants.station_location.lng
   ;
@@ -22,15 +22,15 @@ weather.getForecast(qryLat, qryLng, function(fcErr, fc) {
   if (process.env.TEST_POLL_SCRIPT === 'true' // envvars are cast to strings
   ||  (fc && fc.currently.wind_speed >= hazardous.threshold)) {
     
-    wufoo.getSmsSubscribers(function(wufooErr, subscriberNumbers) {
+    smsSubscribers.getSubscribers(function(smsErr, subscribers) {
 
-      if (wufooErr)
-        return console.error(wufooErr);
+      if (smsErr)
+        return console.error(smsErr);
 
       var asyncFuncs = [];
-      _.forEach(subscriberNumbers, function(number){
+      _.forEach(subscribers, function(subscriber){
         asyncFuncs.push(function(cb) {
-          notifications.sendWindAlert(fc.currently.wind_speed, number, cb);
+          notifications.sendWindAlert(fc.currently.wind_speed, subscriber.phone, cb);
         })
       })
 

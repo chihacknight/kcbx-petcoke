@@ -6,36 +6,66 @@
 var cwd = process.cwd();
 var express = require('express');
 var router = express.Router();
-var wufoo = require(cwd + '/services/wufoo');
+var smsSubcriberService = require(cwd + '/services/smsSubscriber');
 var formatter = require(cwd + "/lib/formatter")
 
 
 router.post("/", function(req, res){
-  var phone = formatter.normalizePhone(req.body.phone);
-  if (!phone) {
-    return resp.status(400).json({
-      success: false,
-      message: "Please enter a valid 10-digit US phone number"
-    })
-  }
 
-  wufoo.addSmsSubscriber(phone, function(err, resp, body){
-    body = JSON.parse(body);
-    var subscriber = body.Success ? { phone: phone } : null
-    var statusCode = (resp.statusCode === 200 && !body.Success) ? 400 : resp.statusCode;
+  var phone = req.body.phone;
+  smsSubcriberService.addSubscriber(phone, function(err, rslt){
+    
+    if (!err)
+      return res.json(rslt);
 
-    res.status(statusCode).json({ 
-      success: body.Success,
-      subscriber: subscriber,
-      error: body.FieldErrors || body.ErrorText || null
-    });
+
+    console.error(err);
+    switch (err.type) {
+
+      case "BAD_PARAM":
+      case "DUPLICATE_PARAM":
+        return res.status(400).json({
+          error: true,
+          message: err.message
+        });
+        break;
+
+      default:
+        return res.status(500).json({
+          error: true,
+          message: "Internal Server Error"
+        });
+        break;
+    }
+
+  })
+
+})
+
+router.delete("/:phone", function(req, res){
+  var phone = req.params.phone;
+  smsSubcriberService.removeSubscriber(phone, function(err, rslt){
+    if (!err)
+      return res.json(rslt);
+
+
+    console.error(err);
+    switch(err.type) {
+      case "NOT_FOUND":
+        return res.status(404).json({
+          error: true,
+          message: err.message
+        });
+        break;
+
+      default:
+        return res.status(500).json({
+          error: true,
+          message: "Internal Server Error"
+        });
+        break;
+    }
   })
 })
-
-
-router.delete("/", function(req, res){
-  res.send("not yet implemented")
-})
-
 
 module.exports = router;
