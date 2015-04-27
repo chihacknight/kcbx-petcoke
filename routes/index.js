@@ -13,7 +13,8 @@ router.get('/', function(req, res) {
   res.render('index', {
   	bodyClass: "home wind-level-" + req.wind.status.level,
   	wind: req.wind,
-  	status: statusTerm
+  	status: statusTerm,
+    location: req.location
   });
 });
 
