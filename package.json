@@ -6,7 +6,8 @@
   },
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "grunt mochaTest"
   },
   "dependencies": {
     "async": "^0.9.0",
@@ -34,6 +35,10 @@
     "twilio": "^1.11.1"
   },
   "devDependencies": {
-    "grunt-supervisor": "^0.2.4"
+    "grunt-mocha-test": "^0.12.7",
+    "grunt-supervisor": "^0.2.4",
+    "mocha": "^2.2.4",
+    "should": "^6.0.1",
+    "sinon": "^1.14.1"
   }
 }

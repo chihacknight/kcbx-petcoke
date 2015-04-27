@@ -1,43 +1,64 @@
-#!/usr/bin/env node
 var cwd = process.cwd();
 require(cwd + "/lib/env");
-var async = require('async');
-var constants = require(cwd + "/lib/constants"),
-    _ = require('lodash');
 
-var weather = require(cwd + "/services/weather")
-  , notifications = require(cwd + "/services/notifications")
-  , smsSubscribers = require(cwd + "/services/smsSubscriber")
-  , qryLat = constants.station_location.lat
-  , qryLng = constants.station_location.lng
-  ;
+var async = require('async');
+var cache = require("memjs").Client.create();
+var constants = require(cwd + "/lib/constants");
+var moment = require('moment');
+var notifications = require(cwd + "/services/notifications");
+var qryLat = constants.station_location.lat;
+var qryLng = constants.station_location.lng;
+var smsSubscribers = require(cwd + "/services/smsSubscriber");
+var weather = require(cwd + "/services/weather");
+var _ = require('lodash');
 
 weather.getForecast(qryLat, qryLng, function(fcErr, fc) {
-  
-  if (fcErr) 
+
+  if (fcErr)
     return console.error(fcErr);
 
   var hazardous = _.find(constants.WIND_STATUS_TERMS, "term", "Hazardous");
 
   if (process.env.TEST_POLL_SCRIPT === 'true' // envvars are cast to strings
   ||  (fc && fc.currently.wind_speed >= hazardous.threshold)) {
-    
-    smsSubscribers.getSubscribers(function(smsErr, subscribers) {
 
-      if (smsErr)
-        return console.error(smsErr);
+    cache.get("notifications.last_wind_notice_sent", function(cacheErr, lastSent){
+      if (cacheErr) { console.error(cacheErr); }
 
-      var asyncFuncs = [];
-      _.forEach(subscribers, function(subscriber){
-        asyncFuncs.push(function(cb) {
-          notifications.sendWindAlert(fc.currently.wind_speed, subscriber.phone, cb);
+      // Don't send again if sent within threshold defined in constants.js
+      if (lastSent) {
+        var now = moment();
+        var lastSentMoment = moment(lastSent.toString());
+        var hoursSinceLast = now.diff(lastSentMoment, 'hours');
+
+        if (hoursSinceLast < constants.notification_rate_limit) {
+          cache.close();
+          return console.log("Notification already sent at " + lastSentMoment.format());
+        }
+      }
+
+      smsSubscribers.getSubscribers(function(smsErr, subscribers) {
+
+        if (smsErr)
+          return console.error(smsErr);
+
+        var asyncFuncs = [];
+        _.forEach(subscribers, function(subscriber){
+          asyncFuncs.push(function(cb) {
+            notifications.sendWindAlert(fc.currently.wind_speed, subscriber.phone, cb);
+          })
         })
-      })
 
-      async.parallel(asyncFuncs, function(err, rslt){
-        if (err) console.error(err);
-      })
-    });
+        async.parallel(asyncFuncs, function(err, rslt){
+          if (err) console.error(err);
+          cache.set("notifications.last_wind_notice_sent", moment().format(), function(){
+            cache.close();
+          })
+        })
+      });
+
+    })
+
   }
 
 });

@@ -15,11 +15,19 @@ module.exports = function(grunt) {
           debug: true
         }
       }
+    },
+
+    mochaTest: {
+      files: ['test/unit/**/*.js'],
+      options: {
+        require: 'test/bootstrap.js'
+      }
     }
   })
 }
 
-grunt.loadNpmTasks("grunt-supervisor")
+grunt.loadNpmTasks("grunt-supervisor");
+grunt.loadNpmTasks('grunt-mocha-test');
 
-
-grunt.registerTask('serve', ['supervisor'])
+grunt.registerTask('test' , ['mochaTest']);
+grunt.registerTask('serve', ['supervisor']);
