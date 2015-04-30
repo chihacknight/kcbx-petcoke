@@ -15,6 +15,10 @@ h1, h2, h3, h4 {
 	padding: 0;
 }
 
+body {
+	padding-top: 1em;
+}
+
 body.home {
 	text-align: center;
 }
@@ -123,12 +127,8 @@ body.subscribe form.sms-signup .status.error {
 	background-color: #A60;
 }
 
-#footer nav {
+#footer {
 	text-align: center;
-	font-size: large;
+	font-size: small;
 	padding-bottom: 1em;
-}
-
-#footer nav span.divider {
-	font-weight: lighter;
 }
