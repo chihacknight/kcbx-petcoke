@@ -19,4 +19,11 @@ router.get('/', function(req, res) {
 });
 
 
+router.get('/subscribe', function(req, res){
+  res.render('subscribe', {
+    bodyClass: 'subscribe'
+  });
+})
+
+
 module.exports = router;

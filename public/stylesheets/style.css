@@ -7,6 +7,14 @@ h1, h2, h3, h4 {
 	color: #000;
 }
 
+.parsley-errors-list {
+	list-style: none;
+	color: #A00;
+	margin: 0;
+	text-align: left;
+	padding: 0;
+}
+
 body.home {
 	text-align: center;
 }
@@ -73,6 +81,47 @@ body.home .wind-data .time-taken {
 	font-size: 30px;
 }
 
+body.home #get_notifications {
+	font-size: large;
+	margin-top: .6em;
+}
+
+
+body.subscribe .page-title {
+	text-align: center;
+}
+
+body.subscribe form.sms-signup {
+	margin: 1em auto;
+	max-width: 480px;
+	text-align: center;
+	position: relative;
+}
+
+body.subscribe form.sms-signup .col:first-child {
+	margin-right: 0;
+	padding-right: 3px;
+}
+
+body.subscribe form.sms-signup .col:last-child {
+	margin-left: 0;
+	padding-left: 3px;
+}
+
+body.subscribe form.sms-signup .status {
+	color: #fff;
+	font-weight: bold;
+	margin: .5em;
+	padding: .5em;
+}
+
+body.subscribe form.sms-signup .status.success {
+	background-color: #0A0;
+}
+
+body.subscribe form.sms-signup .status.error {
+	background-color: #A60;
+}
 
 #footer nav {
 	text-align: center;

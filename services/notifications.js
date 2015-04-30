@@ -7,17 +7,16 @@ var	twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILI
 module.exports = {
 	sendWindAlert: function(windSpeed, subscriberNumber, callback) {
 		var message = [
-			'The current wind speed forecast at KCBX Terminals is ',
-			windSpeed.toString() + ' mph.', 
-			'??? see issue #2 ??? considers wind levels over ',
-			_.find(constants.WIND_STATUS_TERMS, 'term', 'Hazardous').threshold + ' mph ',
-			'to be hazardous. Read more at ' + constants.help_url + '.'
+			'Wind Alert!',
+			'The Chicago Department of Public Health recommends you limit',
+			'outdoor activities to reduce petcoke exposure.',
+			'More info at <url-tbd>.'
 		];
 
 		twilio.sendMessage({
 			to: subscriberNumber,
 			from: process.env.TWILIO_FROM_NUMBER,
-			body: message.join('')
+			body: message.join(' ')
 		}, callback);
 	}
 };
