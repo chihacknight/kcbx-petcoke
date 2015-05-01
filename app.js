@@ -12,7 +12,8 @@ var express = require('express')
   ;
 
 var staticRoutes     = require('./routes/index');
-var subscriberRoutes = require("./routes/subscribers");
+var smsRoutes        = require("./routes/api/sms");
+var subscriberRoutes = require("./routes/api/subscribers");
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/'                , staticRoutes);
+app.use("/api/sms"         , smsRoutes);
 app.use("/api/subscribers" , subscriberRoutes);
 
 // catch 404 and forward to error handler

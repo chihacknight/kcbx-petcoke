@@ -1,22 +1,77 @@
 var cwd = process.cwd();
 require(cwd + "/lib/env");
-var	twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN),
-	constants = require(cwd + "/lib/constants")
-	_ = require('lodash');
+
+var constants = require(cwd + "/lib/constants");
+var smsSubscriber = require(cwd + "/services/smsSubscriber");
+var	twilio = require('twilio');
+var twilioClient = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+var _ = require('lodash');
+
+
+var messageHandlers = {
+	'subscribe'   : 'incomingSubscribe',
+	'unsubscribe' : 'incomingUnsubscribe'
+};
 
 module.exports = {
+
+	/**
+	 * Takes incoming request object from /api/sms and routes 
+	 * to appropriate handler, returning its TwiML response
+	 *
+	 * @param req
+	 * @returns TwiML response for return message
+	 */
+	handleIncomingSms: function(req, cb) {
+		var message = req.body.Body.toLowerCase().trim();
+		var handlerKey = messageHandlers[message];
+
+		var handler = handlerKey ? module.exports[handlerKey] : module.exports.incomingUnknown;
+		return handler(req, cb);
+	},
+
 	sendWindAlert: function(windSpeed, subscriberNumber, callback) {
 		var message = [
 			'Wind Alert!',
 			'The Chicago Department of Public Health recommends you limit',
 			'outdoor activities to reduce petcoke exposure.',
 			'More info at <url-tbd>.'
-		];
+		].join(' ');
 
-		twilio.sendMessage({
+		twilioClient.sendMessage({
 			to: subscriberNumber,
 			from: process.env.TWILIO_FROM_NUMBER,
-			body: message.join(' ')
+			body: message
 		}, callback);
+	},
+
+	incomingUnknown: function(req, cb) {
+		var twiml = new twilio.TwimlResponse();
+		var validResponses = _.keys(messageHandlers);
+		validResponses = validResponses.join(', ')
+		twiml.message("We didn't recognize that message. Please respond with one of: " + validResponses);
+		return cb(null, twiml.toString() );
+	},
+
+	incomingSubscribe: function(req, cb) {
+		var twiml = new twilio.TwimlResponse;
+		var phone = req.body.From;
+		smsSubscriber.addSubscriber(phone, function(err){
+			var successMessage = "We've subscribed you to air quality alerts. Thanks!";
+			var message = (err) ? err.message : successMessage;
+			twiml.message(message);
+		 	cb(null, twiml.toString() );
+		})
+	},
+
+	incomingUnsubscribe: function(req, cb) {
+		var twiml = new twilio.TwimlResponse;
+		var phone = req.body.From;
+		smsSubscriber.removeSubscriber(phone, function(err){
+			var successMessage = "We've unsubscribed you from air quality alerts. Sorry to see you go!";
+			var message = (err) ? err.message : successMessage;
+			twiml.message(message);
+		 	cb(null, twiml.toString() );
+		})
 	}
 };
