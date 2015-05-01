@@ -50,7 +50,7 @@ module.exports = {
 		var validResponses = _.keys(messageHandlers);
 		validResponses = validResponses.join(', ')
 		twiml.message("We didn't recognize that message. Please respond with one of: " + validResponses);
-		return cb(null, twiml.toString() );
+		return cb(null, twiml);
 	},
 
 	incomingSubscribe: function(req, cb) {
@@ -60,7 +60,7 @@ module.exports = {
 			var successMessage = "We've subscribed you to air quality alerts. Thanks!";
 			var message = (err) ? err.message : successMessage;
 			twiml.message(message);
-		 	cb(null, twiml.toString() );
+		 	cb(null, twiml);
 		})
 	},
 
@@ -71,7 +71,7 @@ module.exports = {
 			var successMessage = "We've unsubscribed you from air quality alerts. Sorry to see you go!";
 			var message = (err) ? err.message : successMessage;
 			twiml.message(message);
-		 	cb(null, twiml.toString() );
+		 	cb(null, twiml);
 		})
 	}
 };
