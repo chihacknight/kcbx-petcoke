@@ -9,8 +9,23 @@ var _ = require('lodash');
 
 
 var messageHandlers = {
+
+	// subscribe messages, defined by twilio
 	'subscribe'   : 'incomingSubscribe',
-	'unsubscribe' : 'incomingUnsubscribe'
+	'start'       : 'incomingSubscribe',
+	'yes'         : 'incomingSubscribe',
+
+	// unsubscribe messages, defined by twilio
+	'unsubscribe' : 'incomingUnsubscribe',
+	'stop'        : 'incomingUnsubscribe',
+	'stopall'     : 'incomingUnsubscribe',
+	'cancel'      : 'incomingUnsubscribe',
+	'end'         : 'incomingUnsubscribe',
+	'quit'        : 'incomingUnsubscribe',
+
+	// info messages for twilio, no output necessary
+	'help'        : 'noop',
+	'info'        : 'noop'
 };
 
 module.exports = {
@@ -73,5 +88,8 @@ module.exports = {
 			twiml.message(message);
 		 	cb(null, twiml);
 		})
-	}
+	},
+
+
+	noop: function() {}
 };
