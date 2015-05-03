@@ -1,9 +1,11 @@
 require('./lib/env');
+var cwd = process.cwd();
 
 var express = require('express')
+  , auth = require(cwd + '/middleware/auth')
   , fs = require('fs')
   , hbs = require('hbs')
-  , hbsHelpers = require('./lib/hbs-helpers')
+  , hbsHelpers = require(cwd + '/lib/hbs-helpers')
   , path = require('path')
   , favicon = require('serve-favicon')
   , logger = require('morgan')
@@ -29,6 +31,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+if (app.get('env') === 'staging') {
+  app.use(auth.staging)
+}
 
 app.use('/'                , staticRoutes);
 app.use("/api/sms"         , smsRoutes);
