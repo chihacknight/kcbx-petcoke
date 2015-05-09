@@ -7,6 +7,10 @@ h1, h2, h3, h4 {
 	color: #000;
 }
 
+p {
+	margin: 1em 0;
+}
+
 .parsley-errors-list {
 	list-style: none;
 	color: #A00;
