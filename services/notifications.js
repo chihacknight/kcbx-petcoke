@@ -31,7 +31,7 @@ var messageHandlers = {
 module.exports = {
 
 	/**
-	 * Takes incoming request object from /api/sms and routes 
+	 * Takes incoming request object from /api/sms and routes
 	 * to appropriate handler, returning its TwiML response
 	 *
 	 * @param req
@@ -48,9 +48,9 @@ module.exports = {
 	sendWindAlert: function(windSpeed, subscriberNumber, callback) {
 		var message = [
 			'Wind Alert!',
-			'The Chicago Department of Public Health recommends you limit',
+			'The Chicago Dept. of Public Health recommends you limit',
 			'outdoor activities to reduce petcoke exposure.',
-			'More info at <url-tbd>.'
+			'More info at ' + constants.TAKE_ACTION_URL + '.'
 		].join(' ');
 
 		twilioClient.sendMessage({

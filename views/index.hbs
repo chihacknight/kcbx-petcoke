@@ -1,5 +1,5 @@
-<h1 class='hero'>Current Wind Conditions</h1>
-<h2 class='subtitle'>at {{ location }}</h2>
+<h1 class='hero'>Petcoke Exposure Risk</h1>
+<h2 class='subtitle'>near {{ location }}</h2>
 
 <div class="row wind-info">
 
@@ -13,13 +13,14 @@
 	</div>
 
 	<div class="wind-data">
-		<p>Speed: {{ formatNumber wind.speed "0,0.0" }} mph</p>
-		<p>Blowing from  the {{degreeToCompass wind.bearing}}</p>
+		<p>Wind Speed: {{ formatNumber wind.speed "0,0.0" }} mph</p>
+		<p>Out of the {{degreeToCompass wind.bearing}}</p>
 		<p class='time-taken'>Reading taken at {{ formatUnixDate wind.timeTaken "h:mm:ss A" }} using
 			<a href='https://developer.forecast.io/' target='_blank'>forecast.io</a>
 		</p>
 	</div>
 
-	<a href='/subscribe' class="btn btn-primary" id="get_notifications">Get Air Quality Alerts</a>
+	<a href='/take-action' class='btn btn-primary action-button'>Take Action</a>&nbsp;
+	<a href='/subscribe' class="btn btn-primary action-button">Get Air Quality Alerts</a>
 
 </div>

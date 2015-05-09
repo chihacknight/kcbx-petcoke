@@ -23,6 +23,12 @@ router.get('/subscribe', function(req, res){
   res.render('subscribe', {
     bodyClass: 'subscribe'
   });
+});
+
+router.get('/take-action', function(req, res){
+  res.render('take-action', {
+    bodyClass: 'take-action'
+  })
 })
 
 
