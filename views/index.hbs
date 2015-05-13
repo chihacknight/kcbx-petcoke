@@ -15,7 +15,7 @@
 	<div class="wind-data">
 		<p>Wind Speed: {{ formatNumber wind.speed "0,0.0" }} mph</p>
 		<p>Out of the {{degreeToCompass wind.bearing}}</p>
-		<p class='time-taken'>Reading taken at {{ formatUnixDate wind.timeTaken "h:mm:ss A" }} using
+		<p class='time-taken'>Forecast generated at {{ formatUnixDate wind.timeTaken "h:mm:ss A" }} by
 			<a href='https://developer.forecast.io/' target='_blank'>forecast.io</a>
 		</p>
 	</div>
