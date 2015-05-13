@@ -48,9 +48,8 @@ module.exports = {
 	sendWindAlert: function(windSpeed, subscriberNumber, callback) {
 		var message = [
 			'Wind Alert!',
-			'The Chicago Dept. of Public Health recommends you limit',
-			'outdoor activities to reduce petcoke exposure.',
-			'More info at ' + constants.TAKE_ACTION_URL + '.'
+			'Avoid petcoke exposure by limiting outdoor activity. ',
+			'Learn more and take action at ' + constants.TAKE_ACTION_URL + '.'
 		].join(' ');
 
 		twilioClient.sendMessage({
