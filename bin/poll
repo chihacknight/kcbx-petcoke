@@ -38,24 +38,21 @@ weather.getForecast(qryLat, qryLng, function(fcErr, fc) {
           return console.log("Notification already sent at " + lastSentMoment.format());
         }
       }
+  
+      var message = [
+        'Wind Alert!',
+        'Avoid petcoke exposure by limiting outdoor activity. ',
+        'Learn more and take action at ' + constants.TAKE_ACTION_URL + '.'
+      ].join(' ');
 
-      smsSubscribers.getSubscribers(function(smsErr, subscribers) {
-
-        if (smsErr)
-          return console.error(smsErr);
-
-        var asyncFuncs = [];
-        _.forEach(subscribers, function(subscriber){
-          asyncFuncs.push(function(cb) {
-            notifications.sendWindAlert(fc.currently.wind_speed, subscriber.phone, cb);
-          })
-        })
-
-        async.parallel(asyncFuncs, function(err, rslt){
-          if (err) console.error(err);
-          cache.set("notifications.last_wind_notice_sent", moment().format(), function(){
-            cache.close();
-          })
+      notifications.broadcast(message, function(err){
+        if (err) {
+          cache.close();
+          return console.error(err);
+        }
+        
+        cache.set("notifications.last_wind_notice_sent", moment().format(), function(){
+          cache.close();
         })
       });
 

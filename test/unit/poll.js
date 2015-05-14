@@ -24,13 +24,13 @@ var pollScript = fs.readFileSync(cwd + '/bin/poll') // get contents
 describe('bin/poll script', function(){
 
   beforeEach(function(done){
-    sinon.stub(notificationsService, 'sendWindAlert');
+    sinon.stub(notificationsService, 'broadcast');
     sinon.stub(subscriberService, 'getSubscribers', subscriberStubs.getSubscribers)
     cache.flush(done);
   })
 
   afterEach(function(done){
-    notificationsService.sendWindAlert.restore();
+    notificationsService.broadcast.restore();
     subscriberService.getSubscribers.restore();
     done();
   })
@@ -46,7 +46,7 @@ describe('bin/poll script', function(){
     // functions.
     setTimeout(function(){
       weatherService.getForecast.callCount.should.eql(1);
-      notificationsService.sendWindAlert.callCount.should.eql(3);
+      notificationsService.broadcast.callCount.should.eql(1);
       weatherService.getForecast.restore();
       done();
     }, 100)
@@ -61,7 +61,7 @@ describe('bin/poll script', function(){
 
     setTimeout(function(){
       weatherService.getForecast.callCount.should.eql(1);
-      notificationsService.sendWindAlert.callCount.should.eql(0);
+      notificationsService.broadcast.callCount.should.eql(0);
       weatherService.getForecast.restore();
       done();
     }, 100)
@@ -78,7 +78,7 @@ describe('bin/poll script', function(){
 
       setTimeout(function(){
         weatherService.getForecast.callCount.should.eql(1);
-        notificationsService.sendWindAlert.callCount.should.eql(3);
+        notificationsService.broadcast.callCount.should.eql(1);
         weatherService.getForecast.restore();
         done();
       }, 100)
@@ -96,7 +96,7 @@ describe('bin/poll script', function(){
 
       setTimeout(function(){
         weatherService.getForecast.callCount.should.eql(1);
-        notificationsService.sendWindAlert.callCount.should.eql(0);
+        notificationsService.broadcast.callCount.should.eql(0);
         weatherService.getForecast.restore();
         done();
       }, 100)
