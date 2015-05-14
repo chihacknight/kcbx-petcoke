@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var cwd = process.cwd();
+var env = require(cwd + '/lib/env');
+var notifications = require(cwd + '/services/notifications');
+var readline = require('readline');
+
+var rl = readline.createInterface({
+  input  : process.stdin,
+  output : process.stdout
+})
+
+rl.question("Type your message: ", function(message){
+  
+  var confirm = "Your Message:\n";
+      confirm += message + "\n\n";
+      confirm += "OK? [Y/n] ";
+
+  rl.question(confirm, function(answer){
+    if (answer !== "Y") {
+      process.stdout.write("\nexiting.\n");
+      rl.close();
+      process.exit();
+    }
+
+    notifications.broadcast(message, function(err, rslt){
+      if (err) return console.error(err);
+      process.stdout.write("\nSent.\n")
+      rl.close();
+    });  
+  })
+});

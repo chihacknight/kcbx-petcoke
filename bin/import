@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+var _ = require('lodash');
+var async = require('async');
+var fs = require('fs');
+var request = require('request');
+var filepath = process.argv[2];
+
+var API_URL = 'http://petcokealerts.org/api/subscribers';
+
+if (!filepath) {
+  process.stdout.write("\nUSAGE: node bin/import /path/to/numbers.txt\n");
+  process.exit();
+}
+
+if (!fs.existsSync(filepath)) {
+  process.stdout.write("\nCan't find file: " + filepath + "\n");
+  process.exit();
+}
+
+var str = fs.readFileSync(filepath).toString();
+var numbers = str.split("\n");
+numbers = _.map(numbers, function(number){
+  return number.trim();
+})
+
+var funcs = [];
+_.each(numbers, function(number){
+  var func = function(next){
+    request.post({
+      url: API_URL,
+      form: {phone: number}
+    }, function(err, resp, body){
+      if (err) process.stdout.write(err);
+      if (resp.statusCode != 200) {
+        process.stdout.write("\n" + resp.statusCode + " - " + body + "\n");
+      }
+      process.stdout.write('.')
+      
+      setTimeout(next, 1000);
+    })
+  }
+  funcs.push(func);
+})
+
+async.series(funcs, function(err, rslt){
+  if (err) process.stdout.write(err);
+})

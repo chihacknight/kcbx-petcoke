@@ -1,6 +1,7 @@
 var cwd = process.cwd();
 require(cwd + "/lib/env");
 
+var async = require('async');
 var constants = require(cwd + "/lib/constants");
 var smsSubscriber = require(cwd + "/services/smsSubscriber");
 var	twilio = require('twilio');
@@ -45,16 +46,32 @@ module.exports = {
 		return handler(req, cb);
 	},
 
-	sendWindAlert: function(windSpeed, subscriberNumber, callback) {
-		var message = [
-			'Wind Alert!',
-			'The Chicago Dept. of Public Health recommends you limit',
-			'outdoor activities to reduce petcoke exposure.',
-			'More info at ' + constants.TAKE_ACTION_URL + '.'
-		].join(' ');
 
+	/**
+	 * Sends a message to all subscribers
+	 */
+	broadcast: function(message, callback) {
+		var that = this;
+
+		smsSubscriber.getSubscribers(function(err, subscribers){
+			if (err) return callback(err);
+
+			var numbers = _.pluck(subscribers, 'phone')
+			var funcs = [];
+			_.each(numbers, function(number){
+				var func = function(next){
+					that.sendMessage(number, message, next);
+				};
+				funcs.push(func);
+			});
+
+			async.parallel(funcs, callback);
+		})
+	},
+
+	sendMessage: function(number, message, callback) {
 		twilioClient.sendMessage({
-			to: subscriberNumber,
+			to: number,
 			from: process.env.TWILIO_FROM_NUMBER,
 			body: message
 		}, callback);

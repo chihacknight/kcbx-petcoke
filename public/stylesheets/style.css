@@ -33,10 +33,8 @@ blockquote {
 
 .prominent {
 	font-size: x-large;
-	text-align: center;
 	color: #444;
 }
-
 
 body {
 	padding-top: 1em;
@@ -150,5 +148,14 @@ body.subscribe form.sms-signup .status.error {
 #footer {
 	text-align: center;
 	font-size: small;
-	padding-bottom: 1em;
+}
+
+.footer-nav {
+	margin: auto;
+	margin-bottom: 30px;
+}
+
+.footer-nav td {
+	padding-left: 15px;
+	padding-right: 15px;
 }
