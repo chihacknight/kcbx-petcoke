@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-var env = require('lib/env');
-var notifications = require('services/notifications');
+var cwd = process.cwd();
+var env = require(cwd + '/lib/env');
+var notifications = require(cwd + '/services/notifications');
 var readline = require('readline');
 
 var message = process.argv[2];
