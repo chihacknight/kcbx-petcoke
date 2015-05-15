@@ -17,7 +17,8 @@ var express = require('express')
 i18n.init({
 	saveMissing: true,
 	debug: true,
-	lng: 'en-US'
+	lng: 'en-US',
+    ignoreRoutes: ['images/', 'public/', 'css/', 'js/']
 });
 
 var staticRoutes     = require('./routes/index');
@@ -30,11 +31,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 hbsHelpers.register(hbs);
-Handlebars.registerHelper('t', function(i18n_key) {
-	var result = i18n.t(i18n_key);
-
-	return new Handlebars.SafeString(result);
-})
+i18n.registerAppHelper(app);
 
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.png'));
