@@ -1,9 +1,46 @@
 {
   "app": {
-    "name": "i18next"
+    "name": "KCBX Terminals"
   },
-  "creator": {
-    "firstname": "Jan",
-    "lastname": "Mühlemann"
-  }
+	"head": {
+	    "title": "KCBX Wind Conditions"
+	},
+	"footer": {
+		"well": "A project of the Southeast Side Coalition to Ban Petcoke and the",
+		"email": "For questions or press inquiries, email",
+		"github": "Pull Requests Welcome"
+	},
+	"footer-nav": {
+		"home": "Home",
+		"subscribe": "Subscribe to air quality alerts",
+		"take-action": "Take action",
+		"unsubscribe": "Unsubscribe"
+	},
+	"index": {
+		"hero": "Current Wind Conditions",
+		"subtitle": "at",
+		"wind-data": {
+			"speed": "Speed",
+			"from": "Blowing from  the",
+			"time-taken": "Reading taken at",
+			"using": "using"
+		},
+		"get_notifications": "Get Notifications"
+	},
+	"subscribe": {
+		"btn": "Back",
+		"page-title": "Get Air Quality Alerts",
+		"form": "Enter your cell phone number to receive text messages when winds exceed 15 miles per hour in the vicinity of KCBX Terminals.",
+		"input": {
+			"placeholder": "Your phone number",
+			"valid": "Phone number is required",
+			"valid-format": "Please provide a valid 10-digit US phone number"
+		},
+		"about": {
+			"title": "What is this?"
+		},
+		"act": {
+			"title": "What can I do?"
+		}
+	}
 }

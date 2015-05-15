@@ -12,7 +12,8 @@ module.exports = function(grunt) {
         options: {
           ignore: ['node_modules', 'bin'],
           noRestartOn: "error",
-          debug: true
+          debug: true,
+          extensions: ['node', 'js', 'json']
         }
       }
     },

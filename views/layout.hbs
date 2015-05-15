@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>KCBX Wind Conditions</title>
+    <title>{{ t "head.title" }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bower_components/fontawesome/css/font-awesome.min.css">
@@ -17,12 +17,10 @@
 	  <!-- set language toggle -->
 	  <div class="row">
 	    <ul class="nav nav-pills pull-right">
-		  <li role="presentation"><a href="/?setLng=en-US">English</a></li>
-		  <li role="presentation"><a href="/?setLng=es-US">Spanish</a></li>
+		  <li role="presentation"><a href="?setLng=en-US">English</a></li>
+		  <li role="presentation"><a href="?setLng=es-US">Español</a></li>
 	    </ul>
 	  </div>
-
-
 
       {{{body}}}
 
@@ -31,19 +29,19 @@
 
         <div class="well">
           <p>
-            A project of the Southeast Side Coalition to Ban Petcoke and the
-            <a target="_blank" href='http://opengovehacknight.org'>
-              Open Government Hack Night
-            </a>.
+            {{ t "footer.well" }}
+            <a target="_blank" href='http://opengovehacknight.org'>Open Government Hack Night</a>.
+
+
           </p>
 
           <p>
-            For questions or press inquiries, email <a href='mailto:obautista58@gmail.com?subject=petcokealerts.org'>Olga Bautista</a>.
+            {{ t "footer.email" }} <a href='mailto:obautista58@gmail.com?subject=petcokealerts.org'>Olga Bautista</a>.
           </p>
 
           <p>
             <a href='https://github.com/open-city/kcbx-petcoke' target="_blank">
-              <span class="fa fa-github"></span> Pull Requests Welcome
+              <span class="fa fa-github"></span> {{ t "footer.github" }}
             </a>
           </p>
 
@@ -53,10 +51,10 @@
 
           <tr>
 
-            <td><a href="/">Home</a></td>
-            <td><a href="/subscribe">Subscribe to air quality alerts</a></td>
-            <td><a href="/take-action">Take action</a></td>
-            <td><a href="/subscribe#unsubscribe">Unsubscribe</a></td>
+            <td><a href="/">{{ t "footer-nav.home" }}</a></td>
+            <td><a href="/subscribe">{{ t "footer-nav.subscribe" }}</a></td>
+            <td><a href="/take-action">{{ t "footer-nav.take-action" }}</a></td>
+            <td><a href="/subscribe#unsubscribe">{{ t "footer-nav.unsubscribe" }}</a></td>
 
           </tr>
 

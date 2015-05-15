@@ -1,0 +1,46 @@
+{
+    "app": {
+        "name": "Terminales de KCBX"
+    },
+    "head": {
+        "title": "Condiciones de Vientos de KCBX"
+    },
+    "footer": {
+        "well": "Un proyecto de La Coalici\u00f3n Sureste Para Prohibir el Petcoke, y el",
+		"email": "Para preguntas o investigación de prensa, deben contactar por correo electronico:",
+		"github": "Los Pull Requests (contribuciones t\u00e9cnicas) Son Bienvenidos"
+    },
+	"footer-nav": {
+		"home": "Inicio",
+		"subscribe": "Suscribir para alertas de calidad de aire",
+		"take-action": "Tomar acción",
+		"unsubscribe": "Desapuntarse"
+	},
+    "index": {
+        "hero": "Condici\u00f3nes Actuales de Vientos",
+        "subtitle": "en",
+        "wind-data": {
+            "speed": "Velocidad",
+			"from": "Vientos  del",
+			"time-taken": "Hora de indicaci\u00f3n:",
+			"using": " - usando el servicio"
+        },
+		"get_notifications": "Obtenga Notificaciones"
+    },
+	"subscribe": {
+		"btn": "Regresar",
+		"page-title": "Obtenga Alertas De Calidad Del Aire",
+		"form": "Ingresa su numero de tel\u00e9fono para recibir mensajes de texto cuando el viento excede los 15 millas por hora in el vecindario de 'KCBX Terminals'.",
+		"input": {
+			"placeholder": "Su n\u00famero de tel\u00e9fono",
+			"valid": "Se requiere un numero de teléfono",
+			"valid-format": "Favor de usar un numero valido de los Estados Unidos y de 10 digitos"
+		},
+		"about": {
+			"title": "¿Que es esto?"
+		},
+		"act": {
+			"title": "¿Que puedo hacer?"
+		}
+	}
+}
