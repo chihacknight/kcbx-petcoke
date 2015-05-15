@@ -17,15 +17,16 @@
 		"unsubscribe": "Desapuntarse"
 	},
     "index": {
-        "hero": "Condici\u00f3nes Actuales de Vientos",
-        "subtitle": "en",
+        "hero": "Riesgo de Exposición a Petcoke",
+        "subtitle": "cerca de",
         "wind-data": {
             "speed": "Velocidad",
 			"from": "Vientos  del",
 			"time-taken": "Hora de indicaci\u00f3n:",
-			"using": " - usando el servicio"
+			"using": "un servicio de"
         },
-		"get_notifications": "Obtenga Notificaciones"
+		"get_alerts": "Obtenga Notificaciones Sobre Calidad Del Aire",
+		"take_action": "Tomar Acción"
     },
 	"subscribe": {
 		"btn": "Regresar",

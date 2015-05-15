@@ -17,15 +17,16 @@
 		"unsubscribe": "Unsubscribe"
 	},
 	"index": {
-		"hero": "Current Wind Conditions",
-		"subtitle": "at",
+		"hero": "Petcoke Exposure Risk",
+		"subtitle": "near",
 		"wind-data": {
-			"speed": "Speed",
-			"from": "Blowing from  the",
-			"time-taken": "Reading taken at",
-			"using": "using"
+			"speed": "Wind Speed",
+			"from": "Out of the",
+			"time-taken": "Forecast generated at",
+			"using": "by"
 		},
-		"get_notifications": "Get Notifications"
+		"get_alerts": "Get Air Quality Alerts",
+		"take_action": "Take Action"
 	},
 	"subscribe": {
 		"btn": "Back",
