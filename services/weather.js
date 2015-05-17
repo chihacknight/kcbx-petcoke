@@ -20,7 +20,7 @@ module.exports = {
     var cacheKey = "weather.forecast:" + lat + "," + lng
     cache.get(cacheKey, function(mcErr, fc){
       if (mcErr) console.error(mcErr);
-      
+
       if (fc)  {
         cache.close();
         return callback(null, JSON.parse(fc));
