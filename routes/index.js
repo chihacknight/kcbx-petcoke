@@ -11,9 +11,7 @@ router.get('/', function(req, res) {
   var statusTerm = constants.WIND_STATUS_TERMS[req.wind.status]
 
   res.render('index', {
-  	bodyClass: "home wind-level-" + req.wind.status.level,
-  	wind: req.wind,
-  	status: statusTerm,
+  	bodyClass: "home",
     location: req.location
   });
 });

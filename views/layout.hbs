@@ -9,9 +9,11 @@
 
     <script src='/bower_components/jquery/dist/jquery.min.js'></script>
     <script src='/bower_components/parsleyjs/dist/parsley.min.js'></script>
+    <script src='/bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
     <script src='/js/js.js'></script>
   </head>
-  <body class="{{bodyClass}}">
+  <body class="{{ bodyClass }} {{ windLevel }}">
+    {{> header }}
     <div class="container">
 
       {{{body}}}
