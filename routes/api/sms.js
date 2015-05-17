@@ -14,6 +14,9 @@ var notifications = require(cwd + '/services/notifications');
 router.post('/', function(req, res){
 
   notifications.handleIncomingSms(req, function(err, twiml){
+    if (!twiml) {
+      return;
+    }
     res.set('Content-Type', 'text/xml');
     res.send( twiml.toString() );
   });
