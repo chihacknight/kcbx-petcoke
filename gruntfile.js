@@ -22,7 +22,8 @@ module.exports = function(grunt) {
     mochaTest: {
       files: ['test/unit/**/*.js'],
       options: {
-        require: 'test/bootstrap.js'
+        require: 'test/bootstrap.js',
+        timeout: 30000
       }
     }
   })

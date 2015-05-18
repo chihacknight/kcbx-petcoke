@@ -61,16 +61,24 @@ module.exports = {
 		smsSubscriber.getSubscribers(function(err, subscribers){
 			if (err) return callback(err);
 
-			var numbers = _.pluck(subscribers, 'phone')
+			var numbers = _.compact(_.pluck(subscribers, 'phone'));
 			var funcs = [];
 			_.each(numbers, function(number){
 				var func = function(next){
-					that.sendMessage(number, message, next);
+					process.stdout.write(".")
+					that.sendMessage(number, message, function(err, sent){
+						if (err) console.error(err);
+						next(err, sent);
+					});
 				};
 				funcs.push(func);
 			});
 
-			async.parallel(funcs, callback);
+			// console.log(funcs);
+			async.parallelLimit(funcs, 20, function(err, rslt){
+				if (err) throw err;
+				callback(err, rslt);
+			});
 		})
 	},
 
