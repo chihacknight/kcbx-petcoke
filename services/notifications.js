@@ -65,7 +65,7 @@ module.exports = {
 				funcs.push(func);
 			});
 
-			async.series(funcs, callback);
+			async.parallelLimit(funcs, 20, callback);
 		})
 	},
 
