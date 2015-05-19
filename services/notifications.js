@@ -74,11 +74,8 @@ module.exports = {
 				funcs.push(func);
 			});
 
-			// console.log(funcs);
-			async.parallelLimit(funcs, 20, function(err, rslt){
-				if (err) throw err;
-				callback(err, rslt);
-			});
+			async.parallelLimit(funcs, 20, callback);
+
 		})
 	},
 
