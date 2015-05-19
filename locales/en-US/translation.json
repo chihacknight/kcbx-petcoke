@@ -52,5 +52,11 @@
             "title": "How can I unsubscribe?",
             "body": "To stop receiving SMS alerts, text \"Unsubscribe\" to 312-313-3200. You will receive a response text confirming that you have canceled your subscription."
         }
+    },
+    "take-action": {
+        "btn": "Home",
+        "define": {
+            "title": "What is petcoke?"
+        }
     }
 }
