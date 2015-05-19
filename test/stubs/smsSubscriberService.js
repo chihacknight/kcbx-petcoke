@@ -27,7 +27,7 @@ module.exports = {
         createdAt: '2015-04-23 20:08:45'
       },{
         rowid: 1007,
-        phone: '3125555552',
+        phone: '5005550001', // twilio magic number: invalid
         createdAt: '2015-04-22 20:08:45'
       },{
         rowid: 1008,

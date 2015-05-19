@@ -11,6 +11,10 @@ var weatherService = require(cwd + '/services/weather');
 var weatherServiceStubs = require(cwd + '/test/stubs/weatherService');
 var notificationsService = require(cwd + '/services/notifications');
 
+var sixAM = moment().day(-6).startOf('day').hour(06).valueOf();
+var tenAM = moment().day(-6).startOf('day').hour(10).valueOf();
+var tenPM = moment().day(-6).startOf('day').hour(22).valueOf();
+
 // since the poll script is not a module, we need to
 // eval() its contents in order to run it for each test.
 var pollScript = fs.readFileSync(cwd + '/bin/poll') // get contents
@@ -24,19 +28,21 @@ var pollScript = fs.readFileSync(cwd + '/bin/poll') // get contents
 
 describe('bin/poll script', function(){
 
-  var spyBroadcast;
+  var clock;
 
   beforeEach(function(done){
-    spyBroadcast = sinon.spy(notificationsService, 'broadcast');
+    sinon.spy(notificationsService, 'broadcast');
+    sinon.spy(notificationsService, 'sendMessage');
+    clock = sinon.useFakeTimers(tenAM);
     sinon.stub(subscriberService, 'getSubscribers', subscriberStubs.getSubscribers)
-    sinon.stub(moment, 'hour', function(){ return 10; })
     cache.flush(done);
   })
 
   afterEach(function(done){
-    spyBroadcast.restore();
+    notificationsService.broadcast.restore();
+    notificationsService.sendMessage.restore();
+    clock.restore();
     subscriberService.getSubscribers.restore();
-    moment.hour.restore();
     done();
   })
 
@@ -47,7 +53,9 @@ describe('bin/poll script', function(){
 
     evt.once("pollFinished", function(){
       weatherService.getForecast.callCount.should.eql(1);
-      spyBroadcast.callCount.should.eql(1);
+      notificationsService.broadcast.callCount.should.eql(1);
+      notificationsService.sendMessage.callCount.should.eql(33);
+
       weatherService.getForecast.restore();
       done();
     })
@@ -62,7 +70,7 @@ describe('bin/poll script', function(){
 
     evt.once("pollFinished", function(){
       weatherService.getForecast.callCount.should.eql(1);
-      spyBroadcast.callCount.should.eql(0);
+      notificationsService.broadcast.callCount.should.eql(0);
       weatherService.getForecast.restore();
       done();
     })
@@ -78,7 +86,7 @@ describe('bin/poll script', function(){
 
       evt.once("pollFinished", function(){
         weatherService.getForecast.callCount.should.eql(1);
-        spyBroadcast.callCount.should.eql(1);
+        notificationsService.broadcast.callCount.should.eql(1);
         weatherService.getForecast.restore();
         cache.get("notifications.last_wind_notice_sent", function(err, lastSent){
           var diff = moment.duration( moment(lastSent.toString()).diff(moment()) );
@@ -99,7 +107,7 @@ describe('bin/poll script', function(){
 
       evt.once("pollFinished", function(){
         weatherService.getForecast.callCount.should.eql(1);
-        spyBroadcast.callCount.should.eql(0);
+        notificationsService.broadcast.callCount.should.eql(0);
         weatherService.getForecast.restore();
         done();
       })
@@ -108,5 +116,32 @@ describe('bin/poll script', function(){
     })
   })
 
+  it('should not send notifications before 8am', function(done){
+    clock.restore();
+    clock = sinon.useFakeTimers(sixAM);
+
+    sinon.stub(weatherService, 'getForecast', weatherServiceStubs.getForecast.aboveThreshold);
+    evt.once("pollFinished", function(){
+      weatherService.getForecast.callCount.should.eql(1);
+      notificationsService.broadcast.callCount.should.eql(0);
+      weatherService.getForecast.restore();
+      done();
+    })
+    eval(pollScript);
+  })
+
+  it('should not send notifications after 9pm', function(done){
+    clock.restore();
+    clock = sinon.useFakeTimers(tenPM);
+
+    sinon.stub(weatherService, 'getForecast', weatherServiceStubs.getForecast.aboveThreshold);
+    evt.once("pollFinished", function(){
+      weatherService.getForecast.callCount.should.eql(1);
+      notificationsService.broadcast.callCount.should.eql(0);
+      weatherService.getForecast.restore();
+      done();
+    })
+    eval(pollScript);
+  })
 
 })

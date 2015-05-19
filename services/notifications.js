@@ -62,20 +62,20 @@ module.exports = {
 			if (err) return callback(err);
 
 			var numbers = _.compact(_.pluck(subscribers, 'phone'));
-			var funcs = [];
+			var qu = async.queue(function(number, next){
+				process.stdout.write('.');
+				that.sendMessage(number, message, next);
+			}, 20);
+
 			_.each(numbers, function(number){
-				var func = function(next){
-					process.stdout.write(".")
-					that.sendMessage(number, message, function(err, sent){
-						if (err) console.error(err);
-						next(err, sent);
-					});
-				};
-				funcs.push(func);
+				qu.push(number);
 			});
 
-			async.parallelLimit(funcs, 20, callback);
+			qu.drain = function(){
+				callback();
+			};
 
+			qu.process();
 		})
 	},
 

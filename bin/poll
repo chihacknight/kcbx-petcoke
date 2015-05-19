@@ -72,9 +72,9 @@ weather.getForecast(qryLat, qryLng, function(fcErr, fc) {
       return checkLastSent(callback);
 
     // if it's before 8am or after 9pm, return false
-    // var hour = moment().hour();
-    // if (hour < 8 || hour > 20)
-    //   return callback(null, false);
+    var hour = moment().hour();
+    if (hour < 8 || hour > 20)
+      return callback(null, false);
 
     // if forecast demands it, return true (via lastSent check)
     if (fc && fc.currently.wind_speed >= hazardous.threshold)
