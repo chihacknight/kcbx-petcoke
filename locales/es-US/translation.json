@@ -46,7 +46,7 @@
         "act": {
             "title": "\u00bfQu\u00e9 puedo hacer?",
             "body-strong": "Llame a la oficina del alcalde y exija: \"ZERO THROUGHPUT\" (cero rendimiento\/producci\u00f3n) en los terminales de KCBX.",
-            "body-main": "Cada mensaje de texto contiene un enlace a una pagina-web, con el numero de tel\u00e9fono y correo electrónico para la oficina del alcalde, y tambien unas instrucciónes que puede leer para exigir a \"KCBX\" que pare de contaminar nuestros hogares y vecindarios. Nosotros le urgimos que llame CADA VEZ que recibe un mensaje de texto, con el fin de crear conciencia, en lo que el alcalde no puede ignorar."
+            "body-main": "Cada mensaje de texto contiene un enlace a una pagina-web, con el numero de tel\u00e9fono y correo electr\u00f3nico para la oficina del alcalde, y tambien unas instrucci\u00f3nes que puede leer para exigir a \"KCBX\" que pare de contaminar nuestros hogares y vecindarios. Nosotros le urgimos que llame CADA VEZ que recibe un mensaje de texto, con el fin de crear conciencia, en lo que el alcalde no puede ignorar."
         },
         "off-list": {
             "title": "\u00bfC\u00f3mo puedo cancelar la suscripci\u00f3n de texto?",
@@ -56,7 +56,15 @@
     "take-action": {
         "btn": "Inicio",
         "define": {
-            "title": "\u00bfQu\u00e9 es \"petcoke\"?"
+            "title": "\u00bfQu\u00e9 es \"petcoke\"?",
+            "body": "Petcoke es un polvo fino y negro que se produce de carb\u00f3n y es un producto de el procesimiento de petr\u00f3lio. Cuando el viento esta mayor de 15 millas por hora, las particulas finas de petcoke puende se transmitido por aire, causando da\u00f1o a su corazon y pulm\u00f3nes. Los Terminales de KCBX se encargan de varios acumulaciones de \"petcoke\" en el suroeste de Chicago .",
+            "more": "Descubre mas a continuaci\u00f3n."
+        },
+        "demand": {
+            "title": "\u00bfQu\u00e9 puedo hacer?",
+            "prominent": "Exijir",
+            "prominent-strong": "Acci\u00f3n",
+            "prominent-end": "del alcalde Emanuel!"
         }
     }
 }

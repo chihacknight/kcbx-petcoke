@@ -56,7 +56,15 @@
     "take-action": {
         "btn": "Home",
         "define": {
-            "title": "What is petcoke?"
+            "title": "What is petcoke?",
+            "body": "Petcoke is a fine black carbon-based product of petroleum processing. When the wind is above 15 miles per hour, fine petcoke particles can become airborne, causing damage to your heart and lungs. KCBX Terminals maintains several large open-air stockpiles of petcoke on the far Southeast side of Chicago.",
+            "more": "Learn more below."
+        },
+        "demand": {
+            "title": "What can I do?",
+            "prominent": "Demand",
+            "prominent-strong": "action",
+            "prominent-end": "from mayor Emanuel!"
         }
     }
 }
