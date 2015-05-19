@@ -7,41 +7,50 @@
     },
     "footer": {
         "well": "Un proyecto de La Coalici\u00f3n Sureste Para Prohibir el Petcoke, y el",
-		"email": "Para preguntas o investigación de prensa, deben contactar por correo electronico:",
-		"github": "Los Pull Requests (contribuciones t\u00e9cnicas) Son Bienvenidos"
+        "email": "Para preguntas o investigaci\u00f3n de prensa, deben contactar por correo electronico:",
+        "github": "Los Pull Requests (contribuciones t\u00e9cnicas) Son Bienvenidos"
     },
-	"footer-nav": {
-		"home": "Inicio",
-		"subscribe": "Suscribir para alertas de calidad de aire",
-		"take-action": "Tomar acción",
-		"unsubscribe": "Desapuntarse"
-	},
+    "footer-nav": {
+        "home": "Inicio",
+        "subscribe": "Suscribir para alertas de calidad de aire",
+        "take-action": "Tomar acci\u00f3n",
+        "unsubscribe": "Desapuntarse"
+    },
     "index": {
-        "hero": "Riesgo de Exposición a Petcoke",
+        "hero": "Riesgo de Exposici\u00f3n a Petcoke",
         "subtitle": "cerca de",
         "wind-data": {
             "speed": "Velocidad",
-			"from": "Vientos  del",
-			"time-taken": "Hora de indicaci\u00f3n:",
-			"using": "un servicio de"
+            "from": "Vientos  del",
+            "time-taken": "Hora de indicaci\u00f3n:",
+            "using": "- un servicio de"
         },
-		"get_alerts": "Obtenga Notificaciones Sobre Calidad Del Aire",
-		"take_action": "Tomar Acción"
+        "get_alerts": "Obtenga Notificaciones Sobre Calidad Del Aire",
+        "take_action": "Tomar Acci\u00f3n"
     },
-	"subscribe": {
-		"btn": "Regresar",
-		"page-title": "Obtenga Alertas De Calidad Del Aire",
-		"form": "Ingresa su numero de tel\u00e9fono para recibir mensajes de texto cuando el viento excede los 15 millas por hora in el vecindario de 'KCBX Terminals'.",
-		"input": {
-			"placeholder": "Su n\u00famero de tel\u00e9fono",
-			"valid": "Se requiere un numero de teléfono",
-			"valid-format": "Favor de usar un numero valido de los Estados Unidos y de 10 digitos"
-		},
-		"about": {
-			"title": "¿Que es esto?"
-		},
-		"act": {
-			"title": "¿Que puedo hacer?"
-		}
-	}
+    "subscribe": {
+        "btn": "Regresar",
+        "page-title": "Obtenga Alertas De Calidad Del Aire",
+        "form": "Ingresa su numero de tel\u00e9fono para recibir mensajes de texto cuando el viento excede los 15 millas por hora in el vecindario de 'KCBX Terminals'.",
+        "input": {
+            "placeholder": "Su n\u00famero de tel\u00e9fono",
+            "valid": "Se requiere un numero de tel\u00e9fono",
+            "valid-format": "Favor de usar un numero valido de los Estados Unidos y de 10 digitos",
+            "valid-info": "Use su n\u00famero de tel\u00e9fono o envie un mensaje texto \"Suscribir\" al 312-313-3200",
+            "submit": "Enviar"
+        },
+        "about": {
+            "title": "\u00bfQu\u00e9 es esto?",
+            "body": "Este es un systema de alerta de texto para informar residentes en el vecindario de los Terminales de KCBX cuando los vientos estan fuertes, y cuando sube el indice de riesgo al contacto a coke-petrolio (\"petcoke\"). Si pone su numero de tel\u00e9fono (en la parte superior de esta p\u00e1gina), le avisamos el momento que los vientos excede las 15 millas por hora, el nivel considerado peligroso segun el Departamento de Salud de la Cuidad de Chicago. Estudios de largo plazo de La Universidad de Harvard y La Sociedad Americana del C\u00e1ncer concluyen que exposici\u00f3n prolongado material particulado come el \"petcoke\" aumenta el riesgo de enfermedades del coraz\u00f3n y ademas puede aumentar el riesgo de c\u00e1ncer del pulm\u00f3n. "
+        },
+        "act": {
+            "title": "\u00bfQu\u00e9 puedo hacer?",
+            "body-strong": "Llame la oficina del alcalde y exige: \"ZERO THROUGHPUT\" (cero rendimiento\/producci\u00f3n) en los terminales de KCBX.",
+            "body-main": "Cada mensaje de texto contiene un enlace a una pagina-web, con el numero de tel\u00e9fono y correo electronico para la oficina del alcalde, y tambien una escritura que puede leer para exigir a \"KCBX\" que pare de contaminar nuestros hogares y vecindarios. Nosotros le urgimos que llame CADA VEZ que recibe un mensaje de texto, para el fin de crear un clamor en contra que el alcalde no puede ignorar."
+        },
+        "off-list": {
+            "title": "\u00bfC\u00f3mo puedo cancelar la suscripci\u00f3n de texto?",
+            "body": "Para descontinuar los alertas de SMS (mensajes de texto), envie \"Desapuntar\" en un mensaje de text al 312-313-3200. Va recibir una respuesta de texto que confirma su cancelaci\u00f3n de suscripci\u00f3n."
+        }
+    }
 }

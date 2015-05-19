@@ -1,47 +1,56 @@
 {
-  "app": {
-    "name": "KCBX Terminals"
-  },
-	"head": {
-	    "title": "KCBX Wind Conditions"
-	},
-	"footer": {
-		"well": "A project of the Southeast Side Coalition to Ban Petcoke and the",
-		"email": "For questions or press inquiries, email",
-		"github": "Pull Requests Welcome"
-	},
-	"footer-nav": {
-		"home": "Home",
-		"subscribe": "Subscribe to air quality alerts",
-		"take-action": "Take action",
-		"unsubscribe": "Unsubscribe"
-	},
-	"index": {
-		"hero": "Petcoke Exposure Risk",
-		"subtitle": "near",
-		"wind-data": {
-			"speed": "Wind Speed",
-			"from": "Out of the",
-			"time-taken": "Forecast generated at",
-			"using": "by"
-		},
-		"get_alerts": "Get Air Quality Alerts",
-		"take_action": "Take Action"
-	},
-	"subscribe": {
-		"btn": "Back",
-		"page-title": "Get Air Quality Alerts",
-		"form": "Enter your cell phone number to receive text messages when winds exceed 15 miles per hour in the vicinity of KCBX Terminals.",
-		"input": {
-			"placeholder": "Your phone number",
-			"valid": "Phone number is required",
-			"valid-format": "Please provide a valid 10-digit US phone number"
-		},
-		"about": {
-			"title": "What is this?"
-		},
-		"act": {
-			"title": "What can I do?"
-		}
-	}
+    "app": {
+        "name": "KCBX Terminals"
+    },
+    "head": {
+        "title": "KCBX Wind Conditions"
+    },
+    "footer": {
+        "well": "A project of the Southeast Side Coalition to Ban Petcoke and the",
+        "email": "For questions or press inquiries, email",
+        "github": "Pull Requests Welcome"
+    },
+    "footer-nav": {
+        "home": "Home",
+        "subscribe": "Subscribe to air quality alerts",
+        "take-action": "Take action",
+        "unsubscribe": "Unsubscribe"
+    },
+    "index": {
+        "hero": "Petcoke Exposure Risk",
+        "subtitle": "near",
+        "wind-data": {
+            "speed": "Wind Speed",
+            "from": "Out of the",
+            "time-taken": "Forecast generated at",
+            "using": "by"
+        },
+        "get_alerts": "Get Air Quality Alerts",
+        "take_action": "Take Action"
+    },
+    "subscribe": {
+        "btn": "Back",
+        "page-title": "Get Air Quality Alerts",
+        "form": "Enter your cell phone number to receive text messages when winds exceed 15 miles per hour in the vicinity of KCBX Terminals.",
+        "input": {
+            "placeholder": "Your phone number",
+            "valid": "Phone number is required",
+            "valid-format": "Please provide a valid 10-digit US phone number",
+            "valid-info": "Enter your phone number above or text \"Subscribe\" to 312-313-3200",
+            "submit": "Submit"
+        },
+        "about": {
+            "title": "What is this?",
+            "body": "This is a text message alert system to inform residents around KCBX Terminals that windspeed is high, and that they are therefore at increased risk of exposure to petroleum coke (\"petcoke\"). If you enter your phone number above, we will alert you when winds exceed 15 mph, the level deemed hazardous by the Chicago Department of Public Health. Longterm studies by Harvard University and the American Cancer Society have concluded that prolonged exposure to particulate matter such as petcoke increases the risk of heart disease and may increase the risk of lung cancer. "
+        },
+        "act": {
+            "title": "What can I do?",
+            "body-strong": "Call the Mayor's office and demand ZERO THROUGHPUT for KCBX terminals.",
+            "body-main": "Each text message will contain a link to a webpage containing a phone number and email address for the Mayor's office, as well as a script that you can read from to demand that KCBX stops polluting our homes and neighborhoods. We urge you to call EVERY TIME you receive a text, in order to create a public outcry that the Mayor can't ignore."
+        },
+        "off-list": {
+            "title": "How can I unsubscribe?",
+            "body": "To stop receiving SMS alerts, text \"Unsubscribe\" to 312-313-3200. You will receive a response text confirming that you have canceled your subscription."
+        }
+    }
 }
