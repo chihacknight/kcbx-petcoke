@@ -72,11 +72,16 @@
         },
         "script": {
             "title": "Here's a script if you're not sure what to say:",
-            "body": "I'm calling to demand that the Department of Planning and Development recommend a petcoke throughput limit of ZERO for KCBX Terminals.  The American Cancer Society, Harvard University, and the EPA have determined that prolonged exposure to fine airborne dust particles, including petcoke, can lead to heart disease and lung disease, and this hazard must be eliminated from our community."
+            "body": "I'm calling to demand that the Department of Planning and Development recommend a petcoke throughput limit of ZERO for KCBX Terminals.  The American Cancer Society, Harvard University, and the EPA have determined that prolonged exposure to fine airborne dust particles, including petcoke, can lead to heart disease and lung disease, and this hazard must be eliminated from our community.",
+            "body-ps": "Rahm Emanuel and John Pope said that they would \"regulate petcoke out of Chicago\". That strategy is failing. We need our elected officials to protect the people, not the polluters."
         },
         "more-information": {
             "title": "More information about Petcoke",
-            "special": "http://www.epa.gov/airquality/particulatematter/pdfs/pm-color.pdf"
+            "special": "http:\/\/www.epa.gov\/airquality\/particulatematter\/pdfs\/pm-color.pdf",
+            "special-text": "here.",
+            "blockquote": "...The size of particles is directly linked to their potential for causing health problems. Small particles less than 10 micrometers in diameter pose the greatest problems, because they can get deep into your lungs, and some may even get into your bloodstream. Exposure to such particles can affect both your lungs and your heart...",
+            "blockquote-strong": "Long-term exposures",
+            "blockquote-cont": "such as those experienced by people living for many years in areas with high particle levels, have been associated with problems such as reduced lung function and the development of chronic bronchitis&mdash;and even premature death..."
         }
     }
 }
