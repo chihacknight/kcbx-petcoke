@@ -64,7 +64,20 @@
             "title": "\u00bfQu\u00e9 puedo hacer?",
             "prominent": "Exijir",
             "prominent-strong": "Acci\u00f3n",
-            "prominent-end": "del alcalde Emanuel!"
+            "prominent-end": "del alcalde Emanuel!",
+            "prominent-call": "Llame la oficina del alcalde ahora y urge",
+            "prominent-call-strong": "\"ZERO PETCOKE THROUGHPUT\"",
+            "prominent-call-strong-end": "en los Terminales de KCBX",
+            "prominent-number": "LLame al Alcalde: 312-744-3300"
+        },
+        "script": {
+            "title": "Gui\u00f3n del llamado por si acaso no sabe que decir:",
+            "body": "Llamo para exigir que el Departamento de Planificaci\u00f3n y Desarrollo recomienda un l\u00edmite de ZERO a la producci\u00f3n de \"petcoke\", para los terminales de KCBX.  La Sociedad Americana del C\u00e1ncer, La Universidad de Harvard, y la Agencia de Protecci\u00f3n del Medio Ambiente (EPA por sus siglas en ingl\u00e9s han determinado que la exposici\u00f3n part\u00edculas finas en el medio ambiente, incluyendo el \"petcoke\", puede conducir enfermedades del coraz\u00f3n y del los pulm\u00f3nes, y este peligro debe ser eliminado de nuestra comunidad.",
+            "body-ps": "Rahm Emanuel and John Pope han dicho que ellos 'regular\u00edan el \"petcoke\" fuera de Chicago'. Esa estrategia esta fallando. Necesitamos nuestro funcionarios electos protegen el pueblo, no los contaminadores."
+        },
+        "more-information": {
+            "title": "Más información sobre el \"Petcoke\"",
+            "special": "http://www.scdhec.gov/library/CR-009382.pdf"
         }
     }
 }

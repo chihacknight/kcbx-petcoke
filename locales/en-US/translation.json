@@ -64,7 +64,19 @@
             "title": "What can I do?",
             "prominent": "Demand",
             "prominent-strong": "action",
-            "prominent-end": "from mayor Emanuel!"
+            "prominent-end": "from mayor Emanuel!",
+            "prominent-call": "Call the Mayor's office now and demand",
+            "prominent-call-strong": "ZERO PETCOKE THROUGHPUT",
+            "prominent-call-strong-end": "at the KCBX Terminals",
+            "prominent-number": "Call the Mayor: 312-744-3300"
+        },
+        "script": {
+            "title": "Here's a script if you're not sure what to say:",
+            "body": "I'm calling to demand that the Department of Planning and Development recommend a petcoke throughput limit of ZERO for KCBX Terminals.  The American Cancer Society, Harvard University, and the EPA have determined that prolonged exposure to fine airborne dust particles, including petcoke, can lead to heart disease and lung disease, and this hazard must be eliminated from our community."
+        },
+        "more-information": {
+            "title": "More information about Petcoke",
+            "special": "http://www.epa.gov/airquality/particulatematter/pdfs/pm-color.pdf"
         }
     }
 }
