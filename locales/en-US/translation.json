@@ -77,6 +77,8 @@
         },
         "more-information": {
             "title": "More information about Petcoke",
+            "intro": "The following excerpts are from",
+            "intro-em": "Particle Pollution and Your Health",
             "special": "http:\/\/www.epa.gov\/airquality\/particulatematter\/pdfs\/pm-color.pdf",
             "special-text": "here.",
             "blockquote": "...The size of particles is directly linked to their potential for causing health problems. Small particles less than 10 micrometers in diameter pose the greatest problems, because they can get deep into your lungs, and some may even get into your bloodstream. Exposure to such particles can affect both your lungs and your heart...",
