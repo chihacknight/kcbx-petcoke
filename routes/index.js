@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var constants = require('../lib/constants')
-var windspeed = require('../middleware/windspeed')
+var express = require('express'),
+    router = express.Router(),
+    constants = require('../lib/constants'),
+    windspeed = require('../middleware/windspeed');
 
 router.use(windspeed)
 
@@ -25,7 +25,8 @@ router.get('/subscribe', function(req, res){
 
 router.get('/take-action', function(req, res){
   res.render('take-action', {
-    bodyClass: 'take-action'
+    bodyClass: 'take-action',
+    phoneNumber: constants.TAKE_ACTION_PHONE_NUMBER
   })
 })
 
