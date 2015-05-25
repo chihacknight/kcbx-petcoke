@@ -121,6 +121,10 @@ body.home .navbar.navbar-default .current-condition {
 	color: #444;
 }
 
+.prominent a {
+	white-space: nowrap;
+}
+
 
 body.home {
 	text-align: center;
