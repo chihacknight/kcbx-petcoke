@@ -57,7 +57,7 @@
         "btn": "Inicio",
         "define": {
             "title": "\u00bfQu\u00e9 es \"petcoke\"?",
-            "body": "Petcoke es un polvo fino y negro que se produce de carb\u00f3n y es un producto de el procesimiento de petr\u00f3lio. Cuando el viento esta mayor de 15 millas por hora, las particulas finas de petcoke puende se transmitido por aire, causando da\u00f1o a su corazon y pulm\u00f3nes. Los Terminales de KCBX se encargan de varios acumulaciones de \"petcoke\" en el suroeste de Chicago .",
+            "body": "Petcoke es un polvo fino y negro que se produce de carb\u00f3n y es un producto de el procesimiento de petr\u00f3lio. Cuando el viento esta mayor de 15 millas por hora, las particulas finas de petcoke puende se transmitido por aire, causando da\u00f1o a su corazon y pulm\u00f3nes. Los Terminales de KCBX se encargan de varios acumulaciones de \"petcoke\" en el suroeste de Chicago.",
             "more": "Descubre mas a continuaci\u00f3n."
         },
         "demand": {
@@ -73,17 +73,22 @@
         "script": {
             "title": "Gui\u00f3n del llamado por si acaso no sabe que decir:",
             "body": "Llamo para exigir que el Departamento de Planificaci\u00f3n y Desarrollo recomienda un l\u00edmite de ZERO a la producci\u00f3n de \"petcoke\", para los terminales de KCBX.  La Sociedad Americana del C\u00e1ncer, La Universidad de Harvard, y la Agencia de Protecci\u00f3n del Medio Ambiente (EPA por sus siglas en ingl\u00e9s han determinado que la exposici\u00f3n part\u00edculas finas en el medio ambiente, incluyendo el \"petcoke\", puede conducir enfermedades del coraz\u00f3n y del los pulm\u00f3nes, y este peligro debe ser eliminado de nuestra comunidad.",
-            "body-ps": "Rahm Emanuel and John Pope han dicho que ellos 'regular\u00edan el \"petcoke\" fuera de Chicago'. Esa estrategia esta fallando. Necesitamos nuestro funcionarios electos protegen el pueblo, no los contaminadores."
+            "body-ps": "Rahm Emanuel y John Pope han dicho que ellos 'regular\u00edan el \"petcoke\" fuera de Chicago'. Esa estrategia esta fallando. Necesitamos nuestro funcionarios electos protegen el pueblo, no los contaminadores."
         },
         "more-information": {
             "title": "M\u00e1s informaci\u00f3n sobre el \"Petcoke\"",
-            "intro": "Los pasajes siguientes fueron extraído de",
-            "intro-em": "La contaminación por partículas suspendidas y su salud",
+            "intro": "Los pasajes siguientes fueron extra\u00eddo de",
+            "intro-em": "La contaminaci\u00f3n por part\u00edculas suspendidas y su salud",
+            "intro-cont": "un folleto hecho p\u00fablico por la Agencia de Protecci\u00f3n del Medio Ambiente (EPA por sus siglas en ingl\u00e9s). Puede bajar el folleto completo",
             "special": "http:\/\/www.scdhec.gov\/library\/CR-009382.pdf",
             "special-text": "aqu\u00ed.",
             "blockquote": "...El tama\u00f1o de las part\u00edculas se relaciona directamente con la posibilidad de que sean perjudiciales para la salud. Las part\u00edculas peque\u00f1as, las cuales tienen di\u00e1metros inferiores a 10 micr\u00f3metros, presentan los mayores problemas porque pueden penetrar profundamente en los pulmones y algunas pueden penetrar hasta el torrente sangu\u00edneo. La exposici\u00f3n a part\u00edculas tales como \u00e9stas puede afectar tanto los pulmones como el coraz\u00f3n...",
             "blockquote-strong": "Se ha asociado la exposici\u00f3n a largo plazo",
-            "blockquote-cont": "sufrida por personas que viven desde hace muchos a\u00f1os en zonas con altos niveles de part\u00edculas, con problemas tales como funci\u00f3n pulmonar reducida, y el desarrollo de bronquitis cr\u00f3nica \u2013 e incluso con la muerte prematura..."
+            "blockquote-cont": "sufrida por personas que viven desde hace muchos a\u00f1os en zonas con altos niveles de part\u00edculas, con problemas tales como funci\u00f3n pulmonar reducida, y el desarrollo de bronquitis cr\u00f3nica \u2013 e incluso con la muerte prematura...",
+            "study-lead": "Adem\u00e1s, un",
+            "study-a": "estudio de largo plazo de La Universidad de Harvard",
+            "study-b": "sigui\u00f3 los niveles de part\u00edculas en seis ciudades durante 35 a\u00f1os. El estudio encontr\u00f3 que los altos niveles de part\u00edculas peque\u00f1as en el medio ambiente han sido relacionado con el riesgo mayor de mortalidad, (especialmente en la mortalidad cardiovascular and de c\u00e1ncer del pulm\u00f3n). El art\u00edculo concluye",
+            "study-strong": "'...ezfuerzos mas extensos de la pol\u00edtica p\u00fablica que reduzcan la contaminaci\u00f3n de part\u00edculas peque\u00f1as en el medio ambiente probablemente ser\u00e1n beneficiosos en curso a la salud p\u00fablica.'"
         }
     }
 }

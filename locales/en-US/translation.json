@@ -79,11 +79,16 @@
             "title": "More information about Petcoke",
             "intro": "The following excerpts are from",
             "intro-em": "Particle Pollution and Your Health",
+            "intro-cont": "a pamphlet released by the U.S. Environmental Protection Agency.  You can download the whole pamphlet",
             "special": "http:\/\/www.epa.gov\/airquality\/particulatematter\/pdfs\/pm-color.pdf",
             "special-text": "here.",
             "blockquote": "...The size of particles is directly linked to their potential for causing health problems. Small particles less than 10 micrometers in diameter pose the greatest problems, because they can get deep into your lungs, and some may even get into your bloodstream. Exposure to such particles can affect both your lungs and your heart...",
             "blockquote-strong": "Long-term exposures",
-            "blockquote-cont": "such as those experienced by people living for many years in areas with high particle levels, have been associated with problems such as reduced lung function and the development of chronic bronchitis&mdash;and even premature death..."
+            "blockquote-cont": "such as those experienced by people living for many years in areas with high particle levels, have been associated with problems such as reduced lung function and the development of chronic bronchitis&mdash;and even premature death...",
+            "study-lead": "In addition, a",
+            "study-a": "a long term study by Harvard University",
+            "study-b": "followed particulate matter levels in six cities over 35 years. The study found that increased levels of fine particulate matter in the air was associated with increased risk of mortality, especially cardiovascular and lung cancer mortality. The paper concludes",
+            "study-strong": "\"...further public policy efforts that reduce fine particulate matter air pollution are likely to have continuing public health benefits.\""
         }
     }
 }
