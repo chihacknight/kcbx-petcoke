@@ -45,8 +45,8 @@
         },
         "act": {
             "title": "What can I do?",
-            "body-strong": "Call the Mayor's office and demand ZERO THROUGHPUT for KCBX terminals.",
-            "body-main": "Each text message will contain a link to a webpage containing a phone number and email address for the Mayor's office, as well as a script that you can read from to demand that KCBX stops polluting our homes and neighborhoods. We urge you to call EVERY TIME you receive a text, in order to create a public outcry that the Mayor can't ignore."
+            "body-strong": "Call the Mayor's office and demand ZERO THROUGHPUT for ALL TERMINALS at KCBX.",
+            "body-main": "Each text message will contain a link to a webpage containing a phone number for the Mayor's office, as well as a script that you can read from to demand that KCBX stops polluting our homes and neighborhoods. We urge you to call EVERY TIME you receive a text, in order to create a public outcry that the Mayor can't ignore."
         },
         "off-list": {
             "title": "How can I unsubscribe?",
@@ -64,16 +64,17 @@
             "title": "What can I do?",
             "prominent": "Demand",
             "prominent-strong": "action",
-            "prominent-end": "from mayor Emanuel!",
+            "prominent-end": "from Mayor Emanuel!",
             "prominent-call": "Call the Mayor's office now and demand",
             "prominent-call-strong": "ZERO PETCOKE THROUGHPUT",
             "prominent-call-strong-end": "at the KCBX Terminals",
-            "prominent-number": "Call the Mayor: 312-744-3300"
+            "prominent-number": "Call the Mayor:"
         },
         "script": {
-            "title": "Here's a script if you're not sure what to say:",
-            "body": "I'm calling to demand that the Department of Planning and Development recommend a petcoke throughput limit of ZERO for KCBX Terminals.  The American Cancer Society, Harvard University, and the EPA have determined that prolonged exposure to fine airborne dust particles, including petcoke, can lead to heart disease and lung disease, and this hazard must be eliminated from our community.",
-            "body-ps": "Rahm Emanuel and John Pope said that they would \"regulate petcoke out of Chicago\". That strategy is failing. We need our elected officials to protect the people, not the polluters."
+            "title": "What should I say?",
+            "body": "I'm calling to demand that the Department of Planning and Development recommend a petcoke throughput limit of ZERO for ALL TERMINALS at KCBX. The city has recently announced zero throughput at the North terminal, but that terminal was already slated to close in June. We demand a limit of zero on ALL TERMINALS at KCBX.",
+            "body-ps": "The American Cancer Society, Harvard University, and the EPA have determined that prolonged exposure to fine airborne dust particles, including petcoke, can lead to heart disease and lung disease, and this hazard must be eliminated from our community."
+
         },
         "more-information": {
             "title": "More information about Petcoke",

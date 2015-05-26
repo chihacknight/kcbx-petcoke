@@ -16,6 +16,8 @@ module.exports = function(req, res, next){
 			wind.status = windStatus(data.currently.wind_speed)
 
 			req.wind = wind;
+			res.locals.wind = wind;
+			res.locals.windLevel = "wind-level-" + wind.status.level
 			req.location = constants.station_name;
 		}
 		next();

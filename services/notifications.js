@@ -26,7 +26,12 @@ var messageHandlers = {
 
 	// info messages for twilio, no output necessary
 	'help'        : 'noop',
-	'info'        : 'noop'
+	'info'        : 'noop',
+
+	// responses that indicate a bad number.
+	// remove them from the list, but DON'T send a response so as
+	// not to start an auto-reply loop.
+	"this is not a working number" : "incomingSilentUnsubscribe"
 };
 
 module.exports = {
@@ -56,16 +61,21 @@ module.exports = {
 		smsSubscriber.getSubscribers(function(err, subscribers){
 			if (err) return callback(err);
 
-			var numbers = _.pluck(subscribers, 'phone')
-			var funcs = [];
+			var numbers = _.compact(_.pluck(subscribers, 'phone'));
+			var qu = async.queue(function(number, next){
+				process.stdout.write('.');
+				that.sendMessage(number, message, next);
+			}, 20);
+
 			_.each(numbers, function(number){
-				var func = function(next){
-					that.sendMessage(number, message, next);
-				};
-				funcs.push(func);
+				qu.push(number);
 			});
 
-			async.parallel(funcs, callback);
+			qu.drain = function(){
+				callback();
+			};
+
+			qu.process();
 		})
 	},
 
@@ -80,8 +90,7 @@ module.exports = {
 	incomingUnknown: function(req, cb) {
 		var twiml = new twilio.TwimlResponse();
 		var validResponses = _.keys(messageHandlers);
-		validResponses = validResponses.join(', ')
-		twiml.message("We didn't recognize that message. Please respond with one of: " + validResponses);
+		twiml.message("This is an automated service. To unsubscribe, reply with STOP");
 		return cb(null, twiml);
 	},
 
@@ -107,6 +116,12 @@ module.exports = {
 		})
 	},
 
+	incomingSilentUnsubscribe: function(req, cb) {
+		var phone = req.body.From;
+		smsSubscriber.removeSubscriber(phone, function(err){
+			cb(err, null);
+		})
+	},
 
 	noop: function() {}
 };

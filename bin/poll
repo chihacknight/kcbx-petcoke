@@ -6,6 +6,7 @@ require(cwd + "/lib/env");
 var async = require('async');
 var cache = require("memjs").Client.create();
 var constants = require(cwd + "/lib/constants");
+var evt = require(cwd + "/services/events");
 var moment = require('moment');
 var notifications = require(cwd + "/services/notifications");
 var qryLat = constants.station_location.lat;
@@ -15,49 +16,93 @@ var weather = require(cwd + "/services/weather");
 var _ = require('lodash');
 
 weather.getForecast(qryLat, qryLng, function(fcErr, fc) {
-
   if (fcErr)
     return console.error(fcErr);
 
   var hazardous = _.find(constants.WIND_STATUS_TERMS, "term", "Hazardous");
 
-  if (process.env.TEST_POLL_SCRIPT === 'true' // envvars are cast to strings
-  ||  (fc && fc.currently.wind_speed >= hazardous.threshold)) {
+  shouldSendBroadcast(fc, function(err, shouldSend, lastSent){
 
+    if (err) console.error(err)
+
+    if (!shouldSend) {
+      cache.close();
+      evt.emit('pollFinished')
+      if (lastSent) {
+        console.log("Notification already sent at " + lastSent.format());
+      }
+      return;
+    }
+
+
+
+    var message = [
+      'Wind Alert!',
+      'Avoid petcoke exposure by limiting outdoor activity. ',
+      'Learn more and take action at ' + constants.TAKE_ACTION_URL + '.'
+    ].join(' ');
+
+
+    // Setting cache before sending notification.
+    // if script times out or something else unforeseen happens, we don't
+    // want to be sending notifications every 10 minutes because the cache
+    // isn't being set.
+    cache.set("notifications.last_wind_notice_sent", moment().format(), function(){
+
+      notifications.broadcast(message, function(err){
+        evt.emit("pollFinished");
+        cache.close();
+
+        if (err) {
+          return console.error(err);
+        }
+
+      })
+    });
+
+  })
+
+
+
+
+  function shouldSendBroadcast(fc, callback) {
+
+    // if testing, return true (via lastSent check)
+    if (process.env.TEST_POLL_SCRIPT === 'true')
+      return checkLastSent(callback);
+
+    // if it's before 8am or after 9pm, return false
+    var hour = moment().hour();
+    if (hour < 8 || hour > 20)
+      return callback(null, false);
+
+    // if forecast demands it, return true (via lastSent check)
+    if (fc && fc.currently.wind_speed >= hazardous.threshold)
+      return checkLastSent(callback);
+
+    // otherwise...
+    return callback(null, false);
+  }
+
+
+
+  function checkLastSent(callback) {
     cache.get("notifications.last_wind_notice_sent", function(cacheErr, lastSent){
-      if (cacheErr) { console.error(cacheErr); }
+      if (cacheErr) { return callback(cacheErr); }
 
+      var lastSentMoment;
+      var shouldSend = true;
       // Don't send again if sent within threshold defined in constants.js
       if (lastSent) {
         var now = moment();
-        var lastSentMoment = moment(lastSent.toString());
+        lastSentMoment = moment(lastSent.toString());
         var hoursSinceLast = now.diff(lastSentMoment, 'hours');
 
-        if (hoursSinceLast < constants.notification_rate_limit) {
-          cache.close();
-          return console.log("Notification already sent at " + lastSentMoment.format());
-        }
+        shouldSend = (hoursSinceLast >= constants.notification_rate_limit);
       }
-  
-      var message = [
-        'Wind Alert!',
-        'Avoid petcoke exposure by limiting outdoor activity. ',
-        'Learn more and take action at ' + constants.TAKE_ACTION_URL + '.'
-      ].join(' ');
 
-      notifications.broadcast(message, function(err){
-        if (err) {
-          cache.close();
-          return console.error(err);
-        }
-        
-        cache.set("notifications.last_wind_notice_sent", moment().format(), function(){
-          cache.close();
-        })
-      });
-
+      callback(cacheErr, shouldSend, lastSentMoment);
     })
-
   }
 
 });

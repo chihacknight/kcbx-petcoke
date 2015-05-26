@@ -45,8 +45,8 @@
         },
         "act": {
             "title": "\u00bfQu\u00e9 puedo hacer?",
-            "body-strong": "Llame a la oficina del alcalde y exija: \"ZERO THROUGHPUT\" (cero rendimiento\/producci\u00f3n) en los terminales de KCBX.",
-            "body-main": "Cada mensaje de texto contiene un enlace a una pagina-web, con el numero de tel\u00e9fono y correo electr\u00f3nico para la oficina del alcalde, y tambien unas instrucci\u00f3nes que puede leer para exigir a \"KCBX\" que pare de contaminar nuestros hogares y vecindarios. Nosotros le urgimos que llame CADA VEZ que recibe un mensaje de texto, con el fin de crear conciencia, en lo que el alcalde no puede ignorar."
+            "body-strong": "Llame a la oficina del alcalde y exija: \"ZERO THROUGHPUT\" (cero rendimiento\/producci\u00f3n) en TODOS los TERMINALES en KCBX.",
+            "body-main": "Cada mensaje de texto contiene un enlace a una pagina-web, con el numero de tel\u00e9fono para la oficina del alcalde, y tambien unas instrucci\u00f3nes que puede leer para exigir a \"KCBX\" que pare de contaminar nuestros hogares y vecindarios. Nosotros le urgimos que llame CADA VEZ que recibe un mensaje de texto, con el fin de crear conciencia, en lo que el alcalde no puede ignorar."
         },
         "off-list": {
             "title": "\u00bfC\u00f3mo puedo cancelar la suscripci\u00f3n de texto?",
@@ -64,16 +64,17 @@
             "title": "\u00bfQu\u00e9 puedo hacer?",
             "prominent": "Exijir",
             "prominent-strong": "Acci\u00f3n",
-            "prominent-end": "del alcalde Emanuel!",
+            "prominent-end": "de Alcalde Emanuel!",
             "prominent-call": "Llame la oficina del alcalde ahora y urge",
             "prominent-call-strong": "\"ZERO PETCOKE THROUGHPUT\"",
             "prominent-call-strong-end": "en los Terminales de KCBX",
-            "prominent-number": "LLame al Alcalde: 312-744-3300"
+            "prominent-number": "LLame al Alcalde:"
         },
         "script": {
-            "title": "Gui\u00f3n del llamado por si acaso no sabe que decir:",
-            "body": "Llamo para exigir que el Departamento de Planificaci\u00f3n y Desarrollo recomienda un l\u00edmite de ZERO a la producci\u00f3n de \"petcoke\", para los terminales de KCBX.  La Sociedad Americana del C\u00e1ncer, La Universidad de Harvard, y la Agencia de Protecci\u00f3n del Medio Ambiente (EPA por sus siglas en ingl\u00e9s han determinado que la exposici\u00f3n part\u00edculas finas en el medio ambiente, incluyendo el \"petcoke\", puede conducir enfermedades del coraz\u00f3n y del los pulm\u00f3nes, y este peligro debe ser eliminado de nuestra comunidad.",
-            "body-ps": "Rahm Emanuel y John Pope han dicho que ellos 'regular\u00edan el \"petcoke\" fuera de Chicago'. Esa estrategia esta fallando. Necesitamos nuestro funcionarios electos protegen el pueblo, no los contaminadores."
+            "title": "¿Qué debo decir?:",
+            "body": "Llamo para exigir que el Departamento de Planificaci\u00f3n y Desarrollo recomienda un l\u00edmite de ZERO a la producci\u00f3n de \"petcoke\", para los TODOS los TERMINALES en KCBX. La Ciudad recién anunció 'zero throughput' en el terminal del norte, pero ese terminal ya estaba seleccionada a cerrar en junio.  Exigimos un límite de zero en TODOS los TERMINALES en KCBX.",
+            "body-ps": "La Sociedad Americana del C\u00e1ncer, La Universidad de Harvard, y la Agencia de Protecci\u00f3n del Medio Ambiente (EPA por sus siglas en ingl\u00e9s han determinado que la exposici\u00f3n part\u00edculas finas en el medio ambiente, incluyendo el \"petcoke\", puede conducir enfermedades del coraz\u00f3n y del los pulm\u00f3nes, y este peligro debe ser eliminado de nuestra comunidad."
+
         },
         "more-information": {
             "title": "M\u00e1s informaci\u00f3n sobre el \"Petcoke\"",
