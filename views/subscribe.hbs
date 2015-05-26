@@ -1,8 +1,8 @@
-<h1 class='page-title'>Get Air Quality Alerts</h1>
+<h1 class='page-title'>{{ t "subscribe.page-title" }}</h1>
 
 <form class='form sms-signup well' action="/api/subscribers" method="POST" data-parsley-validate>
 
-  <p>Enter your cell phone number to receive text messages when winds exceed 15 miles per hour in the vicinity of KCBX Terminals.</p>
+  <p>{{ t "subscribe.form" }}</p>
 
   <div class="row">
     <div class="col col-xs-8">
@@ -10,30 +10,31 @@
              type="tel"
              name='phone'
              id='phone_input'
-             placeholder='Your phone number'
-             data-parsley-required-message='Phone number is required'
+             placeholder='{{t "subscribe.input.placeholder"}}'
+             data-parsley-required-message='{{ t "subscribe.input.valid" }}'
              required>
     </div>
     <div class="col col-xs-4">
-      <input class='btn btn-primary form-control' type="submit" name='submit' value='Submit'>
+      <input class='btn btn-primary form-control' type="submit" name='submit'
+             value='{{ t "subscribe.input.submit" }}'>
     </div>
   </div>
   <div class="row">
-    <p>Enter your phone number above or text "Subscribe" to 312-313-3200</p>
+    <p>{{ t "subscribe.input.valid-info" }}</p>
     <p class="status">&nbsp;</p>
   </div>
 </form>
 
-<h3>What is this?</h3>
+<h3>{{ t "subscribe.about.title" }}</h3>
 
-<p>This is a text message alert system to inform residents around KCBX Terminals that windspeed is high, and that they are therefore at increased risk of exposure to petroleum coke ("petcoke"). If you enter your phone number above, we will alert you when winds exceed 15 mph, the level deemed hazardous by the Chicago Department of Public Health. Longterm studies by Harvard University and the American Cancer Society have concluded that prolonged exposure to particulate matter such as petcoke increases the risk of heart disease and may increase the risk of lung cancer. </p>
+<p>{{ t "subscribe.about.body" }}</p>
 
-<h3>What can I do?</h3>
+<h3>{{ t "subscribe.act.title" }}</h3>
 
-<p><strong>Call the Mayor's office and demand ZERO THROUGHPUT for ALL TERMINALS at KCBX.</strong> Each text message will contain a link to a webpage containing a phone number for the Mayor's office, as well as a script that you can read from to demand that KCBX stops polluting our homes and neighborhoods. We urge you to call EVERY TIME you receive a text, in order to create a public outcry that the Mayor can't ignore.</p>
+<p><strong>{{ t "subscribe.act.body-strong" }}</strong> {{ t "subscribe.act.body-main" }}</p>
 
-<h3 id="unsubscribe">How can I unsubscribe?</h3>
+<h3 id="unsubscribe">{{ t "subscribe.off-list.title" }}</h3>
 
 <p>
-  To stop receiving SMS alerts, text "Unsubscribe" to 312-313-3200. You will recieve a response text confirming that you have canceled your subscription.
+  {{ t "subscribe.off-list.body" }}
 </p>

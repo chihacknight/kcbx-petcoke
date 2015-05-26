@@ -1,5 +1,5 @@
-<h1 class='hero'>Petcoke Exposure Risk</h1>
-<h2 class='subtitle'>near {{ location }}</h2>
+<h1 class='hero'>{{ t "index.hero"  }}</h1>
+<h2 class='subtitle'>{{ t "index.subtitle" }} {{ location }}</h2>
 
 <div class="row wind-info">
 
@@ -13,14 +13,14 @@
 	</div>
 
 	<div class="wind-data">
-		<p>Wind Speed: {{ formatNumber wind.speed "0,0.0" }} mph</p>
-		<p>Out of the {{degreeToCompass wind.bearing}}</p>
-		<p class='time-taken'>Forecast generated at {{ formatUnixDate wind.timeTaken "h:mm:ss A" }} by
+		<p>{{t "index.wind-data.speed" }}: {{ formatNumber wind.speed "0,0.0" }} mph</p>
+		<p>{{t "index.wind-data.from" }} {{degreeToCompass wind.bearing}}</p>
+		<p class='time-taken'>{{t "index.wind-data.time-taken" }} {{ formatUnixDate wind.timeTaken "h:mm:ss A" }} {{ t "index.wind-data.using"}}
 			<a href='https://developer.forecast.io/' target='_blank'>forecast.io</a>
 		</p>
 	</div>
 
-	<a href='/take-action' class='btn btn-primary action-button'>Take Action</a>&nbsp;
-	<a href='/subscribe' class="btn btn-primary action-button">Get Air Quality Alerts</a>
+	<a href='/take-action' class='btn btn-primary action-button'>{{ t "index.take_action" }}</a>&nbsp;
+	<a href='/subscribe' class="btn btn-primary action-button">{{ t "index.get_alerts" }}</a>
 
 </div>

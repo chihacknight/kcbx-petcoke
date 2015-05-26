@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>KCBX Wind Conditions</title>
+    <title>{{ t "head.title" }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bower_components/fontawesome/css/font-awesome.min.css">
@@ -16,6 +16,7 @@
     {{> header }}
     <div class="container">
 
+
       {{{body}}}
 
       <footer id="footer">
@@ -23,26 +24,24 @@
 
         <div class="well">
           <p>
-            A project of the
+            {{ t "footer.well-a" }}
 
             <a href="https://www.facebook.com/pages/Chicago-South-East-Side-Coalition-To-Ban-Petcoke/848330295223606?fref=ts" target='_blank'>
-              Southeast Side Coalition to Ban Petcoke
+              {{ t "footer.well-b" }}
             </a>
 
-            and the
+            {{ t "footer.well-c" }}
 
-            <a target="_blank" href='http://chihacknight.org'>
-              Chi Hack Night
-            </a>.
+            <a target="_blank" href='http://chihacknight.org'>Chi Hack Night</a>.
           </p>
 
           <p>
-            For questions or press inquiries, email <a href='mailto:obautista58@gmail.com?subject=petcokealerts.org'>Olga Bautista</a>.
+            {{ t "footer.email" }} <a href='mailto:obautista58@gmail.com?subject=petcokealerts.org'>Olga Bautista</a>.
           </p>
 
           <p>
             <a href='https://github.com/open-city/kcbx-petcoke' target="_blank">
-              <span class="fa fa-github"></span> Pull Requests Welcome
+              <span class="fa fa-github"></span> {{ t "footer.github" }}
             </a>
           </p>
 
@@ -52,10 +51,10 @@
 
           <tr>
 
-            <td><a href="/">Home</a></td>
-            <td><a href="/subscribe">Subscribe to air quality alerts</a></td>
-            <td><a href="/take-action">Take action</a></td>
-            <td><a href="/subscribe#unsubscribe">Unsubscribe</a></td>
+            <td><a href="/">{{ t "footer-nav.home" }}</a></td>
+            <td><a href="/subscribe">{{ t "footer-nav.subscribe" }}</a></td>
+            <td><a href="/take-action">{{ t "footer-nav.take-action" }}</a></td>
+            <td><a href="/subscribe#unsubscribe">{{ t "footer-nav.unsubscribe" }}</a></td>
 
           </tr>
 

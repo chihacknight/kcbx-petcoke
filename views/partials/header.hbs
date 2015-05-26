@@ -16,15 +16,24 @@
       <ul class="nav navbar-nav">
 
         <li>
-          <a href='/'>Current Condition</a>
+          <a href='/'>{{ t "nav.now" }}</a>
         </li>
 
         <li>
-          <a href='/subscribe'>Air Quality Alerts</a>
+          <a href='/subscribe'>{{ t "nav.subscribe" }}</a>
         </li>
 
         <li>
-          <a href='/take-action'>Take Action</a>
+          <a href='/take-action'>{{ t "nav.take-action" }}</a>
+        </li>
+
+          <!-- TODO: set one language *toggle* -->
+        <li>
+          <a href="?setLng=en-US">English</a>
+        </li>
+
+        <li>
+          <a href="?setLng=es-US">Español</a>
         </li>
 
       </ul>
@@ -33,13 +42,13 @@
     <div class="current-condition row">
 
       <p class='status'>
-        Current Risk: {{ wind.status.term }}
+        {{t "nav.current-condition" }} {{ wind.status.term }}
       </p>
 
       <p class="compass">
-    		<span class="speed-indicator">{{ formatNumber wind.speed "0,0.0"}}</span> mph
-    		<span class="bearing-indicator" data-bearing='{{wind.bearing}}'></span>
-    	</p>
+                <span class="speed-indicator">{{ formatNumber wind.speed "0,0.0"}}</span> mph
+                <span class="bearing-indicator" data-bearing='{{wind.bearing}}'></span>
+        </p>
 
       <div class="clearfix"></div>
 

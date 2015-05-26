@@ -1,0 +1,112 @@
+{
+    "app": {
+        "name": "Terminales de KCBX"
+    },
+    "head": {
+        "title": "Condiciones de Vientos de KCBX"
+    },
+    "nav": {
+        "now": "Condición Actual",
+        "subscribe": "Alertas de Calidad de Aire",
+        "take-action": "Tomar acci\u00f3n",
+        "current-condition": "Riesgo Actual:"
+
+    },
+    "footer": {
+        "well-a": "Un proyecto de",
+        "well-b": "La Coalici\u00f3n Sureste Para Prohibir el Petcoke",
+        "well-c": "y",
+        "email": "Para preguntas o investigaci\u00f3n de prensa, deben contactar por correo electronico:",
+        "github": "Los Pull Requests (contribuciones t\u00e9cnicas) Son Bienvenidos"
+    },
+    "footer-nav": {
+        "home": "Inicio",
+        "subscribe": "Suscribir para alertas de calidad de aire",
+        "take-action": "Tomar acci\u00f3n",
+        "unsubscribe": "Cancelar"
+    },
+    "index": {
+        "hero": "Riesgo de Exposici\u00f3n al Petcoke",
+        "subtitle": "cerca de",
+        "wind-data": {
+            "speed": "Velocidad",
+            "from": "Vientos  del",
+            "time-taken": "Hora de indicaci\u00f3n:",
+            "using": "- un servicio de"
+        },
+        "get_alerts": "Obtenga Notificaciones Sobre Calidad Del Aire",
+        "take_action": "Tomar Acci\u00f3n"
+    },
+    "subscribe": {
+        "btn": "Regresar",
+        "page-title": "Obtenga Alertas De Calidad Del Aire",
+        "form": "Ingrese su numero de tel\u00e9fono para recibir mensajes de texto cuando el viento exceda las 15 millas por hora en el vecindario de 'KCBX Terminals'.",
+        "input": {
+            "placeholder": "Su n\u00famero de tel\u00e9fono",
+            "valid": "Se requiere un numero de tel\u00e9fono",
+            "valid-format": "Favor de usar un numero valido de los Estados Unidos y de 10 digitos",
+            "valid-info": "Use su n\u00famero de tel\u00e9fono o envie un mensaje de texto \"Suscribir\" al 312-313-3200",
+            "submit": "Enviar"
+        },
+        "about": {
+            "title": "\u00bfQu\u00e9 es esto?",
+            "body": "Este es un sistema de alerta de texto para informar a los residentes en el vecindario de las Terminales de KCBX cuando los vientos estan fuertes, y cuando sube el indice de riesgo al contacto a coke-petrolio (\"petcoke\"). Si ingresa su numero de tel\u00e9fono en la parte superior de esta p\u00e1gina, le avisamos el momento que los vientos excede las 15 millas por hora, el nivel considerado peligroso segun el Departamento de Salud de la Ciudad de Chicago. Estudios de largo plazo de La Universidad de Harvard y La Sociedad Americana del C\u00e1ncer concluyen que la exposici\u00f3n prolongada a las particulas, como el \"petcoke\", aumenta el riesgo de enfermedades del coraz\u00f3n y ademas puede aumentar el riesgo de c\u00e1ncer del pulm\u00f3n. "
+        },
+        "act": {
+            "title": "\u00bfQu\u00e9 puedo hacer?",
+            "body-strong": "Llame a la oficina del alcalde y exija: \"ZERO THROUGHPUT\" (cero rendimiento\/producci\u00f3n) en TODOS los TERMINALES en KCBX.",
+            "body-main": "Cada mensaje de texto contiene un enlace a una pagina-web, con el numero de tel\u00e9fono para la oficina del alcalde, y tambien unas instrucci\u00f3nes que puede leer para exigir a \"KCBX\" que pare de contaminar nuestros hogares y vecindarios. Nosotros le urgimos que llame CADA VEZ que recibe un mensaje de texto, con el fin de crear conciencia, en lo que el alcalde no puede ignorar."
+        },
+        "off-list": {
+            "title": "\u00bfC\u00f3mo puedo cancelar la suscripci\u00f3n de texto?",
+            "body": "Para descontinuar los alertas de SMS (mensajes de texto), envie \"Cancelar\" en un mensaje de text al 312-313-3200. Va recibir una respuesta de texto que confirma su cancelaci\u00f3n de suscripci\u00f3n."
+        }
+    },
+    "take-action": {
+        "btn": "Inicio",
+        "define": {
+            "title": "\u00bfQu\u00e9 es \"petcoke\"?",
+            "body": "Petcoke es un polvo fino y negro que se produce de carb\u00f3n y es un producto de el procesamiento de petr\u00f3lio. Cuando el viento esta mayor de 15 millas por hora, las particulas finas de petcoke puede ser transmitido por aire, causando da\u00f1o a su corazon y pulm\u00f3nes. Los Terminales de KCBX son la causa de los acumulaciones de \"petcoke\" en el suroeste de Chicago.",
+            "more": "Descubre mas a continuaci\u00f3n."
+        },
+        "demand": {
+            "title": "\u00bfQu\u00e9 puedo hacer?",
+            "prominent": "Exigir",
+            "prominent-strong": "Acci\u00f3n",
+            "prominent-end": "de Alcalde Emanuel!",
+            "prominent-call": "Llame la oficina del alcalde ahora y urge",
+            "prominent-call-strong": "\"ZERO PETCOKE THROUGHPUT\"",
+            "prominent-call-strong-end": "en los Terminales de KCBX",
+            "prominent-number": "Llame al Alcalde:",
+            "body-a": "Llame a la oficina del alcalde y exija:",
+            "body-b": "\"ZERO THROUGHPUT\" (cero rendimiento\/producci\u00f3n)",
+            "body-c": "en el",
+            "body-d": "TERMINAL",
+            "body-e": "del SUR de KCBX. La Ciudad recién anunció 'zero throughput' en el terminal del norte, pero ese terminal ya estaba seleccionado para cerrar en el mes de junio.",
+            "body-f": "Exije zero 'petcoke' por el Terminal del Sur tambien.",
+            "body-ps-strong": "Ya llamó",
+            "body-ps": "Muy bien! Llame otra vez! Llamando cada vez que recibe un alerta de texto (o cualquier otro rato) esta ayudando crear una vz consistente de temas que el Alcalde debe tratar."
+        },
+        "script": {
+            "title": "¿Qué debo decir?",
+            "body": "Llamo para exigir que el Departamento de Planificaci\u00f3n y Desarrollo recomiende un l\u00edmite de ZERO a la producci\u00f3n de \"petcoke\", para TODOS los TERMINALES en KCBX. La Ciudad recién anunció 'zero throughput' en el terminal del norte, pero ese terminal ya estaba seleccionado para cerrar en el mes de junio.  Exigimos un límite de zero en TODOS los TERMINALES en KCBX.",
+            "body-ps": "La Sociedad Americana del C\u00e1ncer, La Universidad de Harvard, y la Agencia de Protecci\u00f3n del Medio Ambiente (EPA por sus siglas en ingl\u00e9s han determinado que la exposici\u00f3n a las part\u00edculas finas en el medio ambiente, incluyendo el \"petcoke\", puede conducir a enfermedades del coraz\u00f3n y del los pulm\u00f3nes, y este peligro debe ser eliminado de nuestra comunidad."
+
+        },
+        "more-information": {
+            "title": "M\u00e1s informaci\u00f3n sobre el \"Petcoke\"",
+            "intro": "Los pasajes siguientes fueron extra\u00eddos de",
+            "intro-em": "La contaminaci\u00f3n por part\u00edculas suspendidas y su salud",
+            "intro-cont": "un folleto hecho p\u00fablico por la Agencia de Protecci\u00f3n del Medio Ambiente (EPA por sus siglas en ingl\u00e9s). Puede bajar el folleto completo",
+            "special": "http:\/\/www.scdhec.gov\/library\/CR-009382.pdf",
+            "special-text": "aqu\u00ed.",
+            "blockquote": "...El tama\u00f1o de las part\u00edculas se relaciona directamente con la posibilidad de que sean perjudiciales para la salud. Las part\u00edculas peque\u00f1as, las cuales tienen di\u00e1metros inferiores a 10 micr\u00f3metros, presentan los mayores problemas porque pueden penetrar profundamente en los pulmones y algunas pueden penetrar hasta el torrente sangu\u00edneo. La exposici\u00f3n a part\u00edculas tales como \u00e9stas puede afectar tanto los pulmones como el coraz\u00f3n...",
+            "blockquote-strong": "Se ha asociado la exposici\u00f3n a largo plazo",
+            "blockquote-cont": "sufrida por personas que viven desde hace muchos a\u00f1os en zonas con altos niveles de part\u00edculas, con problemas tales como funci\u00f3n pulmonar reducida, y el desarrollo de bronquitis cr\u00f3nica \u2013 e incluso con la muerte prematura...",
+            "study-lead": "Adem\u00e1s, un",
+            "study-a": "estudio de largo plazo de La Universidad de Harvard",
+            "study-b": "sigui\u00f3 los niveles de part\u00edculas en seis ciudades durante 35 a\u00f1os. El estudio encontr\u00f3 que los altos niveles de part\u00edculas peque\u00f1as en el medio ambiente han sido relacionado con el riesgo mayor de mortalidad, (especialmente en la mortalidad cardiovascular y el c\u00e1ncer del pulm\u00f3n). El art\u00edculo concluye que",
+            "study-strong": "'... esfuerzos de la pol\u00edtica p\u00fablica para reducir la contaminaci\u00f3n de part\u00edculas peque\u00f1as en el medio ambiente probablemente serán beneficiosos en lo que se refiere a la salud p\u00fablica.'"
+        }
+    }
+}

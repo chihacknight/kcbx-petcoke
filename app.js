@@ -11,7 +11,15 @@ var express = require('express')
   , logger = require('morgan')
   , cookieParser = require('cookie-parser')
   , bodyParser = require('body-parser')
+  , i18n = require('i18next')
   ;
+
+i18n.init({
+	saveMissing: true,
+	debug: true,
+	lng: 'en-US',
+    ignoreRoutes: ['images/', 'public/', 'css/', 'js/']
+});
 
 var staticRoutes     = require('./routes/index');
 var smsRoutes        = require("./routes/api/sms");
@@ -23,6 +31,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 hbsHelpers.register(hbs);
+i18n.registerAppHelper(app);
 hbs.registerPartials(__dirname + "/views/partials");
 
 // uncomment after placing your favicon in /public
@@ -32,6 +41,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(i18n.handle);
 
 if (app.get('env') === 'staging') {
   app.use(auth.staging)

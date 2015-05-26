@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         options: {
           watch: [".", "./views/partials"],
           ignore: ['node_modules', 'bin'],
-          extensions: ['js,hbs'],
+          extensions: ['js', 'hbs', 'json'],
           noRestartOn: "error",
           debug: true
         }

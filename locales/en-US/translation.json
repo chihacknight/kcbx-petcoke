@@ -1,0 +1,111 @@
+{
+    "app": {
+        "name": "KCBX Terminals"
+    },
+    "head": {
+        "title": "KCBX Wind Conditions"
+    },
+    "nav": {
+        "now": "Current Condition",
+        "subscribe": "Air Quality Alerts",
+        "take-action": "Take Action",
+        "current-condition": "Current Risk:"
+    },
+    "footer": {
+        "well-a": "A project of the",
+        "well-b": "Southeast Side Coalition to Ban Petcoke",
+        "well-c": "and the",
+        "email": "For questions or press inquiries, email",
+        "github": "Pull Requests Welcome"
+    },
+    "footer-nav": {
+        "home": "Home",
+        "subscribe": "Subscribe to air quality alerts",
+        "take-action": "Take action",
+        "unsubscribe": "Unsubscribe"
+    },
+    "index": {
+        "hero": "Petcoke Exposure Risk",
+        "subtitle": "near",
+        "wind-data": {
+            "speed": "Wind Speed",
+            "from": "Out of the",
+            "time-taken": "Forecast generated at",
+            "using": "by"
+        },
+        "get_alerts": "Get Air Quality Alerts",
+        "take_action": "Take Action"
+    },
+    "subscribe": {
+        "btn": "Back",
+        "page-title": "Get Air Quality Alerts",
+        "form": "Enter your cell phone number to receive text messages when winds exceed 15 miles per hour in the vicinity of KCBX Terminals.",
+        "input": {
+            "placeholder": "Your phone number",
+            "valid": "Phone number is required",
+            "valid-format": "Please provide a valid 10-digit US phone number",
+            "valid-info": "Enter your phone number above or text \"Subscribe\" to 312-313-3200",
+            "submit": "Submit"
+        },
+        "about": {
+            "title": "What is this?",
+            "body": "This is a text message alert system to inform residents around KCBX Terminals that windspeed is high, and that they are therefore at increased risk of exposure to petroleum coke (\"petcoke\"). If you enter your phone number above, we will alert you when winds exceed 15 mph, the level deemed hazardous by the Chicago Department of Public Health. Longterm studies by Harvard University and the American Cancer Society have concluded that prolonged exposure to particulate matter such as petcoke increases the risk of heart disease and may increase the risk of lung cancer. "
+        },
+        "act": {
+            "title": "What can I do?",
+            "body-strong": "Call the Mayor's office and demand ZERO THROUGHPUT for ALL TERMINALS at KCBX.",
+            "body-main": "Each text message will contain a link to a webpage containing a phone number for the Mayor's office, as well as a script that you can read from to demand that KCBX stops polluting our homes and neighborhoods. We urge you to call EVERY TIME you receive a text, in order to create a public outcry that the Mayor can't ignore."
+        },
+        "off-list": {
+            "title": "How can I unsubscribe?",
+            "body": "To stop receiving SMS alerts, text \"Unsubscribe\" to 312-313-3200. You will receive a response text confirming that you have canceled your subscription."
+        }
+    },
+    "take-action": {
+        "btn": "Home",
+        "define": {
+            "title": "What is petcoke?",
+            "body": "Petcoke is a fine black carbon-based product of petroleum processing. When the wind is above 15 miles per hour, fine petcoke particles can become airborne, causing damage to your heart and lungs. KCBX Terminals maintains several large open-air stockpiles of petcoke on the far Southeast side of Chicago.",
+            "more": "Learn more below."
+        },
+        "demand": {
+            "title": "What can I do?",
+            "prominent": "Demand",
+            "prominent-strong": "action",
+            "prominent-end": "from Mayor Emanuel!",
+            "prominent-call": "Call the Mayor's office now and demand",
+            "prominent-call-strong": "ZERO PETCOKE THROUGHPUT",
+            "prominent-call-strong-end": "at the KCBX Terminals",
+            "prominent-number": "Call the Mayor:",
+            "body-a": "Call the Mayor's office now and demand",
+            "body-b": "ZERO PETCOKE THROUGHPUT",
+            "body-c": "at the",
+            "body-d": "SOUTH Terminal",
+            "body-e": "of KCBX Terminals. The City recently announced zero throughput at the North Terminal, but",
+            "body-f": "Demand no petcoke through the South terminal as well.",
+            "body-ps-strong": "Already called",
+            "body-ps": "Great! Call again! By calling every time you receive a wind alert (or any other time) you help to create a consistent voice that the Mayor must address."
+        },
+        "script": {
+            "title": "What should I say?",
+            "body": "I'm calling to demand that the Department of Planning and Development recommend a petcoke throughput limit of ZERO for ALL TERMINALS at KCBX. The city has recently announced zero throughput at the North terminal, but that terminal was already slated to close in June. We demand a limit of zero on ALL TERMINALS at KCBX.",
+            "body-ps": "The American Cancer Society, Harvard University, and the EPA have determined that prolonged exposure to fine airborne dust particles, including petcoke, can lead to heart disease and lung disease, and this hazard must be eliminated from our community."
+
+        },
+        "more-information": {
+            "title": "More information about Petcoke",
+            "intro": "The following excerpts are from",
+            "intro-em": "Particle Pollution and Your Health",
+            "intro-cont": "a pamphlet released by the U.S. Environmental Protection Agency.  You can download the whole pamphlet",
+            "special": "http:\/\/www.epa.gov\/airquality\/particulatematter\/pdfs\/pm-color.pdf",
+            "special-text": "here.",
+            "blockquote": "...The size of particles is directly linked to their potential for causing health problems. Small particles less than 10 micrometers in diameter pose the greatest problems, because they can get deep into your lungs, and some may even get into your bloodstream. Exposure to such particles can affect both your lungs and your heart...",
+            "blockquote-strong": "Long-term exposures",
+            "blockquote-cont": "such as those experienced by people living for many years in areas with high particle levels, have been associated with problems such as reduced lung function and the development of chronic bronchitis&mdash;and even premature death...",
+            "study-lead": "In addition, a",
+            "study-a": "a long term study by Harvard University",
+            "study-b": "followed particulate matter levels in six cities over 35 years. The study found that increased levels of fine particulate matter in the air was associated with increased risk of mortality, especially cardiovascular and lung cancer mortality. The paper concludes",
+            "study-strong": "\"...further public policy efforts that reduce fine particulate matter air pollution are likely to have continuing public health benefits.\""
+        }
+    }
+}
