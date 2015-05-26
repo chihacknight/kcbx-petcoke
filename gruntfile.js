@@ -10,7 +10,9 @@ module.exports = function(grunt) {
       target: {
         script: "bin/www",
         options: {
+          watch: [".", "./views/partials"],
           ignore: ['node_modules', 'bin'],
+          extensions: ['js,hbs'],
           noRestartOn: "error",
           debug: true
         }
@@ -20,7 +22,8 @@ module.exports = function(grunt) {
     mochaTest: {
       files: ['test/unit/**/*.js'],
       options: {
-        require: 'test/bootstrap.js'
+        require: 'test/bootstrap.js',
+        timeout: 30000
       }
     }
   })

@@ -1,5 +1,6 @@
 var cwd = process.cwd();
 
+var evt = require(cwd + "/services/events");
 var fs = require('fs');
 var memjs = require('memjs');
 var cache = memjs.Client.create();
@@ -9,6 +10,10 @@ var subscriberStubs = require(cwd + '/test/stubs/smsSubscriberService');
 var weatherService = require(cwd + '/services/weather');
 var weatherServiceStubs = require(cwd + '/test/stubs/weatherService');
 var notificationsService = require(cwd + '/services/notifications');
+
+var sixAM = moment().day(-6).startOf('day').hour(06).valueOf();
+var tenAM = moment().day(-6).startOf('day').hour(10).valueOf();
+var tenPM = moment().day(-6).startOf('day').hour(22).valueOf();
 
 // since the poll script is not a module, we need to
 // eval() its contents in order to run it for each test.
@@ -23,14 +28,20 @@ var pollScript = fs.readFileSync(cwd + '/bin/poll') // get contents
 
 describe('bin/poll script', function(){
 
+  var clock;
+
   beforeEach(function(done){
-    sinon.stub(notificationsService, 'broadcast');
+    sinon.spy(notificationsService, 'broadcast');
+    sinon.spy(notificationsService, 'sendMessage');
+    clock = sinon.useFakeTimers(tenAM);
     sinon.stub(subscriberService, 'getSubscribers', subscriberStubs.getSubscribers)
     cache.flush(done);
   })
 
   afterEach(function(done){
     notificationsService.broadcast.restore();
+    notificationsService.sendMessage.restore();
+    clock.restore();
     subscriberService.getSubscribers.restore();
     done();
   })
@@ -39,17 +50,16 @@ describe('bin/poll script', function(){
   it('should send notifications when windspeed exceeds hazardous threshold', function(done){
     sinon.stub(weatherService, 'getForecast', weatherServiceStubs.getForecast.aboveThreshold);
 
-    eval(pollScript);
 
-    // this is a little bit of a hack to wait for
-    // the poll script to finish its asynchronous
-    // functions.
-    setTimeout(function(){
+    evt.once("pollFinished", function(){
       weatherService.getForecast.callCount.should.eql(1);
       notificationsService.broadcast.callCount.should.eql(1);
+      notificationsService.sendMessage.callCount.should.eql(33);
+
       weatherService.getForecast.restore();
       done();
-    }, 100)
+    })
+    eval(pollScript);
   })
 
 
@@ -57,31 +67,34 @@ describe('bin/poll script', function(){
   it('should not send notifications if windspeed does not exceed hazardous threshold', function(done){
     sinon.stub(weatherService, 'getForecast', weatherServiceStubs.getForecast.belowThreshold);
 
-    eval(pollScript);
 
-    setTimeout(function(){
+    evt.once("pollFinished", function(){
       weatherService.getForecast.callCount.should.eql(1);
       notificationsService.broadcast.callCount.should.eql(0);
       weatherService.getForecast.restore();
       done();
-    }, 100)
+    })
+    eval(pollScript);
   })
 
 
-  it('should send notifications if last sent more than 6 hours ago', function(done){
+  it('should send notifications if last sent more than 6 hours ago and set new cache value', function(done){
     sinon.stub(weatherService, 'getForecast', weatherServiceStubs.getForecast.aboveThreshold);
     var sent = moment().subtract(7, 'hours').format()
     cache.set('notifications.last_wind_notice_sent', sent, function(err){
       if (err) throw err;
 
-      eval(pollScript);
-
-      setTimeout(function(){
+      evt.once("pollFinished", function(){
         weatherService.getForecast.callCount.should.eql(1);
         notificationsService.broadcast.callCount.should.eql(1);
         weatherService.getForecast.restore();
-        done();
-      }, 100)
+        cache.get("notifications.last_wind_notice_sent", function(err, lastSent){
+          var diff = moment.duration( moment(lastSent.toString()).diff(moment()) );
+          diff.asSeconds().should.be.lessThan(3);
+          done();
+        })
+      })
+      eval(pollScript);
 
     })
   })
@@ -92,17 +105,43 @@ describe('bin/poll script', function(){
     cache.set('notifications.last_wind_notice_sent', sent, function(err){
       if (err) throw err;
 
-      eval(pollScript);
-
-      setTimeout(function(){
+      evt.once("pollFinished", function(){
         weatherService.getForecast.callCount.should.eql(1);
         notificationsService.broadcast.callCount.should.eql(0);
         weatherService.getForecast.restore();
         done();
-      }, 100)
+      })
+      eval(pollScript);
 
     })
   })
 
+  it('should not send notifications before 8am', function(done){
+    clock.restore();
+    clock = sinon.useFakeTimers(sixAM);
+
+    sinon.stub(weatherService, 'getForecast', weatherServiceStubs.getForecast.aboveThreshold);
+    evt.once("pollFinished", function(){
+      weatherService.getForecast.callCount.should.eql(1);
+      notificationsService.broadcast.callCount.should.eql(0);
+      weatherService.getForecast.restore();
+      done();
+    })
+    eval(pollScript);
+  })
+
+  it('should not send notifications after 9pm', function(done){
+    clock.restore();
+    clock = sinon.useFakeTimers(tenPM);
+
+    sinon.stub(weatherService, 'getForecast', weatherServiceStubs.getForecast.aboveThreshold);
+    evt.once("pollFinished", function(){
+      weatherService.getForecast.callCount.should.eql(1);
+      notificationsService.broadcast.callCount.should.eql(0);
+      weatherService.getForecast.restore();
+      done();
+    })
+    eval(pollScript);
+  })
 
 })

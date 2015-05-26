@@ -27,6 +27,91 @@ blockquote {
 	padding: 0;
 }
 
+.navbar.navbar-default {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+.navbar.navbar-default .current-condition {
+	background-color: #383;
+	color: #fff;
+	font-weight: bold;
+	letter-spacing: .03em;
+	padding: 0 15px;
+}
+
+body {
+	margin-top: 7em;
+}
+
+body.home .navbar.navbar-default .current-condition {
+	display: none;
+}
+
+.wind-level-1 .navbar.navbar-default .current-condition {
+	background-color: #BA1;
+}
+
+.wind-level-2 .navbar.navbar-default .current-condition {
+	background-color: #A22;
+}
+
+.navbar.navbar-default .status {
+	float: left;
+}
+
+
+
+.navbar.navbar-default .compass {
+	background: none;
+	float: right;
+	height: auto;
+	margin: 1em;
+	width: auto;
+}
+
+.navbar.navbar-default .bearing-indicator {
+	background: none;
+	display: inline-block;
+	height: 0;
+	margin-left: .5em;
+	width: 0;
+	border-top: 15px solid #fff;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 0;
+}
+
+.navbar.navbar-default .compass .speed-indicator {
+	display: inline-block;
+	font-size: medium;
+	position: relative;
+	top: 0;
+	width: auto;
+}
+
+
+.navbar-nav {
+	text-align: center;
+	font-size: large;
+}
+
+@media only screen and (min-width: 768px) {
+	.navbar-nav {
+		float: right;
+		font-size: medium;
+	}
+
+	.navbar.navbar-default .compass {
+		float: left;
+		border-left: 1px solid #fff;
+		padding-left: 1em;
+	}
+}
+
 .page-title {
 	text-align: center;
 }
@@ -36,9 +121,10 @@ blockquote {
 	color: #444;
 }
 
-body {
-	padding-top: 1em;
+.prominent a {
+	white-space: nowrap;
 }
+
 
 body.home {
 	text-align: center;
