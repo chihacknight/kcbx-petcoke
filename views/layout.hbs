@@ -16,13 +16,6 @@
     {{> header }}
     <div class="container">
 
-	  <!-- set language toggle -->
-	  <div class="row">
-	    <ul class="nav nav-pills pull-right">
-		  <li role="presentation"><a href="?setLng=en-US">English</a></li>
-		  <li role="presentation"><a href="?setLng=es-US">Español</a></li>
-	    </ul>
-	  </div>
 
       {{{body}}}
 
@@ -31,14 +24,15 @@
 
         <div class="well">
           <p>
-            A project of the
+            {{ t "footer.well-a" }}
 
             <a href="https://www.facebook.com/pages/Chicago-South-East-Side-Coalition-To-Ban-Petcoke/848330295223606?fref=ts" target='_blank'>
-              Southeast Side Coalition to Ban Petcoke
+              {{ t "footer.well-b" }}
             </a>
 
-            and the
+            {{ t "footer.well-c" }}
 
+            <a target="_blank" href='http://chihacknight.org'>Chi Hack Night</a>.
           </p>
 
           <p>

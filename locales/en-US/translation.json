@@ -5,8 +5,16 @@
     "head": {
         "title": "KCBX Wind Conditions"
     },
+    "nav": {
+        "now": "Current Condition",
+        "subscribe": "Air Quality Alerts",
+        "take-action": "Take Action",
+        "current-condition": "Current Risk:"
+    },
     "footer": {
-        "well": "A project of the Southeast Side Coalition to Ban Petcoke and the",
+        "well-a": "A project of the",
+        "well-b": "Southeast Side Coalition to Ban Petcoke",
+        "well-c": "and the",
         "email": "For questions or press inquiries, email",
         "github": "Pull Requests Welcome"
     },
@@ -68,7 +76,15 @@
             "prominent-call": "Call the Mayor's office now and demand",
             "prominent-call-strong": "ZERO PETCOKE THROUGHPUT",
             "prominent-call-strong-end": "at the KCBX Terminals",
-            "prominent-number": "Call the Mayor:"
+            "prominent-number": "Call the Mayor:",
+            "body-a": "Call the Mayor's office now and demand",
+            "body-b": "ZERO PETCOKE THROUGHPUT",
+            "body-c": "at the",
+            "body-d": "SOUTH Terminal",
+            "body-e": "of KCBX Terminals. The City recently announced zero throughput at the North Terminal, but",
+            "body-f": "Demand no petcoke through the South terminal as well.",
+            "body-ps-strong": "Already called",
+            "body-ps": "Great! Call again! By calling every time you receive a wind alert (or any other time) you help to create a consistent voice that the Mayor must address."
         },
         "script": {
             "title": "What should I say?",

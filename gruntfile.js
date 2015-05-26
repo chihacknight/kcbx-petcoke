@@ -10,10 +10,11 @@ module.exports = function(grunt) {
       target: {
         script: "bin/www",
         options: {
+          watch: [".", "./views/partials"],
           ignore: ['node_modules', 'bin'],
+          extensions: ['js', 'hbs', 'json'],
           noRestartOn: "error",
-          debug: true,
-          extensions: ['node', 'js', 'json']
+          debug: true
         }
       }
     },
