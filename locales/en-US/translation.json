@@ -1,4 +1,17 @@
 {
+    "Hazardous": "Hazardous",
+    "Elevated" : "Elevated",
+    "Normal"   : "Normal",
+
+    "North"     : "North",
+    "East"      : "East",
+    "South"     : "South",
+    "West"      : "West",
+    "Northeast" : "Northeast",
+    "Southeast" : "Southeast",
+    "Northwest" : "Northwest",
+    "Southwest" : "Southwest",
+
     "app": {
         "name": "KCBX Terminals"
     },

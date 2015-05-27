@@ -125,8 +125,18 @@ body.home .navbar.navbar-default .current-condition {
 	white-space: nowrap;
 }
 
+.language-selector {
+	text-align: right;
+	font-weight: bold;
+}
+
+.language-selector a {
+	display: inline-block;
+	padding: .5em 1em;
+}
 
 body.home {
+	margin-top: 4em;
 	text-align: center;
 }
 
@@ -197,7 +207,14 @@ body.home .action-button {
 	/* margin-top: .6em; */
 }
 
-
+	@media screen and (max-width: 400px) {
+		body.home .action-button {
+			display: block;
+			text-align: center;
+			white-space: normal;
+			margin: 0 2em;
+		}
+	}
 
 body.subscribe form.sms-signup {
 	margin: 1em auto;

@@ -4,7 +4,7 @@
 <div class="row wind-info">
 
 	<p class="wind-status">
-		{{wind.status.term}}
+		{{t wind.status.term}}
 	</p>
 
 	<div class="compass">
@@ -14,7 +14,7 @@
 
 	<div class="wind-data">
 		<p>{{t "index.wind-data.speed" }}: {{ formatNumber wind.speed "0,0.0" }} mph</p>
-		<p>{{t "index.wind-data.from" }} {{degreeToCompass wind.bearing}}</p>
+		<p>{{t "index.wind-data.from" }} {{t wind.cardinal}}</p>
 		<p class='time-taken'>{{t "index.wind-data.time-taken" }} {{ formatUnixDate wind.timeTaken "h:mm:ss A" }} {{ t "index.wind-data.using"}}
 			<a href='https://developer.forecast.io/' target='_blank'>forecast.io</a>
 		</p>

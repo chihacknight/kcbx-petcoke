@@ -27,22 +27,13 @@
           <a href='/take-action'>{{ t "nav.take-action" }}</a>
         </li>
 
-          <!-- TODO: set one language *toggle* -->
-        <li>
-          <a href="?setLng=en-US">English</a>
-        </li>
-
-        <li>
-          <a href="?setLng=es-US">Español</a>
-        </li>
-
       </ul>
     </div><!-- /.navbar-collapse -->
 
     <div class="current-condition row">
 
       <p class='status'>
-        {{t "nav.current-condition" }} {{ wind.status.term }}
+        {{t "nav.current-condition" }} {{ t wind.status.term }}
       </p>
 
       <p class="compass">
@@ -54,4 +45,13 @@
 
     </div> <!-- /.current-condition -->
   </div><!-- /.container-fluid -->
+
 </nav>
+
+<div class="language-selector">
+  {{#if languageIsEnglish}}
+    <a href="?setLng=es-US">Espa&ntilde;ol</a>
+  {{else}}
+    <a href="?setLng=en-US">English</a>
+  {{/if}}
+</div>

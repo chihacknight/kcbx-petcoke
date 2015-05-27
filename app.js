@@ -12,6 +12,7 @@ var express = require('express')
   , cookieParser = require('cookie-parser')
   , bodyParser = require('body-parser')
   , i18n = require('i18next')
+  , localVars = require(cwd + "/middleware/locals")
   ;
 
 i18n.init({
@@ -42,6 +43,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(i18n.handle);
+app.use(localVars);
 
 if (app.get('env') === 'staging') {
   app.use(auth.staging)

@@ -1,4 +1,17 @@
 {
+    "Hazardous": "Peligroso",
+    "Elevated" : "Elevado",
+    "Normal"   : "Normal",
+
+    "North"     : "Norte",
+    "East"      : "Oriente",
+    "South"     : "Sur",
+    "West"      : "Oeste",
+    "Northeast" : "Nordeste",
+    "Southeast" : "Sudeste",
+    "Northwest" : "Noroeste",
+    "Southwest" : "Suroeste",
+
     "app": {
         "name": "Terminales de KCBX"
     },

@@ -1,7 +1,8 @@
 var cwd = process.cwd();
-var constants = require(cwd + '/lib/constants')
-var request = require('request')
-var weather = require(cwd + '/services/weather')
+var constants = require(cwd + '/lib/constants');
+var formatter = require(cwd + '/lib/formatter');
+var request = require('request');
+var weather = require(cwd + '/services/weather');
 
 module.exports = function(req, res, next){
 
@@ -10,6 +11,7 @@ module.exports = function(req, res, next){
 			var wind = {
 				speed     : data.currently.wind_speed,
 				bearing   : data.currently.wind_bearing,
+				cardinal  : formatter.degreeToCompass(data.currently.wind_bearing),
 				timeTaken : data.currently.time
 			}
 
