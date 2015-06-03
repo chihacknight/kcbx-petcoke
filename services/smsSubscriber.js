@@ -9,6 +9,7 @@ require(cwd + "/lib/env");
 var formatter = require(cwd + "/lib/formatter");
 var google = require('googleapis');
 var fusion = google.fusiontables('v2');
+var i18next = require('i18next');
 var moment = require('moment');
 var _ = require('lodash');
 
@@ -17,7 +18,7 @@ var googleApiEmail     = process.env.GOOGLE_AUTH_EMAIL;
 var googleAccountEmail = process.env.GOOGLE_ACCOUNT_EMAIL;
 var tableId            = process.env.GOOGLE_FUSION_TABLE_ID;
 
-var allCols = ["ROWID", "phone", "createdAt"]
+var allCols = ["ROWID", "phone", "createdAt", "locale"]
 
 var jwtClient = new google.auth.JWT(
   googleApiEmail,
@@ -31,31 +32,33 @@ var jwtClient = new google.auth.JWT(
 module.exports = {
 
 
-  addSubscriber: function(number, callback) {
-    number = formatter.normalizePhone(number);
+  addSubscriber: function(params, callback) {
+    var number = formatter.normalizePhone(params.number);
+    var locale = params.locale || 'en-US';
     callback = callback || function(){};
     var createdAt = moment().format("YYYY-MM-DD HH:mm:ss")
     if (!number) {
       return callback({
         type: "BAD_PARAM",
-        message: "Please provide a valid 10-digit US phone number"
+        message: i18next.t("errors.badPhoneNumber")
       })
     }
 
     // stub for test environment
     if (process.env.USE_TEST_RECIPIENT === 'true') {
-      return callback(null, { phone: number, createdAt: createdAt, stubbed: true })
+      return callback(null, { phone: number, createdAt: createdAt, locale: locale, stubbed: true })
     }
 
 
-    var sql = "INSERT INTO " + tableId + " (phone, createdAt) VALUES (" + number + ", '" + createdAt + "')";
+    var sql = "INSERT INTO " + tableId + " (phone, createdAt, locale) VALUES (" + number + ", '" + createdAt + "', '" + locale + "')";
 
     this.getSubscribers(function(getErr, subscribers){
       if (getErr) { return callback(getErr); };
       if (!!_.findWhere(subscribers, {phone: number})) {
+        var formatted = formatter.formatPhone(number)
         return callback({
           type: "DUPLICATE_PARAM",
-          message: "The number " + formatter.formatPhone(number) + " is already subscribed"
+          message: i18next.t("errors.alreadySubscribed", { number: formatted} )
         });
       }
 
@@ -70,8 +73,9 @@ module.exports = {
 
           callback(null, {
             rowid: rslt.rows[0][0],
-            phone: number, 
-            createdAt: createdAt
+            phone: rslt.rows[0][1], 
+            createdAt: rslt.rows[0][2], 
+            locale: rslt.rows[0][3]
           })
         });
       })
@@ -85,7 +89,7 @@ module.exports = {
     if (!number) {
       return callback({
         type: "BAD_PARAM",
-        message: "Please enter a valid 10-digit US phone number"
+        message: i18next.t("errors.badPhoneNumber")
       })
     }
 
@@ -94,9 +98,11 @@ module.exports = {
 
       that.getSubscriber(number, function(getErr, row){
         if (getErr) { return callback(getErr); }
+
+        var formatted = formatter.formatPhone(number)
         if (!row) return callback({
           type: "NOT_FOUND",
-          message: "The number " + formatter.formatPhone(number) + " does not exist in our system"
+          message: i18next.t("errors.numberNotFound", {number: formatted})
         })
 
         var sql = "DELETE FROM " + tableId + " WHERE ROWID = '" + row.rowid + "'";
@@ -144,7 +150,7 @@ module.exports = {
     number = formatter.normalizePhone(number);
     if (!number) return callback({
       type: "BAD_PARAM",
-      message: "Please enter a valid 10-digit US phone number"
+      message: i18next("errors.badPhoneNumber")
     });
 
     jwtClient.authorize(function(jwtErr){

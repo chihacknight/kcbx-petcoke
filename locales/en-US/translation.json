@@ -12,6 +12,18 @@
     "Northwest" : "Northwest",
     "Southwest" : "Southwest",
 
+
+    "errors": {
+        "alreadySubscribed": "The number __number__ is already subscribed",
+        "badPhoneNumber": "Please provide a valid 10-digit US phone number",
+        "numberNotFound": "The number __number__ does not exist in our system"
+    },
+
+    "success": {
+        "thankYou": "Thank you"
+    },
+
+
     "app": {
         "name": "KCBX Terminals"
     },

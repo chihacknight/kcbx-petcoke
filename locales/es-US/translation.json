@@ -12,6 +12,17 @@
     "Northwest" : "Noroeste",
     "Southwest" : "Suroeste",
 
+
+    "errors": {
+        "alreadySubscribed": "El número __number__ ya está suscrito",
+        "badPhoneNumber": "Por favor, proporcione un número de teléfono de Estados Unidos 10 dígitos válida",
+        "numberNotFound": "La número __number__ no existe en nuestro sistema"
+    },
+
+    "success": {
+        "thankYou": "Gracias"
+    },
+
     "app": {
         "name": "Terminales de KCBX"
     },

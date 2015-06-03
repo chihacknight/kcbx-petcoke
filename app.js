@@ -1,24 +1,26 @@
 require('./lib/env');
 var cwd = process.cwd();
 
+
 var express = require('express')
   , auth = require(cwd + '/middleware/auth')
   , fs = require('fs')
   , hbs = require('hbs')
   , hbsHelpers = require(cwd + '/lib/hbs-helpers')
+  , i18n = require('i18next')
   , path = require('path')
   , favicon = require('serve-favicon')
   , logger = require('morgan')
   , cookieParser = require('cookie-parser')
   , bodyParser = require('body-parser')
-  , i18n = require('i18next')
   , localVars = require(cwd + "/middleware/locals")
   ;
 
+
 i18n.init({
-	saveMissing: true,
-	debug: true,
-	lng: 'en-US',
+  saveMissing: true,
+  debug: process.env.NODE_ENV === 'development',
+  lng: 'en-US',
     ignoreRoutes: ['images/', 'public/', 'css/', 'js/']
 });
 

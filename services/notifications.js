@@ -15,6 +15,7 @@ var messageHandlers = {
 	'subscribe'   : 'incomingSubscribe',
 	'start'       : 'incomingSubscribe',
 	'yes'         : 'incomingSubscribe',
+	'subscribir'  : 'incomingSubscribe',
 
 	// unsubscribe messages, defined by twilio
 	'unsubscribe' : 'incomingUnsubscribe',
@@ -48,6 +49,8 @@ module.exports = {
 		var handlerKey = messageHandlers[message];
 
 		var handler = handlerKey ? module.exports[handlerKey] : module.exports.incomingUnknown;
+		req.locale = inferLocale(message);
+		console.log(message);
 		return handler(req, cb);
 	},
 
@@ -61,15 +64,17 @@ module.exports = {
 		smsSubscriber.getSubscribers(function(err, subscribers){
 			if (err) return callback(err);
 
-			var numbers = _.compact(_.pluck(subscribers, 'phone'));
-			var qu = async.queue(function(number, next){
+			var qu = async.queue(function(subscriber, next){
 				process.stdout.write('.');
+
+				var locale = subscriber.locale || 'en-US';
+				var message = constants.alertMessage[locale];
+				var number = subscriber.phone;
+
 				that.sendMessage(number, message, next);
 			}, 20);
 
-			_.each(numbers, function(number){
-				qu.push(number);
-			});
+			_.each(subscribers, qu.push);
 
 			qu.drain = function(){
 				callback();
@@ -96,8 +101,10 @@ module.exports = {
 
 	incomingSubscribe: function(req, cb) {
 		var twiml = new twilio.TwimlResponse;
-		var phone = req.body.From;
-		smsSubscriber.addSubscriber(phone, function(err){
+		smsSubscriber.addSubscriber({
+			number: req.body.From,
+			locale: req.locale
+		}, function(err){
 			var successMessage = "We've subscribed you to air quality alerts. Thanks!";
 			var message = (err) ? err.message : successMessage;
 			twiml.message(message);
@@ -125,3 +132,16 @@ module.exports = {
 
 	noop: function() {}
 };
+
+function inferLocale(message) {
+	var locale = 'en-US';
+	
+	switch (message) {
+		// add fall-throughs here as necessary
+		case "subscribir":
+			locale = 'es-US';
+			break;
+	}
+
+	return locale;
+}

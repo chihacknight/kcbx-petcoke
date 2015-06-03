@@ -7,13 +7,17 @@ var cwd = process.cwd();
 var express = require('express');
 var router = express.Router();
 var smsSubcriberService = require(cwd + '/services/smsSubscriber');
-var formatter = require(cwd + "/lib/formatter")
+var formatter = require(cwd + "/lib/formatter");
+var i18next = require('i18next');
 
 
 router.post("/", function(req, res){
 
   var phone = req.body.phone;
-  smsSubcriberService.addSubscriber(phone, function(err, rslt){
+  smsSubcriberService.addSubscriber({
+    number: phone,
+    locale: i18next.lng()
+  }, function(err, rslt){
     
     if (!err)
       return res.json(rslt);

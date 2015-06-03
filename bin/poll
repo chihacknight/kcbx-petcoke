@@ -35,21 +35,13 @@ weather.getForecast(qryLat, qryLng, function(fcErr, fc) {
     }
 
 
-
-    var message = [
-      'Wind Alert!',
-      'Avoid petcoke exposure by limiting outdoor activity. ',
-      'Learn more and take action at ' + constants.TAKE_ACTION_URL + '.'
-    ].join(' ');
-
-
     // Setting cache before sending notification.
     // if script times out or something else unforeseen happens, we don't
     // want to be sending notifications every 10 minutes because the cache
     // isn't being set.
     cache.set("notifications.last_wind_notice_sent", moment().format(), function(){
 
-      notifications.broadcast(message, function(err){
+      notifications.broadcast(constants.alertMessage, function(err){
         evt.emit("pollFinished");
         cache.close();
 
