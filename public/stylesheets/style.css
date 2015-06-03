@@ -126,8 +126,10 @@ body.home .navbar.navbar-default .current-condition {
 }
 
 .language-selector {
-	text-align: right;
+	float: right;
 	font-weight: bold;
+	margin-top: 1em;
+	margin-right: .5em;
 }
 
 .language-selector a {

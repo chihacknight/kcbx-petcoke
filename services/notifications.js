@@ -18,12 +18,17 @@ var messageHandlers = {
 	'subscribir'  : 'incomingSubscribe',
 
 	// unsubscribe messages, defined by twilio
-	'unsubscribe' : 'incomingUnsubscribe',
-	'stop'        : 'incomingUnsubscribe',
-	'stopall'     : 'incomingUnsubscribe',
-	'cancel'      : 'incomingUnsubscribe',
-	'end'         : 'incomingUnsubscribe',
-	'quit'        : 'incomingUnsubscribe',
+	'unsubscribe'   : 'incomingUnsubscribe',
+	'stop'          : 'incomingUnsubscribe',
+	'stopall'       : 'incomingUnsubscribe',
+	'cancel'        : 'incomingUnsubscribe',
+	'end'           : 'incomingUnsubscribe',
+	'quit'          : 'incomingUnsubscribe',
+	'darse de baja' : 'incomingUnsubscribe',
+
+	'english' : 'setLanguagePreference',
+	'español' : 'setLanguagePreference',
+	'espanol' : 'setLanguagePreference',
 
 	// info messages for twilio, no output necessary
 	'help'        : 'noop',
@@ -50,7 +55,6 @@ module.exports = {
 
 		var handler = handlerKey ? module.exports[handlerKey] : module.exports.incomingUnknown;
 		req.locale = inferLocale(message);
-		console.log(message);
 		return handler(req, cb);
 	},
 
@@ -100,12 +104,17 @@ module.exports = {
 	},
 
 	incomingSubscribe: function(req, cb) {
-		var twiml = new twilio.TwimlResponse;
+		var twiml = new twilio.TwimlResponse();
 		smsSubscriber.addSubscriber({
 			number: req.body.From,
 			locale: req.locale
 		}, function(err){
+			
 			var successMessage = "We've subscribed you to air quality alerts. Thanks!";
+			if (req.locale === "es-US") {
+				successMessage = "Te has suscrito a las alertas de calidad del aire. Gracias!";
+			}
+
 			var message = (err) ? err.message : successMessage;
 			twiml.message(message);
 		 	cb(null, twiml);
@@ -113,10 +122,15 @@ module.exports = {
 	},
 
 	incomingUnsubscribe: function(req, cb) {
-		var twiml = new twilio.TwimlResponse;
+		var twiml = new twilio.TwimlResponse();
 		var phone = req.body.From;
 		smsSubscriber.removeSubscriber(phone, function(err){
+
 			var successMessage = "We've unsubscribed you from air quality alerts. Sorry to see you go!";
+			if (req.locale === "es-US") {
+				successMessage = "Te hemos cancelado la suscripción a alertas de calidad del aire. Lo sentimos que te vayas!";
+			}
+
 			var message = (err) ? err.message : successMessage;
 			twiml.message(message);
 		 	cb(null, twiml);
@@ -130,6 +144,21 @@ module.exports = {
 		})
 	},
 
+	setLanguagePreference: function(req, cb) {
+		var twiml = new twilio.TwimlResponse();
+		var phone = req.body.From;
+		var locale = req.locale;
+		smsSubscriber.setLanguagePreference(phone, locale, function(err, subscriber){
+			if (err) console.log(err);
+			var message = "We've set your language preference to English.";
+			if (locale === 'es-US') {
+				message = "Hemos establecido la preferencia de idioma para español.";
+			}
+			twiml.message(message);
+			cb(err, twiml);
+		})
+	},
+
 	noop: function() {}
 };
 
@@ -139,6 +168,9 @@ function inferLocale(message) {
 	switch (message) {
 		// add fall-throughs here as necessary
 		case "subscribir":
+		case "espanol":
+		case "español":
+		case "darse de baja":
 			locale = 'es-US';
 			break;
 	}

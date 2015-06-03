@@ -166,6 +166,31 @@ module.exports = {
         callback(null, rslt);
       })
     })
+  },
+
+  setLanguagePreference: function(number, locale, callback) {
+    var service = this;
+    number = formatter.normalizePhone(number);
+    if (!number) return callback({
+      type: "BAD_PARAM",
+      message: i18next("errors.badPhoneNumber")
+    });
+
+    // locale = _.contains(['en-US','es-US'], locale) ? locale : 'en-US';
+    service.getSubscriber(number, function(err, subscriber){
+      jwtClient.authorize(function(jwtErr){
+        if (jwtErr) { return callback(jwtErr); }
+
+        var sql = "UPDATE " + tableId + " SET locale='" + locale + "' WHERE ROWID='" + subscriber.rowid + "'";
+        fusion.query.sql({
+          auth: jwtClient,
+          sql: sql
+        }, function(tblErr, rslt){
+          if (tblErr) return callback(tblErr);
+          service.getSubscriber(number, callback);
+        })
+      })
+    })
   }
 }
 
