@@ -16,6 +16,7 @@ var messageHandlers = {
 	'start'       : 'incomingSubscribe',
 	'yes'         : 'incomingSubscribe',
 	'subscribir'  : 'incomingSubscribe',
+	'suscribir'   : 'incomingSubscribe',
 
 	// unsubscribe messages, defined by twilio
 	'unsubscribe'   : 'incomingUnsubscribe',
@@ -168,6 +169,7 @@ function inferLocale(message) {
 	switch (message) {
 		// add fall-throughs here as necessary
 		case "subscribir":
+		case "suscribir":
 		case "espanol":
 		case "español":
 		case "darse de baja":

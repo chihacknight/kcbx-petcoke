@@ -15,8 +15,8 @@
 
     "errors": {
         "alreadySubscribed": "El número __number__ ya está suscrito",
-        "badPhoneNumber": "Por favor, proporcione un número de teléfono de Estados Unidos 10 dígitos válida",
-        "numberNotFound": "La número __number__ no existe en nuestro sistema"
+        "badPhoneNumber": "Favor de usar un numero valido de los Estados Unidos y de 10 digitos",
+        "numberNotFound": "El número __number__ no existe en nuestro sistema"
     },
 
     "success": {
