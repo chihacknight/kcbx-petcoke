@@ -106,8 +106,9 @@
             "body-b": "\"ZERO THROUGHPUT\" (cero movimiento/rendimiento\/producci\u00f3n)",
             "body-c": "en el",
             "body-d": "TERMINAL",
-            "body-e": "SUR de KCBX. La Ciudad recién anunció 'zero throughput' en el terminal del norte, pero esa terminal ya estaba seleccionada para cerrar en el mes de junio.",
-            "body-f": "Exija cero 'petcoke' por la Terminal del Sur tambien",
+            "body-e": "SUR de KCBX. La Ciudad recién anunció 'zero throughput' en el terminal del norte, pero",
+            "body-already": "esa terminal ya estaba seleccionada para cerrar en el mes de junio",
+            "body-f": "Exija cero 'petcoke' por la Terminal del Sur tambien.",
             "body-ps-strong": "¿Ya llamó",
             "body-ps": "Muy bien! Llame otra vez! Llamando cada vez que recibe un alerta de texto (o cualquier otro rato) esta ayudando crear una voz consistente que el Alcalde tiene que tratar."
         },
