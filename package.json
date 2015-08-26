@@ -20,7 +20,6 @@
     "googleapis": "^2.0.2",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
-    "grunt-db-migrate": "^0.3.0",
     "hbs": "~2.9.0",
     "http-auth": "^2.2.5",
     "i18next": "^1.7.10",
