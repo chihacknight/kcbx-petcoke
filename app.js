@@ -21,7 +21,7 @@ i18n.init({
   saveMissing: true,
   debug: process.env.NODE_ENV === 'development',
   lng: 'en-US',
-    ignoreRoutes: ['images/', 'public/', 'css/', 'js/']
+  ignoreRoutes: ['images/', 'public/', 'css/', 'js/']
 });
 
 var staticRoutes     = require('./routes/index');
