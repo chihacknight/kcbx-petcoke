@@ -1,0 +1,36 @@
+.navbar-default {
+  background-color: $navbar-color;
+  color: $white;
+  
+  a, a:visited {
+    color: $white;
+  }
+  
+  a.navbar-brand {
+    font-size: 22px;
+    font-weight: lighter;
+  }
+  
+  .language-selector {
+    float: right;
+    display: block;
+    padding: 10px 15px;
+  }
+}
+
+
+.current-condition {
+  display: none;
+}
+
+body.wind-level-0 .current-condition {
+  background-color: $status-normal;
+}
+
+body.wind-level-1 .current-condition {
+  background-color: $status-elevated;
+}
+
+body.wind-level-2 .current-condition {
+  background-color: $status-hazardous;
+}
