@@ -90,4 +90,20 @@ body.home.wind-level-2 .exposure-risk .wind-status {
     position: relative;
     top: -10px; }
 
+@media (min-width: 768px) {
+  .exposure-risk .hero, .exposure-risk .subtitle {
+    text-align: left;
+    margin-left: 28px; }
+  .exposure-risk .compass-wrap {
+    width: 40%;
+    float: right; }
+  .exposure-risk .compass {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px; }
+    .exposure-risk .compass .speed-indicator {
+      font-size: 48px; }
+      .exposure-risk .compass .speed-indicator .mph {
+        font-size: 36px; } }
+
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,29 @@
+@media (min-width: 768px) {
+    .exposure-risk {
+        
+        .hero, .subtitle {
+            text-align: left;
+            margin-left: 28px;
+        }
+        
+        .compass-wrap {
+            width: 40%;
+            float: right;
+        }
+        
+        .compass {
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            
+            .speed-indicator {
+                font-size: 48px;
+                
+                .mph {
+                    font-size: 36px;
+                }
+            }
+        }
+    }
+    
+}
