@@ -19,10 +19,10 @@ body.wind-level-0 .current-condition {
   background-color: #35c319; }
 
 body.wind-level-1 .current-condition {
-  background-color: #BBAA11; }
+  background-color: #FFDD00; }
 
 body.wind-level-2 .current-condition {
-  background-color: #AA2222; }
+  background-color: #CC2200; }
 
 body.home {
   text-align: center; }
@@ -31,7 +31,7 @@ body.home {
   font-size: 24px;
   font-weight: normal;
   margin-bottom: 0;
-  margin-top: 0; }
+  margin-top: 2em; }
 
 .exposure-risk .subtitle {
   font-size: 16px;
@@ -40,20 +40,12 @@ body.home {
   margin-bottom: 1em; }
 
 .exposure-risk .wind-status {
+  background-color: #35c319;
   color: #000;
   font-size: x-large;
-  margin: 0 1em;
+  margin: .5em 1em;
   padding: .35em 0;
   text-transform: uppercase; }
-
-body.home.wind-level-0 .exposure-risk .wind-status {
-  background-color: #35c319; }
-
-body.home.wind-level-1 .exposure-risk .wind-status {
-  background-color: #BBAA11; }
-
-body.home.wind-level-2 .exposure-risk .wind-status {
-  background-color: #AA2222; }
 
 .exposure-risk .wind-data {
   font-size: small; }
@@ -66,29 +58,38 @@ body.home.wind-level-2 .exposure-risk .wind-status {
   height: 150px;
   margin: 2em auto;
   position: relative;
-  width: 150px;
-  border: 6px solid #35c319;
-  border-radius: 75px; }
-
-.compass .bearing-indicator {
-  background: url(/img/compass-indicator.png) center center no-repeat;
-  display: block;
-  height: 100%;
-  width: 100%; }
-
-.compass .speed-indicator {
-  font-size: 30px;
-  left: 0;
-  margin: 0;
-  position: absolute;
-  text-align: center;
-  top: 37px;
-  width: 100%; }
-  .compass .speed-indicator .mph {
-    display: block;
-    font-size: 24px;
-    position: relative;
-    top: -10px; }
+  width: 150px; }
+  .compass .ring {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    height: 100px;
+    width: 100px;
+    border: 6px solid #999;
+    border-radius: 50%; }
+  .compass .bearing-indicator {
+    position: absolute;
+    border-top: 30px solid #000;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 90px solid transparent;
+    height: 0;
+    width: 0;
+    left: 65px;
+    top: 15px; }
+  .compass .speed-indicator {
+    font-size: 26px;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    top: 45px;
+    width: 100%; }
+    .compass .speed-indicator .mph {
+      display: block;
+      font-size: 20px;
+      position: relative;
+      top: -10px; }
 
 @media (min-width: 768px) {
   .exposure-risk .hero, .exposure-risk .subtitle {
@@ -99,11 +100,22 @@ body.home.wind-level-2 .exposure-risk .wind-status {
     float: right; }
   .exposure-risk .compass {
     width: 200px;
-    height: 200px;
-    border-radius: 100px; }
+    height: 200px; }
+    .exposure-risk .compass .ring {
+      width: 150px;
+      height: 150px; }
+    .exposure-risk .compass .bearing-indicator {
+      border-bottom-width: 140px;
+      left: 90px; }
     .exposure-risk .compass .speed-indicator {
-      font-size: 48px; }
+      font-size: 40px;
+      top: 55px; }
       .exposure-risk .compass .speed-indicator .mph {
-        font-size: 36px; } }
+        font-size: 30px; } }
+body.home.wind-level-1 .exposure-risk .wind-status {
+  background-color: #FFDD00; }
+
+body.home.wind-level-2 .exposure-risk .wind-status {
+  background-color: #CC2200; }
 
 /*# sourceMappingURL=style.css.map */

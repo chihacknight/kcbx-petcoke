@@ -56,7 +56,7 @@
             "speed": "Wind Speed",
             "from": "Out of the",
             "time-taken": "Forecast generated at",
-            "using": "by"
+            "using": "Data provided by"
         },
         "get_alerts": "Get Air Quality Alerts",
         "take_action": "Take Action"

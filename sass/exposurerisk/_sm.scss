@@ -14,13 +14,23 @@
         .compass {
             width: 200px;
             height: 200px;
-            border-radius: 100px;
+            
+            .ring {
+              width:  150px;
+              height: 150px;
+            }
+            
+            .bearing-indicator {
+              border-bottom-width: 140px;
+              left: 90px;
+            }
             
             .speed-indicator {
-                font-size: 48px;
+                font-size: 40px;
+                top: 55px;
                 
                 .mph {
-                    font-size: 36px;
+                    font-size: 30px;
                 }
             }
         }

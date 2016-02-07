@@ -21,13 +21,14 @@
     </div>
     
 	<div class="col-sm-5 compass-wrap">
-        <div class="compass">
-    		<span class="bearing-indicator" data-bearing='{{wind.bearing}}'></span>
-    		<p class="speed-indicator">
-              {{ formatNumber wind.speed "0,0.0"}}
-              <span class="mph">mph</span>
-            </p>
-        </div>
+    <div class="compass">
+      <div class="ring"></div>
+  		<span class="bearing-indicator" data-bearing='{{wind.bearing}}'></span>
+  		<p class="speed-indicator">
+            {{ formatNumber wind.speed "0,0.0"}}
+        <span class="mph">mph</span>
+      </p>
+    </div>
 	</div>
 
 	<div class='time-taken col-sm-7'>
