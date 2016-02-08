@@ -1,0 +1,43 @@
+.subscribe-block {
+
+  background-color: $secondary-bg;
+  color: $white;
+  margin-top: 30px;
+  position: relative;
+
+  .banner-image img {
+    max-width: 100%;
+  }
+  
+  form.sms-signup {
+    max-width: 400px;
+    margin: 0 auto;
+    
+    input#phone_input {
+      border: none;
+      background-color: transparent;
+      color: $white;
+      border-radius: 0;
+      border-bottom: 1px solid $white;
+      box-shadow: none;
+      
+      
+    }
+    @include placeholder-color(#eee);
+    
+  }
+  
+  .subscription-info {
+    font-size: .85em;
+    margin-bottom: 20px;
+  }
+  
+  .unsubscribe {
+    font-size: .85em;
+  }
+  
+  .what-is-this {
+    text-align: left;
+    padding-bottom: 2em;
+  }
+}

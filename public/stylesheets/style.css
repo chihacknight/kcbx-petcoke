@@ -1,4 +1,3 @@
-/* @import "legacy" */
 .navbar-default {
   background-color: #367bb4;
   color: #fff; }
@@ -117,5 +116,49 @@ body.home.wind-level-1 .exposure-risk .wind-status {
 
 body.home.wind-level-2 .exposure-risk .wind-status {
   background-color: #CC2200; }
+
+.subscribe-block {
+  background-color: #c27213;
+  color: #fff;
+  margin-top: 30px;
+  position: relative; }
+  .subscribe-block .banner-image img {
+    max-width: 100%; }
+  .subscribe-block form.sms-signup {
+    max-width: 400px;
+    margin: 0 auto; }
+    .subscribe-block form.sms-signup input#phone_input {
+      border: none;
+      background-color: transparent;
+      color: #fff;
+      border-radius: 0;
+      border-bottom: 1px solid #fff;
+      box-shadow: none; }
+    .subscribe-block form.sms-signup ::-webkit-input-placeholder {
+      color: #eee; }
+    .subscribe-block form.sms-signup :-moz-placeholder {
+      /* older Firefox*/
+      color: #eee; }
+    .subscribe-block form.sms-signup ::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #eee; }
+    .subscribe-block form.sms-signup :-ms-input-placeholder {
+      color: #eee; }
+  .subscribe-block .subscription-info {
+    font-size: .85em;
+    margin-bottom: 20px; }
+  .subscribe-block .unsubscribe {
+    font-size: .85em; }
+  .subscribe-block .what-is-this {
+    text-align: left;
+    padding-bottom: 2em; }
+
+@media (min-width: 1024px) {
+  .subscribe-block .stripe {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(174, 113, 35, 0.7); } }
 
 /*# sourceMappingURL=style.css.map */

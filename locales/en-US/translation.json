@@ -64,12 +64,12 @@
     "subscribe": {
         "btn": "Back",
         "page-title": "Get Air Quality Alerts",
-        "form": "Enter your cell phone number to receive text messages when winds exceed 15 miles per hour in the vicinity of KCBX Terminals.",
+        "form": "You'll receive a text when winds near KCBX Terminals exceed 15 miles per hour",
         "input": {
-            "placeholder": "Your phone number",
+            "placeholder": "Enter your phone number",
             "valid": "Phone number is required",
             "valid-format": "Please provide a valid 10-digit US phone number",
-            "valid-info": "Enter your phone number above or text \"Subscribe\" to 312-313-3200",
+            "valid-info": "or text \"SUBSCRIBE\" to 312-313-3200",
             "submit": "Submit"
         },
         "about": {
@@ -83,7 +83,7 @@
         },
         "off-list": {
             "title": "How can I unsubscribe?",
-            "body": "To stop receiving SMS alerts, text \"Unsubscribe\" to 312-313-3200. You will receive a response text confirming that you have canceled your subscription."
+            "body": "To unsubscribe, text \"UNSUBSCRIBE\" to 312-313-3200. <br>You will receive a response text confirming that you have canceled your subscription."
         }
     },
     "take-action": {

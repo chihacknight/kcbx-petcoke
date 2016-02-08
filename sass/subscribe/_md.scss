@@ -1,0 +1,13 @@
+@media (min-width: 1024px) {
+  
+  .subscribe-block {
+
+    .stripe {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: $secondary-bg-alpha;
+    }
+  }
+}
