@@ -86,6 +86,16 @@
             "body": "To unsubscribe, text \"UNSUBSCRIBE\" to 312-313-3200. <br>You will receive a response text confirming that you have canceled your subscription."
         }
     },
+    
+    "what-is-petcoke": {
+      "title": "What is petcoke?",
+      "points": {
+        "definition": "Petcoke is short for Petroleum Coke.  It is a waste byproduct of the oil refining process that can be sold for use in some manufacturing processes.",
+        "risk": "Petcoke dust is extremely fine, and when it becomes airborne can cause long- and short-term damage to the heart and lungs.",
+        "kcbx": "KCBX Terminals, Inc. maintains two massive, open-air stockpiles of petcoke on Chicago's Southeast side in the immediate vicinity of a residential neighborhood, exposing thousands of Chicagoans to windblown particulate matter."
+      }
+    },
+    
     "take-action": {
         "btn": "Home",
         "define": {

@@ -164,5 +164,7 @@ body.home.wind-level-2 .exposure-risk .wind-status {
     background-color: rgba(194, 114, 19, 0.7); } }
 .what-is-petcoke {
   text-align: left; }
+  .what-is-petcoke ul {
+    padding-left: 1em; }
 
 /*# sourceMappingURL=style.css.map */
