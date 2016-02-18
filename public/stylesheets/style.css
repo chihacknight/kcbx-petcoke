@@ -1,6 +1,15 @@
 .navbar-default {
   background-color: #367bb4;
-  color: #fff; }
+  border-radius: 0;
+  color: #fff;
+  margin-bottom: 0;
+  border: none;
+  position: fixed;
+  height: 50px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20; }
   .navbar-default a, .navbar-default a:visited {
     color: #fff; }
   .navbar-default a.navbar-brand {
@@ -10,6 +19,11 @@
     float: right;
     display: block;
     padding: 10px 15px; }
+
+.all-content {
+  border: 1px solid #fff;
+  margin-top: 50px;
+  position: relative; }
 
 .current-condition {
   display: none; }
@@ -23,14 +37,40 @@ body.wind-level-1 .current-condition {
 body.wind-level-2 .current-condition {
   background-color: #CC2200; }
 
+#footer {
+  background-color: #fff;
+  border: none;
+  margin: 0;
+  position: relative;
+  padding: 2em;
+  top: -1px;
+  z-index: 10; }
+
+.banner-image {
+  z-index: 1; }
+  .banner-image img {
+    max-width: 100%;
+    border: 1px solid #fff; }
+
+@media (min-width: 768px) {
+  div.banner-image {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%; } }
 body.home {
   text-align: center; }
+
+.exposure-risk {
+  background-color: white;
+  padding: 2em 0;
+  position: relative;
+  z-index: 10; }
 
 .exposure-risk .hero {
   font-size: 24px;
   font-weight: normal;
-  margin-bottom: 0;
-  margin-top: 2em; }
+  margin-bottom: 0; }
 
 .exposure-risk .subtitle {
   font-size: 16px;
@@ -55,7 +95,7 @@ body.home {
 .compass {
   display: block;
   height: 150px;
-  margin: 2em auto;
+  margin: 1em auto;
   position: relative;
   width: 150px; }
   .compass .ring {
@@ -91,26 +131,32 @@ body.home {
       top: -10px; }
 
 @media (min-width: 768px) {
-  .exposure-risk .hero, .exposure-risk .subtitle {
-    text-align: left;
-    margin-left: 28px; }
-  .exposure-risk .compass-wrap {
-    width: 40%;
-    float: right; }
-  .exposure-risk .compass {
-    width: 200px;
-    height: 200px; }
-    .exposure-risk .compass .ring {
-      width: 150px;
-      height: 150px; }
-    .exposure-risk .compass .bearing-indicator {
-      border-bottom-width: 140px;
-      left: 90px; }
-    .exposure-risk .compass .speed-indicator {
-      font-size: 40px;
-      top: 55px; }
-      .exposure-risk .compass .speed-indicator .mph {
-        font-size: 30px; } }
+  .exposure-risk {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    width: 100%; }
+    .exposure-risk .hero, .exposure-risk .subtitle {
+      text-align: left;
+      margin-left: 28px; }
+    .exposure-risk .compass-wrap {
+      width: 40%;
+      float: right; }
+    .exposure-risk .compass {
+      width: 200px;
+      height: 160px; }
+      .exposure-risk .compass .ring {
+        width: 150px;
+        height: 150px; }
+      .exposure-risk .compass .bearing-indicator {
+        border-bottom-width: 140px;
+        left: 90px; }
+      .exposure-risk .compass .speed-indicator {
+        font-size: 40px;
+        top: 55px; }
+        .exposure-risk .compass .speed-indicator .mph {
+          font-size: 30px; } }
 body.home.wind-level-1 .exposure-risk .wind-status {
   background-color: #FFDD00; }
 
@@ -119,11 +165,10 @@ body.home.wind-level-2 .exposure-risk .wind-status {
 
 .subscribe-block {
   background-color: #c27213;
+  border-top: 1px solid transparent;
   color: #fff;
-  margin-top: 30px;
-  position: relative; }
-  .subscribe-block .banner-image img {
-    max-width: 100%; }
+  position: relative;
+  z-index: 10; }
   .subscribe-block form.sms-signup {
     max-width: 400px;
     margin: 0 auto; }
@@ -153,17 +198,14 @@ body.home.wind-level-2 .exposure-risk .wind-status {
     text-align: left;
     padding-bottom: 2em; }
 
-@media (min-width: 1024px) {
-  .subscribe-block .banner-image {
-    min-height: 400px; }
-  .subscribe-block .stripe {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(194, 114, 19, 0.7); } }
+@media (min-width: 768px) {
+  .subscribe-block {
+    margin-top: 58%; } }
 .what-is-petcoke {
-  text-align: left; }
+  background-color: #fff;
+  position: relative;
+  text-align: left;
+  z-index: 10; }
   .what-is-petcoke ul {
     padding-left: 1em; }
 

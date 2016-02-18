@@ -15,7 +15,9 @@
   <body class="{{ bodyClass }} {{ windLevel }}">
     {{> header }}
 
-    {{{body}}}
+    <div class="all-content">
+      {{{body}}}
+    </div>
 
     <footer id="footer">
       <hr>
@@ -45,18 +47,6 @@
 
       </div>
 
-      <table class="footer-nav">
-
-        <tr>
-
-          <td><a href="/">{{ t "footer-nav.home" }}</a></td>
-          <td><a href="/subscribe">{{ t "footer-nav.subscribe" }}</a></td>
-          <td><a href="/take-action">{{ t "footer-nav.take-action" }}</a></td>
-          <td><a href="/subscribe#unsubscribe">{{ t "footer-nav.unsubscribe" }}</a></td>
-
-        </tr>
-
-      </table>
     </footer>
 
 
