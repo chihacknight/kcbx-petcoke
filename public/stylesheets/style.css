@@ -203,10 +203,23 @@ body.home.wind-level-2 .exposure-risk .wind-status {
     margin-top: 58%; } }
 .what-is-petcoke {
   background-color: #fff;
+  padding: 2em 1em;
   position: relative;
   text-align: left;
   z-index: 10; }
   .what-is-petcoke ul {
     padding-left: 1em; }
+
+.concerned {
+  background-color: #90bbd6;
+  color: #fff;
+  padding: 2em 1em;
+  position: relative;
+  text-align: left;
+  z-index: 10; }
+  .concerned blockquote {
+    border-left: none;
+    font-style: italic;
+    margin-right: 4em; }
 
 /*# sourceMappingURL=style.css.map */

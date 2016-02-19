@@ -1,0 +1,15 @@
+.concerned {
+  background-color: $tertiary-bg;
+  color: $white;
+  padding: 2em 1em;
+  
+  position: relative;
+  text-align: left;
+  z-index: 10;
+  
+  blockquote {
+    border-left: none;
+    font-style: italic;
+    margin-right: 4em;
+  }
+}
