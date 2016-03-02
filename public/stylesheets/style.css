@@ -222,4 +222,13 @@ body.home.wind-level-2 .exposure-risk .wind-status {
     font-style: italic;
     margin-right: 4em; }
 
+.what-can-i-do {
+  background-color: #fff;
+  padding: 2em 1em;
+  position: relative;
+  text-align: left;
+  z-index: 10; }
+  .what-can-i-do ul {
+    padding-left: 1em; }
+
 /*# sourceMappingURL=style.css.map */
