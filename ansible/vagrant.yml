@@ -1,0 +1,8 @@
+---
+
+- hosts: all # this needs to be updated if you're provisioning more than just vagrant 
+  roles: 
+    - install-generic-packages
+    - install-node-0.12
+    - install-memcached
+    - install-npm-globals
