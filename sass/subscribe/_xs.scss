@@ -17,10 +17,22 @@
       border-radius: 0;
       border-bottom: 1px solid $white;
       box-shadow: none;
-      
-      
+      padding-bottom: 0;
+      margin-bottom: 0;
     }
     @include placeholder-color(#eee);
+    
+    .status {
+      font-size: small;
+      font-weight: bold;
+      padding: .5em;
+      position: relative;
+      top: -.5em;
+      
+      &.error {
+        background-color: #A33;
+      }
+    }
     
   }
   

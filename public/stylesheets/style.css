@@ -46,6 +46,9 @@ body.wind-level-2 .current-condition {
   top: -1px;
   z-index: 10; }
 
+.clear {
+  clear: both; }
+
 .banner-image {
   z-index: 1; }
   .banner-image img {
@@ -178,7 +181,9 @@ body.home.wind-level-2 .exposure-risk .wind-status {
       color: #fff;
       border-radius: 0;
       border-bottom: 1px solid #fff;
-      box-shadow: none; }
+      box-shadow: none;
+      padding-bottom: 0;
+      margin-bottom: 0; }
     .subscribe-block form.sms-signup ::-webkit-input-placeholder {
       color: #eee; }
     .subscribe-block form.sms-signup :-moz-placeholder {
@@ -189,6 +194,14 @@ body.home.wind-level-2 .exposure-risk .wind-status {
       color: #eee; }
     .subscribe-block form.sms-signup :-ms-input-placeholder {
       color: #eee; }
+    .subscribe-block form.sms-signup .status {
+      font-size: small;
+      font-weight: bold;
+      padding: .5em;
+      position: relative;
+      top: -.5em; }
+      .subscribe-block form.sms-signup .status.error {
+        background-color: #A33; }
   .subscribe-block .subscription-info {
     font-size: .85em;
     margin-bottom: 20px; }
