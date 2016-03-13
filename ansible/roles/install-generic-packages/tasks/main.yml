@@ -7,3 +7,8 @@
   with_items: 
     - vim 
     - git
+
+- name: install sass gem 
+  become: yes
+  gem: 
+    name: sass
