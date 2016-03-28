@@ -1,0 +1,49 @@
+
+<div class="subscribe-block">
+
+  <div class="stripe">
+    <div class="container">
+      <div class="row">
+
+        <div class="col col-sm-6">
+          <h2 class='page-title'>{{ t "subscribe.page-title" }}</h2>
+
+            <p class='subscription-info'>{{ t "subscribe.form" }}</p>
+
+            <div class="row">
+              <form class='form sms-signup' action="/api/subscribers" method="POST" autocomplete="off" data-parsley-validate>
+                <div class="col col-xs-8">
+                  <input class='form-control'
+                         type="tel"
+                         name='phone'
+                         id='phone_input'
+                         placeholder='{{t "subscribe.input.placeholder"}}'
+                         data-parsley-required-message='{{ t "subscribe.input.valid" }}'
+                         required>
+                </div>
+                <div class="col col-xs-4">
+                  <input class='btn btn-primary form-control' type="submit" name='submit'
+                         value='{{ t "subscribe.input.submit" }}'>
+                </div>
+                <div class="status clear">&nbsp;</div>
+              </form>
+            </div>
+            <div class="row">
+              <p>{{ t "subscribe.input.valid-info" }}</p>
+              <p class='unsubscribe'>
+                {{ t "subscribe.off-list.body" }}
+              </p>
+              <p class="status">&nbsp;</p>
+            </div>
+        </div>
+
+        <div class="what-is-this col col-sm-6">
+          <h3>{{ t "subscribe.about.title" }}</h3>
+
+          <p>{{ t "subscribe.about.body" }}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

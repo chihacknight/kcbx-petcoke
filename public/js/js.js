@@ -15,7 +15,7 @@
     /**
      * Form for SMS Signups
      */
-    $("body.subscribe form").submit(function(e){
+    $("form.sms-signup").submit(function(e){
       e.preventDefault();
 
       var $form = $(this);

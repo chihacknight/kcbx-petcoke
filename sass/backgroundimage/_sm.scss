@@ -1,0 +1,9 @@
+@media (min-width: 768px) {
+
+  div.banner-image {
+    position: fixed;
+    top: $navbar-height;
+    left: 0;
+    width: 100%;
+  }
+}

@@ -1,0 +1,14 @@
+- name: install generic packages 
+  become: yes 
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes 
+  with_items: 
+    - vim 
+    - git
+
+- name: install sass gem 
+  become: yes
+  gem: 
+    name: sass

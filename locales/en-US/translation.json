@@ -56,7 +56,7 @@
             "speed": "Wind Speed",
             "from": "Out of the",
             "time-taken": "Forecast generated at",
-            "using": "by"
+            "using": "Data provided by"
         },
         "get_alerts": "Get Air Quality Alerts",
         "take_action": "Take Action"
@@ -64,12 +64,12 @@
     "subscribe": {
         "btn": "Back",
         "page-title": "Get Air Quality Alerts",
-        "form": "Enter your cell phone number to receive text messages when winds exceed 15 miles per hour in the vicinity of KCBX Terminals.",
+        "form": "You'll receive a text when winds near KCBX Terminals exceed 15 miles per hour",
         "input": {
-            "placeholder": "Your phone number",
+            "placeholder": "Enter your phone number",
             "valid": "Phone number is required",
             "valid-format": "Please provide a valid 10-digit US phone number",
-            "valid-info": "Enter your phone number above or text \"Subscribe\" to 312-313-3200",
+            "valid-info": "or text \"SUBSCRIBE\" to 312-313-3200",
             "submit": "Submit"
         },
         "about": {
@@ -83,55 +83,33 @@
         },
         "off-list": {
             "title": "How can I unsubscribe?",
-            "body": "To stop receiving SMS alerts, text \"Unsubscribe\" to 312-313-3200. You will receive a response text confirming that you have canceled your subscription."
+            "body": "To unsubscribe, text \"UNSUBSCRIBE\" to 312-313-3200. <br>You will receive a response text confirming that you have canceled your subscription."
         }
     },
-    "take-action": {
-        "btn": "Home",
-        "define": {
-            "title": "What is petcoke?",
-            "body": "Petcoke is a fine black carbon-based product of petroleum processing. When the wind is above 15 miles per hour, fine petcoke particles can become airborne, causing damage to your heart and lungs. KCBX Terminals maintains several large open-air stockpiles of petcoke on the far Southeast side of Chicago.",
-            "more": "Learn more below."
-        },
-        "demand": {
-            "title": "What can I do?",
-            "prominent": "Demand",
-            "prominent-strong": "action",
-            "prominent-end": "from Mayor Emanuel!",
-            "prominent-call": "Call the Mayor's office now and demand",
-            "prominent-call-strong": "ZERO PETCOKE THROUGHPUT",
-            "prominent-call-strong-end": "at the KCBX Terminals",
-            "prominent-number": "Call the Mayor:",
-            "body-a": "Call the Mayor's office now and demand",
-            "body-b": "ZERO PETCOKE THROUGHPUT",
-            "body-c": "at the",
-            "body-d": "SOUTH Terminal",
-            "body-e": "of KCBX Terminals. The City recently announced zero throughput at the North Terminal, but",
-            "body-already": "the North Terminal was already slated to close in June",            
-            "body-f": "Demand no petcoke through the South terminal as well.",
-            "body-ps-strong": "Already called",
-            "body-ps": "Great! Call again! By calling every time you receive a wind alert (or any other time) you help to create a consistent voice that the Mayor must address."
-        },
-        "script": {
-            "title": "What should I say?",
-            "body": "I'm calling to demand that the Department of Planning and Development recommend a petcoke throughput limit of ZERO for ALL TERMINALS at KCBX. The city has recently announced zero throughput at the North terminal, but that terminal was already slated to close in June. We demand a limit of zero on ALL TERMINALS at KCBX.",
-            "body-ps": "The American Cancer Society, Harvard University, and the EPA have determined that prolonged exposure to fine airborne dust particles, including petcoke, can lead to heart disease and lung disease, and this hazard must be eliminated from our community."
-
-        },
-        "more-information": {
-            "title": "More information about Petcoke",
-            "intro": "The following excerpts are from",
-            "intro-em": "Particle Pollution and Your Health",
-            "intro-cont": "a pamphlet released by the U.S. Environmental Protection Agency.  You can download the whole pamphlet",
-            "special": "http:\/\/www.epa.gov\/airquality\/particulatematter\/pdfs\/pm-color.pdf",
-            "special-text": "here.",
-            "blockquote": "...The size of particles is directly linked to their potential for causing health problems. Small particles less than 10 micrometers in diameter pose the greatest problems, because they can get deep into your lungs, and some may even get into your bloodstream. Exposure to such particles can affect both your lungs and your heart...",
-            "blockquote-strong": "Long-term exposures",
-            "blockquote-cont": "such as those experienced by people living for many years in areas with high particle levels, have been associated with problems such as reduced lung function and the development of chronic bronchitis&mdash;and even premature death...",
-            "study-lead": "In addition, a",
-            "study-a": "a long term study by Harvard University",
-            "study-b": "followed particulate matter levels in six cities over 35 years. The study found that increased levels of fine particulate matter in the air was associated with increased risk of mortality, especially cardiovascular and lung cancer mortality. The paper concludes",
-            "study-strong": "\"...further public policy efforts that reduce fine particulate matter air pollution are likely to have continuing public health benefits.\""
-        }
+    
+    "what-is-petcoke": {
+      "title": "What is petcoke?",
+      "points": {
+        "definition": "Petcoke is short for Petroleum Coke.  It is a waste byproduct of the oil refining process that can be sold for use in some manufacturing processes.",
+        "risk": "Petcoke dust is extremely fine, and when it becomes airborne can cause long- and short-term damage to the heart and lungs.",
+        "kcbx": "KCBX Terminals, Inc. maintains two massive, open-air stockpiles of petcoke on Chicago's Southeast side in the immediate vicinity of a residential neighborhood, exposing thousands of Chicagoans to windblown particulate matter."
+      }
+    },
+    
+    "why-concerned": {
+      "title": "Why Should I Be Concerned?",
+      "studies": "Environmental studies show airborne Petcoke causes air quality issues that affect health and well being. According to the U.S. Environmental Protection Agency's pamphlet <a href='http://www3.epa.gov/airnow/particle/pm-color.pdf'>Particle Polution and Your Health</a>",
+      "quote-particles": "Small particles less than 10 micrometers in diameter pose the greatest problems, because they can get deep into your lungs, and some may even get into the bloodstream. Exposure to such particles can affect both your lungs and heart.",
+      "quote-long-term": "Long term exposures, such as those experienced by people living for many years in areas with high particle levels, have been associated with problems such as reduced lung function and the development of chronic bronchitis &mdash; and even premature death&hellip;",
+      "particle-brochure": "<a href='http://www3.epa.gov/airnow/particle/pm-color.pdf'>Click Here</a> to download Particle Pollution and Your Health.",
+      "petcoke-chicago": "<a href='http://www.epa.gov/petroleum-coke-chicago'>Click Here</a> to learn more about the Environmental Protection Agency's response to Petcoke in Chicago.",
+      "epa-fenceline": "<a href='http://www.epa.gov/petroleum-coke-chicago/kcbx-fenceline-air-monitoring-data'>Click Here</a> to access the Environmental Protection Agency's Petcoke Monitoring Data."
+    },
+    
+    "what-can-i-do": {
+        "title": "What can I do?",
+        "activism": "Join activist groups like the <a href='https://www.facebook.com/Chicago-South-East-Side-Coalition-To-Ban-Petcoke-848330295223606/' target='_blank'>Southeast Side Coalition to Ban Petcoke</a> or the <a href='http://setaskforce.org/get-involved/' target='_blank'>Southeast Environmental Task Force</a>",
+        "share": "Share information about and pictures of Petcoke on Twitter or Facebook to educate people about Petcoke and the lack of Social Justice on Chicago's Southeast Side",
+        "alderwoman": "Join the Tenth Ward Alderwoman, <a href='https://www.facebook.com/ssadlowskigarza/' target='_blank'>Susan Sadlowski Garza</a>, in speaking out against petcoke and air quality issues in your neighborhood."
     }
 }

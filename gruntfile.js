@@ -6,6 +6,14 @@ var grunt = require('grunt')
 
 module.exports = function(grunt) {
   grunt.initConfig({
+    sass: {
+      dist: {
+        files: {
+          "public/stylesheets/style.css" : "sass/main.scss"
+        }
+      }
+    },
+      
     supervisor: {
       target: {
         script: "bin/www",
@@ -14,8 +22,16 @@ module.exports = function(grunt) {
           ignore: ['node_modules', 'bin'],
           extensions: ['js', 'hbs', 'json'],
           noRestartOn: "error",
-          debug: true
+          debug: true,
+          forceSync: true
         }
+      }
+    },
+    
+    watch: {
+      sass: {
+        files: ["sass/**/*"],
+        tasks: ["sass"]
       }
     },
 
@@ -31,6 +47,8 @@ module.exports = function(grunt) {
 
 grunt.loadNpmTasks("grunt-supervisor");
 grunt.loadNpmTasks('grunt-mocha-test');
+grunt.loadNpmTasks('grunt-contrib-sass');
+grunt.loadNpmTasks('grunt-contrib-watch');
 
 grunt.registerTask('test' , ['mochaTest']);
-grunt.registerTask('serve', ['supervisor']);
+grunt.registerTask('serve', ['supervisor', 'watch']);

@@ -1,0 +1,8 @@
+- name: install global npm modules 
+  become: yes 
+  npm:
+    name: "{{ item }}"
+    global: yes 
+  with_items:
+    - grunt-cli
+    - bower

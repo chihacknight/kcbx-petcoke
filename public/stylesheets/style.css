@@ -1,266 +1,247 @@
-.container {
-	color: #333;
-	max-width: 640px;
-}
+.navbar-default {
+  background-color: #367bb4;
+  border-radius: 0;
+  color: #fff;
+  margin-bottom: 0;
+  border: none;
+  position: fixed;
+  height: 50px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20; }
+  .navbar-default a, .navbar-default a:visited {
+    color: #fff; }
+  .navbar-default a.navbar-brand {
+    font-size: 22px;
+    font-weight: lighter; }
+  .navbar-default .language-selector {
+    float: right;
+    display: block;
+    padding: 10px 15px; }
 
-h1, h2, h3, h4 {
-	color: #000;
-}
+.all-content {
+  border: 1px solid #fff;
+  margin-top: 50px;
+  position: relative; }
 
-p {
-	margin: 1em 0;
-}
+.current-condition {
+  display: none; }
 
-blockquote {
-	font-style: italic;
-}
+body.wind-level-0 .current-condition {
+  background-color: #35c319; }
 
-.well blockquote {
-	border-left: none;
-}
+body.wind-level-1 .current-condition {
+  background-color: #FFDD00; }
 
-.parsley-errors-list {
-	list-style: none;
-	color: #A00;
-	margin: 0;
-	text-align: left;
-	padding: 0;
-}
-
-.navbar.navbar-default {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 100;
-}
-
-.navbar.navbar-default .current-condition {
-	background-color: #383;
-	color: #fff;
-	font-weight: bold;
-	letter-spacing: .03em;
-	padding: 0 15px;
-}
-
-body {
-	margin-top: 7em;
-}
-
-body.home .navbar.navbar-default .current-condition {
-	display: none;
-}
-
-.wind-level-1 .navbar.navbar-default .current-condition {
-	background-color: #BA1;
-}
-
-.wind-level-2 .navbar.navbar-default .current-condition {
-	background-color: #A22;
-}
-
-.navbar.navbar-default .status {
-	float: left;
-}
-
-
-
-.navbar.navbar-default .compass {
-	background: none;
-	float: right;
-	height: auto;
-	margin: 1em;
-	width: auto;
-}
-
-.navbar.navbar-default .bearing-indicator {
-	background: none;
-	display: inline-block;
-	height: 0;
-	margin-left: .5em;
-	width: 0;
-	border-top: 15px solid #fff;
-	border-left: 5px solid transparent;
-	border-right: 5px solid transparent;
-	border-bottom: 0;
-}
-
-.navbar.navbar-default .compass .speed-indicator {
-	display: inline-block;
-	font-size: medium;
-	position: relative;
-	top: 0;
-	width: auto;
-}
-
-
-.navbar-nav {
-	text-align: center;
-	font-size: large;
-}
-
-@media only screen and (min-width: 768px) {
-	.navbar-nav {
-		float: right;
-		font-size: medium;
-	}
-
-	.navbar.navbar-default .compass {
-		float: left;
-		border-left: 1px solid #fff;
-		padding-left: 1em;
-	}
-}
-
-.page-title {
-	text-align: center;
-}
-
-.prominent {
-	font-size: x-large;
-	color: #444;
-}
-
-.prominent a {
-	white-space: nowrap;
-}
-
-.language-selector {
-	font-weight: bold;
-	margin-top: 1em;
-	margin-right: .5em;
-	text-align: right;
-}
-
-.language-selector a {
-	display: inline-block;
-	padding: .5em 1em;
-}
-
-body.home {
-	margin-top: 4em;
-	text-align: center;
-}
-
-body.home .hero {
-	font-size: 3em;
-	margin-bottom: 0;
-}
-
-body.home .subtitle {
-	margin-top: .5em;
-}
-
-body.home .wind-status {
-	color: #fff;
-	font-size: xx-large;
-	margin: 1em 0;
-	padding: .5em 0;
-}
-
-body.home.wind-level-0 .wind-status {
-	background-color: #383;
-}
-
-body.home.wind-level-1 .wind-status {
-	background-color: #BA1;
-}
-
-body.home.wind-level-2 .wind-status {
-	background-color: #A22;
-}
-
-body.home .wind-data {
-	font-size: large;
-}
-
-body.home .wind-data .time-taken {
-	font-size: small;
-}
-
-.compass {
-	background: url(/img/compass-ring.png) center center no-repeat;
-	display: block;
-	height: 120px;
-	margin: 0 auto 2em;
-	position: relative;
-	width: 120px;
-}
-
-.compass .bearing-indicator {
-	background: url(/img/compass-indicator.png) center center no-repeat;
-	display: block;
-	height: 100%;
-	width: 100%;
-}
-
-.compass .speed-indicator {
-	display: block;
-	position: absolute;
-	width: 100%;
-	top: 37px;
-	left: 0;
-	text-align: center;
-	font-size: 30px;
-}
-
-body.home .action-button {
-	font-size: large;
-	/* margin-top: .6em; */
-}
-
-	@media screen and (max-width: 400px) {
-		body.home .action-button {
-			display: block;
-			text-align: center;
-			white-space: normal;
-			margin: 0 2em;
-		}
-	}
-
-body.subscribe form.sms-signup {
-	margin: 1em auto;
-	max-width: 480px;
-	text-align: center;
-	position: relative;
-}
-
-body.subscribe form.sms-signup .col:first-child {
-	margin-right: 0;
-	padding-right: 3px;
-}
-
-body.subscribe form.sms-signup .col:last-child {
-	margin-left: 0;
-	padding-left: 3px;
-}
-
-body.subscribe form.sms-signup .status {
-	color: #fff;
-	font-weight: bold;
-	margin: .5em;
-	padding: .5em;
-}
-
-body.subscribe form.sms-signup .status.success {
-	background-color: #0A0;
-}
-
-body.subscribe form.sms-signup .status.error {
-	background-color: #A60;
-}
+body.wind-level-2 .current-condition {
+  background-color: #CC2200; }
 
 #footer {
-	text-align: center;
-	font-size: small;
-}
+  background-color: #fff;
+  border: none;
+  margin: 0;
+  position: relative;
+  padding: 2em;
+  top: -1px;
+  z-index: 10; }
 
-.footer-nav {
-	margin: auto;
-	margin-bottom: 30px;
-}
+.clear {
+  clear: both; }
 
-.footer-nav td {
-	padding-left: 15px;
-	padding-right: 15px;
-}
+.banner-image {
+  z-index: 1; }
+  .banner-image img {
+    max-width: 100%;
+    border: 1px solid #fff; }
+
+@media (min-width: 768px) {
+  div.banner-image {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%; } }
+body.home {
+  text-align: center; }
+
+.exposure-risk {
+  background-color: white;
+  padding: 2em 0;
+  position: relative;
+  z-index: 10; }
+
+.exposure-risk .hero {
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 0; }
+
+.exposure-risk .subtitle {
+  font-size: 16px;
+  font-weight: normal;
+  margin-top: .3em;
+  margin-bottom: 1em; }
+
+.exposure-risk .wind-status {
+  background-color: #35c319;
+  color: #000;
+  font-size: x-large;
+  margin: .5em 1em;
+  padding: .35em 0;
+  text-transform: uppercase; }
+
+.exposure-risk .wind-data {
+  font-size: small; }
+
+.exposure-risk .time-taken {
+  font-size: x-small; }
+
+.compass {
+  display: block;
+  height: 150px;
+  margin: 1em auto;
+  position: relative;
+  width: 150px; }
+  .compass .ring {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    height: 100px;
+    width: 100px;
+    border: 6px solid #999;
+    border-radius: 50%; }
+  .compass .bearing-indicator {
+    position: absolute;
+    border-top: 30px solid #000;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 90px solid transparent;
+    height: 0;
+    width: 0;
+    left: 65px;
+    top: 15px; }
+  .compass .speed-indicator {
+    font-size: 26px;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    top: 45px;
+    width: 100%; }
+    .compass .speed-indicator .mph {
+      display: block;
+      font-size: 20px;
+      position: relative;
+      top: -10px; }
+
+@media (min-width: 768px) {
+  .exposure-risk {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    width: 100%; }
+    .exposure-risk .hero, .exposure-risk .subtitle {
+      text-align: left;
+      margin-left: 28px; }
+    .exposure-risk .compass-wrap {
+      width: 40%;
+      float: right; }
+    .exposure-risk .compass {
+      width: 200px;
+      height: 160px; }
+      .exposure-risk .compass .ring {
+        width: 150px;
+        height: 150px; }
+      .exposure-risk .compass .bearing-indicator {
+        border-bottom-width: 140px;
+        left: 90px; }
+      .exposure-risk .compass .speed-indicator {
+        font-size: 40px;
+        top: 55px; }
+        .exposure-risk .compass .speed-indicator .mph {
+          font-size: 30px; } }
+body.home.wind-level-1 .exposure-risk .wind-status {
+  background-color: #FFDD00; }
+
+body.home.wind-level-2 .exposure-risk .wind-status {
+  background-color: #CC2200; }
+
+.subscribe-block {
+  background-color: #c27213;
+  border-top: 1px solid transparent;
+  color: #fff;
+  position: relative;
+  z-index: 10; }
+  .subscribe-block form.sms-signup {
+    max-width: 400px;
+    margin: 0 auto; }
+    .subscribe-block form.sms-signup input#phone_input {
+      border: none;
+      background-color: transparent;
+      color: #fff;
+      border-radius: 0;
+      border-bottom: 1px solid #fff;
+      box-shadow: none;
+      padding-bottom: 0;
+      margin-bottom: 0; }
+    .subscribe-block form.sms-signup ::-webkit-input-placeholder {
+      color: #eee; }
+    .subscribe-block form.sms-signup :-moz-placeholder {
+      /* older Firefox*/
+      color: #eee; }
+    .subscribe-block form.sms-signup ::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #eee; }
+    .subscribe-block form.sms-signup :-ms-input-placeholder {
+      color: #eee; }
+    .subscribe-block form.sms-signup .status {
+      font-size: small;
+      font-weight: bold;
+      padding: .5em;
+      position: relative;
+      top: -.5em; }
+      .subscribe-block form.sms-signup .status.error {
+        background-color: #A33; }
+  .subscribe-block .subscription-info {
+    font-size: .85em;
+    margin-bottom: 20px; }
+  .subscribe-block .unsubscribe {
+    font-size: .85em; }
+  .subscribe-block .what-is-this {
+    text-align: left;
+    padding-bottom: 2em; }
+
+@media (min-width: 768px) {
+  .subscribe-block {
+    margin-top: 58%; } }
+.what-is-petcoke {
+  background-color: #fff;
+  padding: 2em 1em;
+  position: relative;
+  text-align: left;
+  z-index: 10; }
+  .what-is-petcoke ul {
+    padding-left: 1em; }
+
+.concerned {
+  background-color: #90bbd6;
+  color: #fff;
+  padding: 2em 1em;
+  position: relative;
+  text-align: left;
+  z-index: 10; }
+  .concerned blockquote {
+    border-left: none;
+    font-style: italic;
+    margin-right: 4em; }
+
+.what-can-i-do {
+  background-color: #fff;
+  padding: 2em 1em;
+  position: relative;
+  text-align: left;
+  z-index: 10; }
+  .what-can-i-do ul {
+    padding-left: 1em; }
+
+/*# sourceMappingURL=style.css.map */

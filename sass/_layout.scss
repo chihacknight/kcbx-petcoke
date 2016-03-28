@@ -1,0 +1,67 @@
+.navbar-default {
+  background-color: $navbar-color;
+  border-radius: 0;
+  color: $white;
+  margin-bottom: 0;
+  border: none;
+  position: fixed;
+  height: $navbar-height;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  
+  a, a:visited {
+    color: $white;
+  }
+  
+  a.navbar-brand {
+    font-size: 22px;
+    font-weight: lighter;
+  }
+  
+  .language-selector {
+    float: right;
+    display: block;
+    padding: 10px 15px;
+  }
+}
+
+
+.all-content {
+  border: 1px solid $white;
+  margin-top: $navbar-height;
+  position: relative;
+}
+
+.current-condition {
+  display: none;
+}
+
+body.wind-level-0 .current-condition {
+  background-color: $status-normal;
+}
+
+body.wind-level-1 .current-condition {
+  background-color: $status-elevated;
+}
+
+body.wind-level-2 .current-condition {
+  background-color: $status-hazardous;
+}
+
+
+#footer {
+  background-color: $white;
+  border: none;
+  margin: 0;
+  position: relative;
+  padding: 2em;
+  top: -1px;
+  z-index: 10;
+
+}
+
+.clear {
+  clear: both;
+}

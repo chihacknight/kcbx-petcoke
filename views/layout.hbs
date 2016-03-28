@@ -14,53 +14,40 @@
   </head>
   <body class="{{ bodyClass }} {{ windLevel }}">
     {{> header }}
-    <div class="container">
 
-
+    <div class="all-content">
       {{{body}}}
+    </div>
 
-      <footer id="footer">
-        <hr>
+    <footer id="footer">
+      <hr>
 
-        <div class="well">
-          <p>
-            {{ t "footer.well-a" }}
+      <div class="well">
+        <p>
+          {{ t "footer.well-a" }}
 
-            <a href="https://www.facebook.com/pages/Chicago-South-East-Side-Coalition-To-Ban-Petcoke/848330295223606?fref=ts" target='_blank'>
-              {{ t "footer.well-b" }}
-            </a>
+          <a href="https://www.facebook.com/pages/Chicago-South-East-Side-Coalition-To-Ban-Petcoke/848330295223606?fref=ts" target='_blank'>
+            {{ t "footer.well-b" }}
+          </a>
 
-            {{ t "footer.well-c" }}
+          {{ t "footer.well-c" }}
 
-            <a target="_blank" href='http://chihacknight.org'>Chi Hack Night</a>.
-          </p>
+          <a target="_blank" href='http://chihacknight.org'>Chi Hack Night</a>.
+        </p>
 
-          <p>
-            {{ t "footer.email" }} <a href='mailto:obautista58@gmail.com?subject=petcokealerts.org'>Olga Bautista</a>.
-          </p>
+        <p>
+          {{ t "footer.email" }} <a href='mailto:obautista58@gmail.com?subject=petcokealerts.org'>Olga Bautista</a>.
+        </p>
 
-          <p>
-            <a href='https://github.com/open-city/kcbx-petcoke' target="_blank">
-              <span class="fa fa-github"></span> {{ t "footer.github" }}
-            </a>
-          </p>
+        <p>
+          <a href='https://github.com/open-city/kcbx-petcoke' target="_blank">
+            <span class="fa fa-github"></span> {{ t "footer.github" }}
+          </a>
+        </p>
 
-        </div>
+      </div>
 
-        <table class="footer-nav">
-
-          <tr>
-
-            <td><a href="/">{{ t "footer-nav.home" }}</a></td>
-            <td><a href="/subscribe">{{ t "footer-nav.subscribe" }}</a></td>
-            <td><a href="/take-action">{{ t "footer-nav.take-action" }}</a></td>
-            <td><a href="/subscribe#unsubscribe">{{ t "footer-nav.unsubscribe" }}</a></td>
-
-          </tr>
-
-        </table>
-      </footer>
-    </div><!-- .container -->
+    </footer>
 
 
     <!-- Begin google analytics tracking -->
