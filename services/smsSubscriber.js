@@ -54,12 +54,16 @@ module.exports = {
 
     this.getSubscribers(function(getErr, subscribers){
       if (getErr) { return callback(getErr); };
-      if (!!_.findWhere(subscribers, {phone: number})) {
-        var formatted = formatter.formatPhone(number)
-        return callback({
-          type: "DUPLICATE_PARAM",
-          message: i18next.t("errors.alreadySubscribed", { number: formatted} )
-        });
+      try {
+        if (!!_.find(subscribers, {phone: number})) {
+          var formatted = formatter.formatPhone(number)
+          return callback({
+            type: "DUPLICATE_PARAM",
+            message: i18next.t("errors.alreadySubscribed", { number: formatted} )
+          });
+        }
+      } catch(e) {
+        return callback(e);
       }
 
       jwtClient.authorize(function(jwtErr, tokens){      

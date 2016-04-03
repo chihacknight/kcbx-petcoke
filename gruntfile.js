@@ -14,16 +14,12 @@ module.exports = function(grunt) {
       }
     },
       
-    supervisor: {
+    nodemon: {
       target: {
         script: "bin/www",
         options: {
-          watch: [".", "./views/partials"],
-          ignore: ['node_modules', 'bin'],
-          extensions: ['js', 'hbs', 'json'],
-          noRestartOn: "error",
-          debug: true,
-          forceSync: true
+          ext: "hbs,js,json",
+          ignore: ['node_modules/**'],
         }
       }
     },
@@ -36,7 +32,7 @@ module.exports = function(grunt) {
     },
 
     mochaTest: {
-      files: ['test/unit/**/*.js'],
+      files: ['test/**/*.test.js'],
       options: {
         require: 'test/bootstrap.js',
         timeout: 30000
@@ -45,10 +41,10 @@ module.exports = function(grunt) {
   })
 }
 
-grunt.loadNpmTasks("grunt-supervisor");
+grunt.loadNpmTasks("grunt-nodemon");
 grunt.loadNpmTasks('grunt-mocha-test');
 grunt.loadNpmTasks('grunt-contrib-sass');
 grunt.loadNpmTasks('grunt-contrib-watch');
 
 grunt.registerTask('test' , ['mochaTest']);
-grunt.registerTask('serve', ['supervisor', 'watch']);
+grunt.registerTask('serve', ['nodemon', 'watch']);

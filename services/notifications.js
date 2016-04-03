@@ -78,14 +78,14 @@ module.exports = {
 
 				that.sendMessage(number, message, next);
 			}, 20);
+			qu.drain = callback
 
-			_.each(subscribers, qu.push);
+			_.each(subscribers, function(subscriber){
+				qu.push(subscriber)
+			});
 
-			qu.drain = function(){
-				callback();
-			};
 
-			qu.process();
+			// qu.process();
 		})
 	},
 

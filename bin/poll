@@ -19,10 +19,9 @@ weather.getForecast(qryLat, qryLng, function(fcErr, fc) {
   if (fcErr)
     return console.error(fcErr);
 
-  var hazardous = _.find(constants.WIND_STATUS_TERMS, "term", "Hazardous");
+  var hazardous = _.find(constants.WIND_STATUS_TERMS, {"term": "Hazardous"});
 
   shouldSendBroadcast(fc, function(err, shouldSend, lastSent){
-
     if (err) console.error(err)
 
     if (!shouldSend) {
@@ -60,8 +59,9 @@ weather.getForecast(qryLat, qryLng, function(fcErr, fc) {
   function shouldSendBroadcast(fc, callback) {
 
     // if testing, return true (via lastSent check)
-    if (process.env.TEST_POLL_SCRIPT === 'true')
+    if (process.env.TEST_POLL_SCRIPT === 'true') {
       return checkLastSent(callback);
+    }
 
     // if it's before 8am or after 9pm, return false
     var hour = moment().hour();
@@ -69,8 +69,9 @@ weather.getForecast(qryLat, qryLng, function(fcErr, fc) {
       return callback(null, false);
 
     // if forecast demands it, return true (via lastSent check)
-    if (fc && fc.currently.wind_speed >= hazardous.threshold)
+    if (fc && fc.currently.wind_speed >= hazardous.threshold) {
       return checkLastSent(callback);
+    }
 
     // otherwise...
     return callback(null, false);

@@ -1,6 +1,9 @@
 require('./lib/env');
 var cwd = process.cwd();
 
+if (!process.env.PORT) {
+  process.env.PORT = (process.env.NODE_ENV === 'test') ? 3001 : 3000
+}
 
 var express = require('express')
   , auth = require(cwd + '/middleware/auth')
@@ -39,7 +42,12 @@ hbs.registerPartials(__dirname + "/views/partials");
 
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.png'));
-app.use(logger('dev'));
+
+if (process.env.NODE_ENV != 'test') {
+  app.use(logger('dev'));
+}
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -85,6 +93,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;

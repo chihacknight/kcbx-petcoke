@@ -1,0 +1,29 @@
+- name: Add apt-key 
+  become: yes
+  apt_key:
+    url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+
+- name: Add apt repo 
+  become: yes 
+  apt_repository:
+    update_cache: yes 
+    repo: deb http://dl.google.com/linux/chrome/deb/ stable main
+
+- name: Install java, chrome, xvfb, unzip 
+  become: yes 
+  apt:
+    pkg: "{{ item }}"
+    update_cache: yes 
+  with_items: 
+    # - openjdk-7-jre 
+    - google-chrome-stable 
+    - xvfb 
+    - unzip 
+
+- name: Start xvfb from .bash_profile 
+  lineinfile: 
+    dest: /home/vagrant/.bash_profile 
+    create: yes 
+    line: export DISPLAY=:10; Xvfb :10 -screen 0 1366x768x24 -ac > /dev/null 2>&1 &
+
+    

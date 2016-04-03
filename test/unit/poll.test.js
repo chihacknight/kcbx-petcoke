@@ -67,7 +67,6 @@ describe('bin/poll script', function(){
   it('should not send notifications if windspeed does not exceed hazardous threshold', function(done){
     sinon.stub(weatherService, 'getForecast', weatherServiceStubs.getForecast.belowThreshold);
 
-
     evt.once("pollFinished", function(){
       weatherService.getForecast.callCount.should.eql(1);
       notificationsService.broadcast.callCount.should.eql(0);

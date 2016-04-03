@@ -2,7 +2,12 @@
 
 - hosts: all # this needs to be updated if you're provisioning more than just vagrant 
   roles: 
-    - install-generic-packages
-    - install-node-0.12
-    - install-memcached
-    - install-npm-globals
+    - role: install-generic-packages
+    - role: install-node-4
+      tags: 
+        - node
+    - role: install-memcached
+    - role: install-npm-globals
+    - role: install-headless-chrome
+      tags: 
+        - chrome
