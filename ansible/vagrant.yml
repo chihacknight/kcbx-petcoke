@@ -8,6 +8,8 @@
         - node
     - role: install-memcached
     - role: install-npm-globals
+      tags: 
+        - npm
     - role: install-headless-chrome
       tags: 
         - chrome

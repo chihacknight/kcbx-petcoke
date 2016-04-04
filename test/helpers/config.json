@@ -1,0 +1,6 @@
+{
+  "appRootUrl"      : "http://localhost:3001",
+  "enQuery"         : "setLng=en-US",
+  "esQuery"         : "setLng=es-US",
+  "serverModuleUrl" : "/bin/www"
+}

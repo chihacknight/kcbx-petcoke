@@ -7,3 +7,4 @@
     - grunt-cli
     - bower
     - chromedriver
+    - mocha

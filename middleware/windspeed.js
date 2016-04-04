@@ -5,8 +5,8 @@ var request = require('request');
 var weather = require(cwd + '/services/weather');
 
 module.exports = function(req, res, next){
-
 	weather.getForecast(constants.station_location.lat, constants.station_location.lng, function(err, data){
+		if (err) return next(err);
 		if (data) {
 			var wind = {
 				speed     : data.currently.wind_speed,

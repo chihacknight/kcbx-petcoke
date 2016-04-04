@@ -23,7 +23,6 @@ router.post("/", function(req, res){
       return res.json(rslt);
 
 
-    console.error(err);
     switch (err.type) {
 
       case "BAD_PARAM":
@@ -53,7 +52,6 @@ router.delete("/:phone", function(req, res){
       return res.json(rslt);
 
 
-    console.error(err);
     switch(err.type) {
       case "NOT_FOUND":
         return res.status(404).json({
