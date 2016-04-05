@@ -48,6 +48,7 @@ describe('bin/poll script', function(){
 
 
   it('should send notifications when windspeed exceeds hazardous threshold', function(done){
+    this.timeout(10000)
     sinon.stub(weatherService, 'getForecast', weatherServiceStubs.getForecast.aboveThreshold);
 
 
@@ -65,6 +66,7 @@ describe('bin/poll script', function(){
 
 
   it('should not send notifications if windspeed does not exceed hazardous threshold', function(done){
+    this.timeout(10000)
     sinon.stub(weatherService, 'getForecast', weatherServiceStubs.getForecast.belowThreshold);
 
     evt.once("pollFinished", function(){
@@ -78,6 +80,7 @@ describe('bin/poll script', function(){
 
 
   it('should send notifications if last sent more than 6 hours ago and set new cache value', function(done){
+    this.timeout(10000)
     sinon.stub(weatherService, 'getForecast', weatherServiceStubs.getForecast.aboveThreshold);
     var sent = moment().subtract(7, 'hours').format()
     cache.set('notifications.last_wind_notice_sent', sent, function(err){
@@ -99,6 +102,7 @@ describe('bin/poll script', function(){
   })
 
   it('should not send notifications if last sent less than 6 hours ago', function(done){
+    this.timeout(10000)
     sinon.stub(weatherService, 'getForecast', weatherServiceStubs.getForecast.aboveThreshold);
     var sent = moment().subtract(5, 'hours').format()
     cache.set('notifications.last_wind_notice_sent', sent, function(err){
@@ -116,6 +120,7 @@ describe('bin/poll script', function(){
   })
 
   it('should not send notifications before 8am', function(done){
+    this.timeout(10000)
     clock.restore();
     clock = sinon.useFakeTimers(sixAM);
 
@@ -130,6 +135,7 @@ describe('bin/poll script', function(){
   })
 
   it('should not send notifications after 9pm', function(done){
+    this.timeout(10000)
     clock.restore();
     clock = sinon.useFakeTimers(tenPM);
 
