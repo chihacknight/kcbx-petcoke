@@ -9,7 +9,7 @@
     "start": "node ./bin/www",
     "test": "grunt mochaTest",
     "deploy-staging": "git push staging develop:master",
-    "deploy-production": "git push staging master:master"
+    "deploy-production": "git push production master:master"
   },
   "dependencies": {
     "async": "~1.5.2",
