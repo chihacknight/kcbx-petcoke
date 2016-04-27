@@ -100,31 +100,30 @@ describe("home page", function(){
     })
     
     describe("subscribes with malformed number", function(){
-      describe("subscribes with duplicate number", function(){
-        before(function(){
-          sinon.stub(subscriberService, 'getSubscribers', subscriberStubs.getSubscribers);
-          sinon.spy(subscriberService, 'addSubscriber');
-          chr.get(`${appRoot}?${enQuery}`);
-          chr.findElement(By.id("phone_input")).sendKeys("312.555.555");
-          return chr.findElement(By.name("submit")).click()
-        })
-        
-        it("should make a call to smsSubcriberService.addSubscriber", function(done){
-          subscriberService.addSubscriber.callCount.should.eql(1);
-          done();
-        });
-        
-        it("should show 'Bad Number' in status block", function(){
-          return chr.isElementPresent(By.xpath("//div[contains(text(),'Please provide a valid 10-digit')]")).should.eventually.be.ok();
-        });
+      before(function(){
+        sinon.stub(subscriberService, 'getSubscribers', subscriberStubs.getSubscribers);
+        sinon.spy(subscriberService, 'addSubscriber');
+        chr.get(`${appRoot}?${enQuery}`);
+        chr.findElement(By.id("phone_input")).sendKeys("312.555.555");
+        return chr.findElement(By.name("submit")).click()
+      })
       
-        after(function(done){
-          process.env.USE_TEST_RECIPIENT = false;
-          subscriberService.getSubscribers.restore();
-          subscriberService.addSubscriber.restore();
-          done();
-        })
-      })    })
+      it("should make a call to smsSubcriberService.addSubscriber", function(done){
+        subscriberService.addSubscriber.callCount.should.eql(1);
+        done();
+      });
+      
+      it("should show 'Bad Number' in status block", function(){
+        return chr.isElementPresent(By.xpath("//div[contains(text(),'Please provide a valid 10-digit')]")).should.eventually.be.ok();
+      });
+    
+      after(function(done){
+        process.env.USE_TEST_RECIPIENT = false;
+        subscriberService.getSubscribers.restore();
+        subscriberService.addSubscriber.restore();
+        done();
+      })
+    })
   })
   
   describe("translations", function(){
