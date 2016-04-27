@@ -1,0 +1,66 @@
+#!/usr/bin/env node
+
+var cwd = process.cwd();
+var env = require(cwd + '/lib/env');
+var notifications = require(cwd + '/services/notifications');
+var readline = require('readline');
+var async = require('async');
+
+var rl = readline.createInterface({
+  input  : process.stdin,
+  output : process.stdout
+})
+
+
+async.waterfall([
+  
+  // prompt for number 
+  function(next) {
+    rl.question("Phone number to send to: ", function(number){
+      next(null, number)
+    })
+  },
+  
+  // prompt for message
+  function(number, next) {
+    rl.question("Type your message: ", function(message){
+      next(null, number, message);
+    });
+  },
+  
+  // confirm
+  function(number, message, next) {
+    console.log("")
+
+    var confirm = "Your Message:\n";
+        confirm += `${message}\n\n`;
+        confirm += `Will be sent to: ${number}\n\n`;
+        confirm += "OK? [Y/n] ";
+
+    rl.question(confirm, function(answer){
+      next(null, (answer === "Y"), number, message)
+    });
+  },
+  
+  // Send
+  function(confirmed, number, message, next){
+    if (!confirmed) {
+      process.stdout.write("\nexiting.\n");
+      rl.close();
+      process.exit();
+    }
+    
+    notifications.sendMessage(number, message, next)
+  }
+], function(err){
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
+
+  process.stdout.write("\nSent.\n")
+  rl.close();
+})
+
+
+  
